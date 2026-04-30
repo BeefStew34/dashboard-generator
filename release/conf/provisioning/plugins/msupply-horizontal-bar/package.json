@@ -1,0 +1,29 @@
+{
+  "name": "msupply-horizontal-bar",
+  "version": "1.0.2",
+  "description": "mSupply Horizontal Bar",
+  "scripts": {
+    "copy": "rsync -rP --exclude=node_modules ./ ~/GitHub/msupply-dashboard/custom-plugins/msupply-horizontal-bar/",
+    "get": "rsync -rP --exclude=node_modules ~/Github/msupply-dashboard/custom-plugins/msupply-horizontal-bar/ ./",
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch",
+    "sign": "rm ./dist/.DS_Store & grafana-toolkit plugin:sign --signatureType private --rootUrls https://demo-board.msupply.org:3000,https://ci.msupply.org:3000,https://liberia.msupply.org:3000,https://tonga-vax.msupply.org:3000,http://localhost:3000"
+  },
+  "author": "Sustainable Solutions",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@grafana/data": "latest",
+    "@grafana/toolkit": "7.4.3",
+    "@grafana/ui": "latest",
+    "@types/react": "^16.9.16"
+  },
+  "dependencies": {
+    "@types/react-scrollbar": "^0.5.1",
+    "@types/victory": "latest",
+    "react": "latest",
+    "react-scrollbar": "^0.5.6",
+    "victory": "latest"
+  }
+}
