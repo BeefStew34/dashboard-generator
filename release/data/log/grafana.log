@@ -532,3 +532,366 @@ logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=a
 logger=server t=2026-05-07T10:12:57.23+1200 lvl=info msg="Shutdown started" reason="System signal: interrupt"
 logger=tracing t=2026-05-07T10:12:57.23+1200 lvl=info msg="Closing tracing"
 logger=ngalert t=2026-05-07T10:12:57.23+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-05-11T20:27:45.09+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-05-11T20:27:45.09+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-05-11T20:27:45.09+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-05-11T20:27:45.1+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-05-11T20:27:45.11+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-05-11T20:27:45.11+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-05-11T20:27:45.45+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=D:\CodeProjects\RandD\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-05-11T20:27:45.51+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:27:45.53+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:27:45.54+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:27:45.57+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:27:45.6+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:27:45.6+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-05-11T20:27:45.6+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-05-11T20:27:45.6+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-05-11T20:27:45.6+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-05-11T20:27:45.6+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=query_data t=2026-05-11T20:27:45.72+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-05-11T20:27:45.73+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-05-11T20:27:45.85+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-05-11T20:27:45.85+1200 lvl=info msg="storage starting"
+logger=ngalert t=2026-05-11T20:27:45.85+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-05-11T20:27:45.85+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-05-11T20:27:45.89+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-05-11T20:27:46.02+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=server t=2026-05-11T20:28:45.41+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-05-11T20:28:45.41+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-05-11T20:28:45.41+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-05-11T20:31:21.43+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-05-11T20:31:21.43+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-05-11T20:31:21.43+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-05-11T20:31:21.44+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-05-11T20:31:21.45+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=1.0195ms
+logger=grafanaStorageLogger t=2026-05-11T20:31:21.45+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-05-11T20:31:21.49+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=D:\CodeProjects\RandD\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-05-11T20:31:21.5+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:21.51+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:21.52+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:21.53+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:21.54+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:21.54+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-05-11T20:31:21.54+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-05-11T20:31:21.54+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-05-11T20:31:21.54+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-05-11T20:31:21.54+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=query_data t=2026-05-11T20:31:21.55+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-05-11T20:31:21.55+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-05-11T20:31:21.65+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-05-11T20:31:21.65+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-05-11T20:31:21.65+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-05-11T20:31:21.65+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-05-11T20:31:21.65+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-05-11T20:31:21.65+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=server t=2026-05-11T20:31:35.55+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-05-11T20:31:35.55+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-05-11T20:31:35.55+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-05-11T20:31:44.84+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-05-11T20:31:44.84+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-05-11T20:31:44.84+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-05-11T20:31:44.86+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-05-11T20:31:44.86+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-05-11T20:31:44.86+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-05-11T20:31:44.91+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=D:\CodeProjects\RandD\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-05-11T20:31:44.92+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:44.93+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:44.94+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:44.95+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:44.96+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:31:44.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-05-11T20:31:44.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-05-11T20:31:44.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-05-11T20:31:44.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-05-11T20:31:44.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-05-11T20:31:44.96+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-05-11T20:31:44.97+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-05-11T20:31:45.1+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-05-11T20:31:45.1+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-05-11T20:31:45.1+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-05-11T20:31:45.1+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-05-11T20:31:45.1+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-05-11T20:31:45.11+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-05-11T20:31:47.25+1200 lvl=info msg="Request Completed" method=GET path=/ status=302 remote_addr=[::1] time_ms=0 duration=0s size=53 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-05-11T20:32:36.46+1200 lvl=info msg="Request Completed" method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=302 remote_addr=[::1] time_ms=0 duration=0s size=53 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-05-11T20:32:47.14+1200 lvl=info msg="Request Completed" method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=302 remote_addr=[::1] time_ms=0 duration=0s size=53 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-05-11T20:33:14.66+1200 lvl=info msg="Request Completed" method=GET path=/login/generic_oauth status=302 remote_addr=[::1] time_ms=0 duration=0s size=265 referer="http://localhost:3000/login?user=%22a%22" traceID=00000000000000000000000000000000
+logger=http.server t=2026-05-11T20:33:31.08+1200 lvl=info msg="Successful Login" User=admin@localhost
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:33:36.85+1200 lvl=info msg="Request Completed" method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=23 duration=23.0712ms size=8671 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:33:41.66+1200 lvl=info msg="Request Completed" method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=2 duration=2.875ms size=8671 referer="http://localhost:3000/login?user=%22a%22" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:33:41.76+1200 lvl=info msg="Request Completed" method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=4 duration=4.3607ms size=8671 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:33:42.03+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=0s size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:33:56.53+1200 lvl=info msg="Request Completed" method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 duration=5.1971ms size=8671 referer="http://localhost:3000/login?user=%22a%22" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:33:56.58+1200 lvl=info msg="Request Completed" method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=3 duration=3.1608ms size=8671 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:33:56.91+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=765.1µs size=0 referer= traceID=00000000000000000000000000000000
+logger=server t=2026-05-11T20:34:31.63+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=tracing t=2026-05-11T20:34:31.63+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-05-11T20:34:31.63+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-05-11T20:34:33.53+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-05-11T20:34:33.53+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-05-11T20:34:33.53+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-05-11T20:34:33.54+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-05-11T20:34:33.55+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=1.0002ms
+logger=grafanaStorageLogger t=2026-05-11T20:34:33.55+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-05-11T20:34:33.59+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=D:\CodeProjects\RandD\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-05-11T20:34:33.6+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:33.61+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:33.62+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:33.63+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:33.64+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:33.64+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-05-11T20:34:33.64+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-05-11T20:34:33.64+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-05-11T20:34:33.64+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-05-11T20:34:33.64+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=query_data t=2026-05-11T20:34:33.65+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-05-11T20:34:33.65+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-05-11T20:34:33.74+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-05-11T20:34:33.74+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-05-11T20:34:33.74+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-05-11T20:34:33.74+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-05-11T20:34:33.75+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-05-11T20:34:33.75+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:36.46+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=504.3µs size=0 referer= traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:34:39.11+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:34:39.11+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:34:39.11+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:39.11+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2350 duration=2.3504579s size=205 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:39.11+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2351 duration=2.3514649s size=213 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:39.12+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2351 duration=2.3519832s size=241 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:34:41.47+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:41.47+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2342 duration=2.3427513s size=303 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=live t=2026-05-11T20:34:41.48+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/X8ytzFFWk address=grafana/dashboard/uid/X8ytzFFWk
+logger=tsdb.postgres t=2026-05-11T20:34:43.88+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:34:43.88+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:34:43.88+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:43.88+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2350 duration=2.3504812s size=325 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:43.88+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2350 duration=2.3504812s size=485 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:43.88+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2349 duration=2.3499761s size=487 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:34:43.9+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:34:43.9+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:43.9+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2344 duration=2.3448766s size=307 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:43.9+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2347 duration=2.3479394s size=530 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:34:46.24+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:34:46.24+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:46.24+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2358 duration=2.358905s size=223 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:46.24+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2357 duration=2.3572883s size=224 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:34:46.26+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:46.26+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2356 duration=2.3569396s size=425 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=server t=2026-05-11T20:34:51.58+1200 lvl=info msg="Shutdown started" reason="System signal: interrupt"
+logger=ngalert t=2026-05-11T20:34:51.58+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-05-11T20:34:51.58+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-05-11T20:34:55.34+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-05-11T20:34:55.34+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-05-11T20:34:55.34+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-05-11T20:34:55.35+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-05-11T20:34:55.36+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-05-11T20:34:55.36+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-05-11T20:34:55.4+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=D:\CodeProjects\RandD\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-05-11T20:34:55.41+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:55.42+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:55.43+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:55.44+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:55.45+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:34:55.45+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-05-11T20:34:55.45+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-05-11T20:34:55.45+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-05-11T20:34:55.45+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-05-11T20:34:55.45+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-05-11T20:34:55.46+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-05-11T20:34:55.46+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-05-11T20:34:55.56+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-05-11T20:34:55.56+1200 lvl=info msg="storage starting"
+logger=ngalert t=2026-05-11T20:34:55.56+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-05-11T20:34:55.56+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=http.server t=2026-05-11T20:34:55.56+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=ngalert.multiorg.alertmanager t=2026-05-11T20:34:55.57+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:34:58.4+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0249ms size=0 referer= traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:00.89+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:00.89+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:00.89+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:00.89+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2357 duration=2.357284s size=213 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:00.89+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2357 duration=2.3576823s size=241 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:00.89+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2357 duration=2.357284s size=205 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:03.25+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:03.25+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2344 duration=2.344543s size=303 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=live t=2026-05-11T20:35:03.25+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/X8ytzFFWk address=grafana/dashboard/uid/X8ytzFFWk
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-05-11T20:35:05.56+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-05-11T20:35:05.56+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-05-11T20:35:05.56+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-05-11T20:35:05.57+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-05-11T20:35:05.58+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-05-11T20:35:05.58+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-05-11T20:35:05.62+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=D:\CodeProjects\RandD\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-05-11T20:35:05.63+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:35:05.64+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:35:05.65+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=tsdb.postgres t=2026-05-11T20:35:05.66+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:05.66+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:05.66+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:05.66+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2350 duration=2.3509539s size=485 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:05.66+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2350 duration=2.3509539s size=489 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:05.66+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2350 duration=2.3509539s size=325 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=plugin.loader t=2026-05-11T20:35:05.66+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=tsdb.postgres t=2026-05-11T20:35:05.67+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:05.67+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:05.67+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2346 duration=2.3468074s size=307 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:05.67+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2349 duration=2.3494771s size=530 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=plugin.loader t=2026-05-11T20:35:05.67+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:35:05.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-05-11T20:35:05.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-05-11T20:35:05.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-05-11T20:35:05.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-05-11T20:35:05.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=query_data t=2026-05-11T20:35:05.68+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-05-11T20:35:05.68+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-05-11T20:35:05.78+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-05-11T20:35:05.78+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-05-11T20:35:05.78+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-05-11T20:35:05.78+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-05-11T20:35:05.78+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=server t=2026-05-11T20:35:05.78+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="failed to open listener on address 0.0.0.0:3000: listen tcp 0.0.0.0:3000: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+logger=tracing t=2026-05-11T20:35:05.78+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-05-11T20:35:05.78+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=infra.usagestats t=2026-05-11T20:35:05.78+1200 lvl=eror msg="Failed to get system stats" error="context canceled"
+logger=infra.usagestats t=2026-05-11T20:35:05.78+1200 lvl=eror msg="Failed to get last sent time" error="context canceled"
+logger=server t=2026-05-11T20:35:06.06+1200 lvl=eror msg="Server shutdown" error="*api.HTTPServer run error: failed to open listener on address 0.0.0.0:3000: listen tcp 0.0.0.0:3000: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:08.49+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.2541ms size=0 referer= traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:10.98+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:10.98+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:10.98+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:10.99+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2353 duration=2.3534468s size=205 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:10.99+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2357 duration=2.3570587s size=213 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:10.99+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2359 duration=2.3590813s size=241 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:13.34+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:13.34+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2346 duration=2.3465094s size=303 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:15.76+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:15.76+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:15.76+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2347 duration=2.3476856s size=325 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:15.76+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2346 duration=2.3469344s size=486 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:15.77+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:15.77+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:15.77+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:15.77+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2362 duration=2.3629358s size=485 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:15.77+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2350 duration=2.3509421s size=530 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:15.77+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2346 duration=2.3467931s size=307 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:18.12+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:18.12+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:18.12+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2355 duration=2.3554122s size=224 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:18.12+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2359 duration=2.3596623s size=223 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:18.13+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:18.13+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2353 duration=2.3530547s size=427 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-05-11T20:35:23.61+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-05-11T20:35:23.61+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-05-11T20:35:23.61+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-05-11T20:35:23.62+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-05-11T20:35:23.63+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=513.2µs
+logger=grafanaStorageLogger t=2026-05-11T20:35:23.63+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-05-11T20:35:23.67+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=D:\CodeProjects\RandD\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-05-11T20:35:23.68+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:35:23.69+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:35:23.7+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:35:23.71+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:35:23.72+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-11T20:35:23.72+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-05-11T20:35:23.72+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-05-11T20:35:23.72+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-05-11T20:35:23.72+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-05-11T20:35:23.72+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=query_data t=2026-05-11T20:35:23.73+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-05-11T20:35:23.73+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-05-11T20:35:23.82+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-05-11T20:35:23.83+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-05-11T20:35:23.83+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-05-11T20:35:23.83+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-05-11T20:35:23.83+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=server t=2026-05-11T20:35:23.83+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="failed to open listener on address 0.0.0.0:3000: listen tcp 0.0.0.0:3000: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+logger=tracing t=2026-05-11T20:35:23.83+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-05-11T20:35:23.83+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=server t=2026-05-11T20:35:24.17+1200 lvl=eror msg="Server shutdown" error="*api.HTTPServer run error: failed to open listener on address 0.0.0.0:3000: listen tcp 0.0.0.0:3000: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:26.45+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=779µs size=0 referer= traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:28.96+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:28.96+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:28.96+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:28.96+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2355 duration=2.3559683s size=213 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:28.96+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2355 duration=2.3554465s size=205 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:28.96+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2362 duration=2.362747s size=241 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:31.33+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:31.33+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2362 duration=2.3624604s size=303 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:33.74+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:33.74+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:33.74+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:33.74+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2353 duration=2.3533044s size=325 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:33.74+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2353 duration=2.3533044s size=487 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:33.74+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2352 duration=2.3522973s size=484 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-11T20:35:33.76+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-11T20:35:33.76+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:33.76+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2356 duration=2.3563786s size=530 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-11T20:35:33.76+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2354 duration=2.3548432s size=307 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=server t=2026-05-11T20:35:35.74+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-05-11T20:35:35.74+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-05-11T20:35:35.74+1200 lvl=info msg="Closing tracing"
