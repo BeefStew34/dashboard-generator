@@ -1,4 +1,5 @@
 .DS_Store
+release/data/log
 installer/.DS_Store
 node_modules
 dist
