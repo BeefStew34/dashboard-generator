@@ -1,5 +1,5 @@
 .DS_Store
 installer/.DS_Store
-release/data/log/grafana.log
+release/data/*
 node_modules
 dist
