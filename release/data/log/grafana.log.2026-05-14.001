@@ -1,0 +1,606 @@
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\log
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\plugins
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-04-30T18:20:44.67+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-04-30T18:20:44.67+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-04-30T18:20:44.67+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-04-30T18:20:44.68+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-04-30T18:20:44.68+1200 lvl=info msg="Executing migration" id="Add is_service_account column to user"
+logger=migrator t=2026-04-30T18:20:44.68+1200 lvl=info msg="Executing migration" id="Update is_service_account column to nullable"
+logger=migrator t=2026-04-30T18:20:44.69+1200 lvl=info msg="Executing migration" id="create index IDX_org_user_user_id - v1"
+logger=migrator t=2026-04-30T18:20:44.69+1200 lvl=info msg="Executing migration" id="Add index for dashboard_is_folder"
+logger=migrator t=2026-04-30T18:20:44.69+1200 lvl=info msg="Executing migration" id="Add service account foreign key"
+logger=migrator t=2026-04-30T18:20:44.69+1200 lvl=info msg="Executing migration" id="set service account foreign key to nil if 0"
+logger=migrator t=2026-04-30T18:20:44.69+1200 lvl=info msg="Executing migration" id="Add column week_start in preferences"
+logger=migrator t=2026-04-30T18:20:44.7+1200 lvl=info msg="Executing migration" id="Add column preferences.json_data"
+logger=migrator t=2026-04-30T18:20:44.7+1200 lvl=info msg="Executing migration" id="alter preferences.json_data to mediumtext v1"
+logger=migrator t=2026-04-30T18:20:44.7+1200 lvl=info msg="Executing migration" id="add index dashboard_acl_user_id"
+logger=migrator t=2026-04-30T18:20:44.7+1200 lvl=info msg="Executing migration" id="add index dashboard_acl_team_id"
+logger=migrator t=2026-04-30T18:20:44.7+1200 lvl=info msg="Executing migration" id="add index dashboard_acl_org_id_role"
+logger=migrator t=2026-04-30T18:20:44.73+1200 lvl=info msg="Executing migration" id="add index dashboard_permission"
+logger=migrator t=2026-04-30T18:20:44.73+1200 lvl=info msg="Executing migration" id="Add OAuth ID token to user_auth"
+logger=migrator t=2026-04-30T18:20:44.73+1200 lvl=info msg="Executing migration" id="add dashboard_uid column to alert_rule"
+logger=migrator t=2026-04-30T18:20:44.73+1200 lvl=info msg="Executing migration" id="add panel_id column to alert_rule"
+logger=migrator t=2026-04-30T18:20:44.74+1200 lvl=info msg="Executing migration" id="add index in alert_rule on org_id, dashboard_uid and panel_id columns"
+logger=migrator t=2026-04-30T18:20:44.74+1200 lvl=info msg="Executing migration" id="add column org_id in alert_configuration"
+logger=migrator t=2026-04-30T18:20:44.74+1200 lvl=info msg="Executing migration" id="add index in alert_configuration table on org_id column"
+logger=migrator t=2026-04-30T18:20:44.74+1200 lvl=info msg="Executing migration" id="add configuration_hash column to alert_configuration"
+logger=migrator t=2026-04-30T18:20:44.74+1200 lvl=info msg="Executing migration" id=create_ngalert_configuration_table
+logger=migrator t=2026-04-30T18:20:44.75+1200 lvl=info msg="Executing migration" id="add index in ngalert_configuration on org_id column"
+logger=migrator t=2026-04-30T18:20:44.75+1200 lvl=info msg="Executing migration" id="add column send_alerts_to in ngalert_configuration"
+logger=migrator t=2026-04-30T18:20:44.75+1200 lvl=info msg="Executing migration" id="create provenance_type table"
+logger=migrator t=2026-04-30T18:20:44.75+1200 lvl=info msg="Executing migration" id="add index to uniquify (record_key, record_type, org_id) columns"
+logger=migrator t=2026-04-30T18:20:44.75+1200 lvl=info msg="Executing migration" id="clear migration entry \"remove unified alerting data\""
+logger=migrator t=2026-04-30T18:20:44.75+1200 lvl=info msg="Executing migration" id="move dashboard alerts to unified alerting"
+logger=migrator t=2026-04-30T18:20:44.75+1200 lvl=info msg="alerts found to migrate" alerts=0
+logger=migrator t=2026-04-30T18:20:44.75+1200 lvl=info msg="Executing migration" id="add unique index library_element org_id_uid"
+logger=migrator t=2026-04-30T18:20:44.76+1200 lvl=info msg="Executing migration" id="increase max description length to 2048"
+logger=migrator t=2026-04-30T18:20:44.76+1200 lvl=info msg="Executing migration" id="clone move dashboard alerts to unified alerting"
+logger=migrator t=2026-04-30T18:20:44.76+1200 lvl=info msg="Executing migration" id="create data_keys table"
+logger=migrator t=2026-04-30T18:20:44.76+1200 lvl=info msg="Executing migration" id="create kv_store table v1"
+logger=migrator t=2026-04-30T18:20:44.76+1200 lvl=info msg="Executing migration" id="add index kv_store.org_id-namespace-key"
+logger=migrator t=2026-04-30T18:20:44.76+1200 lvl=info msg="Executing migration" id="update dashboard_uid and panel_id from existing annotations"
+logger=migrator t=2026-04-30T18:20:44.77+1200 lvl=info msg="Executing migration" id="create permission table"
+logger=migrator t=2026-04-30T18:20:44.79+1200 lvl=info msg="Executing migration" id="add unique index permission.role_id"
+logger=migrator t=2026-04-30T18:20:44.79+1200 lvl=info msg="Executing migration" id="add unique index role_id_action_scope"
+logger=migrator t=2026-04-30T18:20:44.79+1200 lvl=info msg="Executing migration" id="create role table"
+logger=migrator t=2026-04-30T18:20:44.8+1200 lvl=info msg="Executing migration" id="add column display_name"
+logger=migrator t=2026-04-30T18:20:44.8+1200 lvl=info msg="Executing migration" id="add column group_name"
+logger=migrator t=2026-04-30T18:20:44.8+1200 lvl=info msg="Executing migration" id="add index role.org_id"
+logger=migrator t=2026-04-30T18:20:44.8+1200 lvl=info msg="Executing migration" id="add unique index role_org_id_name"
+logger=migrator t=2026-04-30T18:20:44.8+1200 lvl=info msg="Executing migration" id="add index role_org_id_uid"
+logger=migrator t=2026-04-30T18:20:44.81+1200 lvl=info msg="Executing migration" id="create team role table"
+logger=migrator t=2026-04-30T18:20:44.81+1200 lvl=info msg="Executing migration" id="add index team_role.org_id"
+logger=migrator t=2026-04-30T18:20:44.81+1200 lvl=info msg="Executing migration" id="add unique index team_role_org_id_team_id_role_id"
+logger=migrator t=2026-04-30T18:20:44.81+1200 lvl=info msg="Executing migration" id="add index team_role.team_id"
+logger=migrator t=2026-04-30T18:20:44.81+1200 lvl=info msg="Executing migration" id="create user role table"
+logger=migrator t=2026-04-30T18:20:44.81+1200 lvl=info msg="Executing migration" id="add index user_role.org_id"
+logger=migrator t=2026-04-30T18:20:44.81+1200 lvl=info msg="Executing migration" id="add unique index user_role_org_id_user_id_role_id"
+logger=migrator t=2026-04-30T18:20:44.82+1200 lvl=info msg="Executing migration" id="add index user_role.user_id"
+logger=migrator t=2026-04-30T18:20:44.82+1200 lvl=info msg="Executing migration" id="create builtin role table"
+logger=migrator t=2026-04-30T18:20:44.82+1200 lvl=info msg="Executing migration" id="add index builtin_role.role_id"
+logger=migrator t=2026-04-30T18:20:44.82+1200 lvl=info msg="Executing migration" id="add index builtin_role.name"
+logger=migrator t=2026-04-30T18:20:44.82+1200 lvl=info msg="Executing migration" id="Add column org_id to builtin_role table"
+logger=migrator t=2026-04-30T18:20:44.85+1200 lvl=info msg="Executing migration" id="add index builtin_role.org_id"
+logger=migrator t=2026-04-30T18:20:44.85+1200 lvl=info msg="Executing migration" id="add unique index builtin_role_org_id_role_id_role"
+logger=migrator t=2026-04-30T18:20:44.85+1200 lvl=info msg="Executing migration" id="Remove unique index role_org_id_uid"
+logger=migrator t=2026-04-30T18:20:44.85+1200 lvl=info msg="Executing migration" id="add unique index role.uid"
+logger=migrator t=2026-04-30T18:20:44.85+1200 lvl=info msg="Executing migration" id="create seed assignment table"
+logger=migrator t=2026-04-30T18:20:44.86+1200 lvl=info msg="Executing migration" id="add unique index builtin_role_role_name"
+logger=migrator t=2026-04-30T18:20:44.86+1200 lvl=info msg="Executing migration" id="add column hidden to role table"
+logger=migrator t=2026-04-30T18:20:44.86+1200 lvl=info msg="Executing migration" id="create query_history table v1"
+logger=migrator t=2026-04-30T18:20:44.86+1200 lvl=info msg="Executing migration" id="add index query_history.org_id-created_by-datasource_uid"
+logger=migrator t=2026-04-30T18:20:44.86+1200 lvl=info msg="Executing migration" id="create query_history_star table v1"
+logger=migrator t=2026-04-30T18:20:44.86+1200 lvl=info msg="Executing migration" id="add index query_history.user_id-query_uid"
+logger=migrator t=2026-04-30T18:20:44.87+1200 lvl=info msg="migrations completed" performed=66 skipped=330 duration=184.4644ms
+logger=grafanaStorageLogger t=2026-04-30T18:20:44.87+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-04-30T18:20:45.52+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-04-30T18:20:46.53+1200 lvl=warn msg="The following files were not included in the signature" plugin=msupply-horizontal-bar files="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:20:48.08+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=modified
+logger=plugin.manager t=2026-04-30T18:20:48.09+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-datasource
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:20:48.2+1200 lvl=info msg=Profiler enabled=false
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:20:48.2+1200 lvl=info msg="OS Check: You are running %s platform." EXTRA_VALUE_AT_END=windows
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:20:48.2+1200 lvl=info msg="Initializing Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:20:48.2+1200 lvl=info msg="Pinging Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:20:48.2+1200 lvl=info msg="Database initialized!"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:20:48.2+1200 lvl=info msg="Creating Reports..."
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:20:48.2+1200 lvl=info msg="No schedules are overdue..."
+logger=plugin.manager t=2026-04-30T18:20:48.2+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-regionmap
+logger=plugin.manager t=2026-04-30T18:20:48.2+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-table
+logger=plugin.manager t=2026-04-30T18:20:48.2+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-worldmap
+logger=query_data t=2026-04-30T18:20:48.41+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-30T18:20:48.41+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.plugins t=2026-04-30T18:20:48.49+1200 lvl=eror msg="Failed to read plugin provisioning files from directory" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning\plugins error="open C:\\Users\\bqc6802\\Documents\\Dash\\dashboard-generator\\release\\conf\\provisioning\\plugins: The system cannot find the file specified."
+logger=provisioning.notifiers t=2026-04-30T18:20:48.49+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\bqc6802\\Documents\\Dash\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-04-30T18:20:48.5+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-04-30T18:20:48.5+1200 lvl=info msg="storage starting"
+logger=ngalert.multiorg.alertmanager t=2026-04-30T18:20:48.5+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=provisioning t=2026-04-30T18:20:48.51+1200 lvl=eror msg="Failed to provision dashboard" error="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=server t=2026-04-30T18:20:48.51+1200 lvl=eror msg="Stopped background service" service=*provisioning.ProvisioningServiceImpl reason="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=tracing t=2026-04-30T18:20:48.51+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-04-30T18:20:48.51+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=infra.usagestats t=2026-04-30T18:20:48.51+1200 lvl=eror msg="Failed to get system stats" error="context canceled"
+logger=infra.usagestats t=2026-04-30T18:20:48.51+1200 lvl=eror msg="Failed to get last sent time" error="context canceled"
+logger=sqlstore t=2026-04-30T18:20:48.53+1200 lvl=info msg="Database locked, sleeping then retrying" error="database is locked" retry=0
+logger=server t=2026-04-30T18:20:48.76+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="cannot find SSL cert_file at \"C:\\\\Program Files\\\\mSupply\\\\mSupply Server\\\\Server Database\\\\cert.pem\""
+logger=server t=2026-04-30T18:20:48.8+1200 lvl=eror msg="Server shutdown" error="*provisioning.ProvisioningServiceImpl run error: Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\log
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\plugins
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-04-30T18:21:36.25+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-04-30T18:21:36.26+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-04-30T18:21:36.26+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-04-30T18:21:36.27+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-04-30T18:21:36.27+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=527.1µs
+logger=grafanaStorageLogger t=2026-04-30T18:21:36.27+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-04-30T18:21:36.28+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-04-30T18:21:36.55+1200 lvl=warn msg="The following files were not included in the signature" plugin=msupply-horizontal-bar files="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:21:36.55+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=modified
+logger=plugin.manager t=2026-04-30T18:21:36.55+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-table
+logger=plugin.manager t=2026-04-30T18:21:36.55+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-worldmap
+logger=plugin.manager t=2026-04-30T18:21:36.55+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-datasource
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:21:36.59+1200 lvl=info msg=Profiler enabled=false
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:21:36.59+1200 lvl=info msg="OS Check: You are running %s platform." EXTRA_VALUE_AT_END=windows
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:21:36.59+1200 lvl=info msg="Initializing Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:21:36.59+1200 lvl=info msg="Pinging Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:21:36.59+1200 lvl=info msg="Database initialized!"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:21:36.59+1200 lvl=info msg="Creating Reports..."
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:21:36.59+1200 lvl=info msg="No schedules are overdue..."
+logger=plugin.manager t=2026-04-30T18:21:36.59+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-regionmap
+logger=query_data t=2026-04-30T18:21:36.6+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-30T18:21:36.6+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-04-30T18:21:36.65+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\bqc6802\\Documents\\Dash\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-04-30T18:21:36.65+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-04-30T18:21:36.65+1200 lvl=info msg="storage starting"
+logger=provisioning t=2026-04-30T18:21:36.65+1200 lvl=eror msg="Failed to provision dashboard" error="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=server t=2026-04-30T18:21:36.65+1200 lvl=eror msg="Stopped background service" service=*provisioning.ProvisioningServiceImpl reason="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=tracing t=2026-04-30T18:21:36.65+1200 lvl=info msg="Closing tracing"
+logger=server t=2026-04-30T18:21:36.65+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="cannot find SSL cert_file at \"C:\\\\Program Files\\\\mSupply\\\\mSupply Server\\\\Server Database\\\\cert.pem\""
+logger=ngalert.multiorg.alertmanager t=2026-04-30T18:21:36.65+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=ngalert t=2026-04-30T18:21:36.65+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=infra.usagestats t=2026-04-30T18:21:36.65+1200 lvl=eror msg="Failed to get system stats" error="context canceled"
+logger=infra.usagestats t=2026-04-30T18:21:36.65+1200 lvl=eror msg="Failed to get last sent time" error="context canceled"
+logger=server t=2026-04-30T18:21:36.92+1200 lvl=eror msg="Server shutdown" error="*provisioning.ProvisioningServiceImpl run error: Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\log
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\plugins
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-04-30T18:22:36.96+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-04-30T18:22:36.96+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-04-30T18:22:36.96+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-04-30T18:22:36.97+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-04-30T18:22:36.97+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-04-30T18:22:36.97+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-04-30T18:22:36.99+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-04-30T18:22:37.23+1200 lvl=warn msg="The following files were not included in the signature" plugin=msupply-horizontal-bar files="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:22:37.25+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=modified
+logger=plugin.manager t=2026-04-30T18:22:37.26+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-regionmap
+logger=plugin.manager t=2026-04-30T18:22:37.26+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-table
+logger=plugin.manager t=2026-04-30T18:22:37.26+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-worldmap
+logger=plugin.manager t=2026-04-30T18:22:37.26+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-datasource
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:22:37.3+1200 lvl=info msg=Profiler enabled=false
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:22:37.3+1200 lvl=info msg="OS Check: You are running %s platform." EXTRA_VALUE_AT_END=windows
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:22:37.3+1200 lvl=info msg="Initializing Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:22:37.3+1200 lvl=info msg="Pinging Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:22:37.3+1200 lvl=info msg="Database initialized!"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:22:37.3+1200 lvl=info msg="Creating Reports..."
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:22:37.3+1200 lvl=info msg="No schedules are overdue..."
+logger=query_data t=2026-04-30T18:22:37.31+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-30T18:22:37.31+1200 lvl=info msg="Live Push Gateway initialization"
+logger=ngalert t=2026-04-30T18:22:37.36+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-04-30T18:22:37.36+1200 lvl=info msg="storage starting"
+logger=ngalert.multiorg.alertmanager t=2026-04-30T18:22:37.36+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=provisioning t=2026-04-30T18:22:37.36+1200 lvl=eror msg="Failed to provision dashboard" error="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=server t=2026-04-30T18:22:37.36+1200 lvl=eror msg="Stopped background service" service=*provisioning.ProvisioningServiceImpl reason="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=tracing t=2026-04-30T18:22:37.36+1200 lvl=info msg="Closing tracing"
+logger=auth t=2026-04-30T18:22:37.36+1200 lvl=eror msg="failed to lock and execute cleanup of expired auth token" error="context canceled"
+logger=ngalert t=2026-04-30T18:22:37.36+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=server t=2026-04-30T18:22:37.36+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="cannot find SSL cert_file at \"C:\\\\Program Files\\\\mSupply\\\\mSupply Server\\\\Server Database\\\\cert.pem\""
+logger=server t=2026-04-30T18:22:37.64+1200 lvl=eror msg="Server shutdown" error="*provisioning.ProvisioningServiceImpl run error: Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\log
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\plugins
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-04-30T18:23:58.39+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-04-30T18:23:58.39+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-04-30T18:23:58.39+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-04-30T18:23:58.4+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-04-30T18:23:58.4+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-04-30T18:23:58.4+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-04-30T18:23:58.42+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-04-30T18:23:58.68+1200 lvl=warn msg="The following files were not included in the signature" plugin=msupply-horizontal-bar files="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:23:58.68+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=modified
+logger=plugin.manager t=2026-04-30T18:23:58.68+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-regionmap
+logger=plugin.manager t=2026-04-30T18:23:58.68+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-table
+logger=plugin.manager t=2026-04-30T18:23:58.68+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-worldmap
+logger=plugin.manager t=2026-04-30T18:23:58.68+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-datasource
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:23:58.72+1200 lvl=info msg=Profiler enabled=false
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:23:58.72+1200 lvl=info msg="OS Check: You are running %s platform." EXTRA_VALUE_AT_END=windows
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:23:58.72+1200 lvl=info msg="Initializing Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:23:58.72+1200 lvl=info msg="Pinging Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:23:58.72+1200 lvl=info msg="Database initialized!"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:23:58.72+1200 lvl=info msg="Creating Reports..."
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:23:58.72+1200 lvl=info msg="No schedules are overdue..."
+logger=query_data t=2026-04-30T18:23:58.73+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-30T18:23:58.73+1200 lvl=info msg="Live Push Gateway initialization"
+logger=ngalert t=2026-04-30T18:23:58.78+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-04-30T18:23:58.78+1200 lvl=info msg="storage starting"
+logger=ngalert.multiorg.alertmanager t=2026-04-30T18:23:58.78+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=provisioning t=2026-04-30T18:23:58.78+1200 lvl=eror msg="Failed to provision dashboard" error="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=server t=2026-04-30T18:23:58.78+1200 lvl=eror msg="Stopped background service" service=*provisioning.ProvisioningServiceImpl reason="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=tracing t=2026-04-30T18:23:58.78+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-04-30T18:23:58.78+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=infra.usagestats t=2026-04-30T18:23:58.78+1200 lvl=eror msg="Failed to get system stats" error="context canceled"
+logger=infra.usagestats t=2026-04-30T18:23:58.78+1200 lvl=eror msg="Failed to get last sent time" error="context canceled"
+logger=server t=2026-04-30T18:23:58.78+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="cannot find SSL cert_file at \"C:\\\\Program Files\\\\mSupply\\\\mSupply Server\\\\Server Database\\\\cert.pem\""
+logger=server t=2026-04-30T18:23:59.04+1200 lvl=eror msg="Server shutdown" error="*provisioning.ProvisioningServiceImpl run error: Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\log
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\plugins
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-04-30T18:24:47.82+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-04-30T18:24:47.82+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-04-30T18:24:47.82+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-04-30T18:24:47.83+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-04-30T18:24:47.83+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-04-30T18:24:47.83+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-04-30T18:24:47.85+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-04-30T18:24:48.09+1200 lvl=warn msg="The following files were not included in the signature" plugin=msupply-horizontal-bar files="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:24:48.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=modified
+logger=plugin.manager t=2026-04-30T18:24:48.12+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-datasource
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:24:48.15+1200 lvl=info msg=Profiler enabled=false
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:24:48.15+1200 lvl=info msg="OS Check: You are running %s platform." EXTRA_VALUE_AT_END=windows
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:24:48.15+1200 lvl=info msg="Initializing Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:24:48.15+1200 lvl=info msg="Pinging Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:24:48.15+1200 lvl=info msg="Database initialized!"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:24:48.15+1200 lvl=info msg="Creating Reports..."
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:24:48.15+1200 lvl=info msg="No schedules are overdue..."
+logger=plugin.manager t=2026-04-30T18:24:48.15+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-regionmap
+logger=plugin.manager t=2026-04-30T18:24:48.15+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-table
+logger=plugin.manager t=2026-04-30T18:24:48.15+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-worldmap
+logger=query_data t=2026-04-30T18:24:48.16+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-30T18:24:48.16+1200 lvl=info msg="Live Push Gateway initialization"
+logger=ngalert t=2026-04-30T18:24:48.21+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-04-30T18:24:48.21+1200 lvl=info msg="storage starting"
+logger=provisioning t=2026-04-30T18:24:48.21+1200 lvl=eror msg="Failed to provision dashboard" error="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=server t=2026-04-30T18:24:48.21+1200 lvl=eror msg="Stopped background service" service=*provisioning.ProvisioningServiceImpl reason="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=tracing t=2026-04-30T18:24:48.21+1200 lvl=info msg="Closing tracing"
+logger=infra.usagestats t=2026-04-30T18:24:48.21+1200 lvl=eror msg="Failed to get system stats" error="context canceled"
+logger=ngalert.multiorg.alertmanager t=2026-04-30T18:24:48.21+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=infra.usagestats t=2026-04-30T18:24:48.21+1200 lvl=eror msg="Failed to get last sent time" error="context canceled"
+logger=ngalert t=2026-04-30T18:24:48.21+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=server t=2026-04-30T18:24:48.21+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="cannot find SSL cert_file at \"C:\\\\Program Files\\\\mSupply\\\\mSupply Server\\\\Server Database\\\\cert.pem\""
+logger=server t=2026-04-30T18:24:48.48+1200 lvl=eror msg="Server shutdown" error="*provisioning.ProvisioningServiceImpl run error: Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\log
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\plugins
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-04-30T18:30:45.27+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-04-30T18:30:45.27+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-04-30T18:30:45.27+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-04-30T18:30:45.28+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-04-30T18:30:45.28+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=550.6µs
+logger=grafanaStorageLogger t=2026-04-30T18:30:45.28+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-04-30T18:30:45.3+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-04-30T18:30:45.54+1200 lvl=warn msg="The following files were not included in the signature" plugin=msupply-horizontal-bar files="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:30:45.56+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=modified
+logger=plugin.manager t=2026-04-30T18:30:45.57+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-regionmap
+logger=plugin.manager t=2026-04-30T18:30:45.57+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-table
+logger=plugin.manager t=2026-04-30T18:30:45.57+1200 lvl=info msg="Plugin registered" pluginId=m-supply-foundation-msupply-worldmap
+logger=plugin.manager t=2026-04-30T18:30:45.57+1200 lvl=info msg="Plugin registered" pluginId=msupplyfoundation-datasource
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:30:45.62+1200 lvl=info msg=Profiler enabled=false
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:30:45.62+1200 lvl=info msg="OS Check: You are running %s platform." EXTRA_VALUE_AT_END=windows
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:30:45.62+1200 lvl=info msg="Initializing Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:30:45.62+1200 lvl=info msg="Pinging Database"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:30:45.62+1200 lvl=info msg="Database initialized!"
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:30:45.62+1200 lvl=info msg="Creating Reports..."
+logger=plugin.msupplyfoundation-datasource t=2026-04-30T18:30:45.62+1200 lvl=info msg="No schedules are overdue..."
+logger=query_data t=2026-04-30T18:30:45.62+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-30T18:30:45.63+1200 lvl=info msg="Live Push Gateway initialization"
+logger=ngalert t=2026-04-30T18:30:45.68+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-04-30T18:30:45.68+1200 lvl=info msg="storage starting"
+logger=provisioning t=2026-04-30T18:30:45.68+1200 lvl=eror msg="Failed to provision dashboard" error="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=server t=2026-04-30T18:30:45.68+1200 lvl=eror msg="Stopped background service" service=*provisioning.ProvisioningServiceImpl reason="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=tracing t=2026-04-30T18:30:45.68+1200 lvl=info msg="Closing tracing"
+logger=server t=2026-04-30T18:30:45.68+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="cert_file cannot be empty when using HTTPS"
+logger=infra.usagestats t=2026-04-30T18:30:45.68+1200 lvl=eror msg="Failed to get system stats" error="context canceled"
+logger=ngalert.multiorg.alertmanager t=2026-04-30T18:30:45.68+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=ngalert t=2026-04-30T18:30:45.68+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=infra.usagestats t=2026-04-30T18:30:45.68+1200 lvl=eror msg="Failed to get last sent time" error="context canceled"
+logger=server t=2026-04-30T18:30:45.95+1200 lvl=eror msg="Server shutdown" error="*provisioning.ProvisioningServiceImpl run error: Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=settings t=2026-04-30T18:31:01.08+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-04-30T18:31:01.08+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-04-30T18:31:01.08+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-04-30T18:31:01.08+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-04-30T18:31:01.08+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release
+logger=settings t=2026-04-30T18:31:01.08+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data
+logger=settings t=2026-04-30T18:31:01.09+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\log
+logger=settings t=2026-04-30T18:31:01.09+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\plugins
+logger=settings t=2026-04-30T18:31:01.09+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-04-30T18:31:01.09+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-04-30T18:31:01.09+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-04-30T18:31:01.09+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-04-30T18:31:01.09+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-04-30T18:31:01.1+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=549.3µs
+logger=grafanaStorageLogger t=2026-04-30T18:31:01.1+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-04-30T18:31:01.11+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-04-30T18:31:01.12+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:01.12+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:01.13+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:01.14+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:01.14+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:01.14+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-04-30T18:31:01.14+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-04-30T18:31:01.14+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-04-30T18:31:01.14+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-04-30T18:31:01.14+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=query_data t=2026-04-30T18:31:01.15+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-30T18:31:01.15+1200 lvl=info msg="Live Push Gateway initialization"
+logger=ngalert t=2026-04-30T18:31:01.19+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-04-30T18:31:01.19+1200 lvl=info msg="storage starting"
+logger=ngalert.multiorg.alertmanager t=2026-04-30T18:31:01.19+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=provisioning t=2026-04-30T18:31:01.19+1200 lvl=eror msg="Failed to provision dashboard" error="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=server t=2026-04-30T18:31:01.19+1200 lvl=eror msg="Stopped background service" service=*provisioning.ProvisioningServiceImpl reason="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=ngalert t=2026-04-30T18:31:01.2+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-04-30T18:31:01.2+1200 lvl=info msg="Closing tracing"
+logger=infra.usagestats t=2026-04-30T18:31:01.2+1200 lvl=eror msg="Failed to get system stats" error="context canceled"
+logger=infra.usagestats t=2026-04-30T18:31:01.2+1200 lvl=eror msg="Failed to get last sent time" error="context canceled"
+logger=http.server t=2026-04-30T18:31:01.2+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=server t=2026-04-30T18:31:01.48+1200 lvl=eror msg="Server shutdown" error="*provisioning.ProvisioningServiceImpl run error: Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\log
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\plugins
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-04-30T18:31:20.06+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-04-30T18:31:20.06+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-04-30T18:31:20.06+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-04-30T18:31:20.07+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-04-30T18:31:20.07+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-04-30T18:31:20.07+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-04-30T18:31:20.09+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-04-30T18:31:20.09+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:20.1+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:20.11+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:20.11+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:20.12+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:31:20.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-04-30T18:31:20.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-04-30T18:31:20.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-04-30T18:31:20.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-04-30T18:31:20.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=query_data t=2026-04-30T18:31:20.12+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-30T18:31:20.12+1200 lvl=info msg="Live Push Gateway initialization"
+logger=ngalert t=2026-04-30T18:31:20.17+1200 lvl=info msg="warming cache for startup"
+logger=provisioning t=2026-04-30T18:31:20.17+1200 lvl=eror msg="Failed to provision dashboard" error="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=server t=2026-04-30T18:31:20.17+1200 lvl=eror msg="Stopped background service" service=*provisioning.ProvisioningServiceImpl reason="Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=ngalert.multiorg.alertmanager t=2026-04-30T18:31:20.17+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=tracing t=2026-04-30T18:31:20.17+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-04-30T18:31:20.17+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=grafanaStorageLogger t=2026-04-30T18:31:20.17+1200 lvl=info msg="storage starting"
+logger=infra.usagestats t=2026-04-30T18:31:20.17+1200 lvl=eror msg="Failed to get system stats" error="context canceled"
+logger=infra.usagestats t=2026-04-30T18:31:20.17+1200 lvl=eror msg="Failed to get last sent time" error="context canceled"
+logger=http.server t=2026-04-30T18:31:20.17+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=server t=2026-04-30T18:31:20.47+1200 lvl=eror msg="Server shutdown" error="*provisioning.ProvisioningServiceImpl run error: Failed to create provisioner: Failed to read dashboards config: could not parse provisioning config file: dashboards.yaml error: yaml: line 10: did not find expected key"
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\log
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\plugins
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-04-30T18:32:21.59+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-04-30T18:32:21.59+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-04-30T18:32:21.59+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-04-30T18:32:21.6+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-04-30T18:32:21.6+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=531.7µs
+logger=grafanaStorageLogger t=2026-04-30T18:32:21.6+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\Dash\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-04-30T18:32:21.62+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\Dash\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-04-30T18:32:21.63+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:32:21.63+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:32:21.64+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:32:21.64+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:32:21.65+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-04-30T18:32:21.65+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-04-30T18:32:21.65+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-04-30T18:32:21.65+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-04-30T18:32:21.65+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-04-30T18:32:21.65+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=query_data t=2026-04-30T18:32:21.65+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-30T18:32:21.66+1200 lvl=info msg="Live Push Gateway initialization"
+logger=ngalert t=2026-04-30T18:32:21.7+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-04-30T18:32:21.7+1200 lvl=info msg="storage starting"
+logger=ngalert.multiorg.alertmanager t=2026-04-30T18:32:21.71+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-04-30T18:32:21.71+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-04-30T18:32:37.94+1200 lvl=info msg="Request Completed" method=GET path=/ status=302 remote_addr=[::1] time_ms=0 duration=551.5µs size=53 referer= traceID=00000000000000000000000000000000
+logger=server t=2026-04-30T18:33:25.87+1200 lvl=info msg="Shutdown started" reason="System signal: interrupt"
+logger=ngalert t=2026-04-30T18:33:25.87+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-04-30T18:33:25.87+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="Config loaded from" file=C:\Users\bqc6802\Documents\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="Path Home" path=C:\Users\bqc6802\Documents\dashboard-generator\release
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="Path Data" path=C:\Users\bqc6802\Documents\dashboard-generator\release\data
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="Path Logs" path=C:\Users\bqc6802\Documents\dashboard-generator\release\data\log
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="Path Plugins" path=C:\Users\bqc6802\Documents\dashboard-generator\release\data\plugins
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="Path Provisioning" path=C:\Users\bqc6802\Documents\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-05-07T09:58:50.16+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-05-07T09:58:50.16+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-05-07T09:58:50.16+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\bqc6802\Documents\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-05-07T09:58:50.17+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-05-07T09:58:50.17+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=513.2µs
+logger=grafanaStorageLogger t=2026-05-07T09:58:50.17+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\bqc6802\\\\Documents\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\bqc6802\\\\Documents\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-05-07T09:58:50.59+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path=C:\Users\bqc6802\Documents\dashboard-generator\release\plugins-bundled
+logger=plugin.loader t=2026-05-07T09:58:50.64+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T09:58:50.65+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T09:58:50.67+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T09:58:50.68+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T09:58:50.69+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T09:58:50.69+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-05-07T09:58:50.69+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-05-07T09:58:50.69+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-05-07T09:58:50.69+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-05-07T09:58:50.69+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=query_data t=2026-05-07T09:58:50.8+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-05-07T09:58:50.8+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-05-07T09:58:50.86+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\bqc6802\Documents\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\bqc6802\\Documents\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=provisioning.dashboard t=2026-05-07T09:58:50.86+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=C:\Users\bqc6802\Documents\dashboard-generator\release\conf\provisioning\dashboards error="open C:\\Users\\bqc6802\\Documents\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-05-07T09:58:50.86+1200 lvl=info msg="storage starting"
+logger=ngalert t=2026-05-07T09:58:50.86+1200 lvl=info msg="warming cache for startup"
+logger=ngalert.multiorg.alertmanager t=2026-05-07T09:58:50.89+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-05-07T09:58:51.03+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-05-07T09:59:08.89+1200 lvl=info msg="Request Completed" method=GET path=/ status=302 remote_addr=[::1] time_ms=0 duration=0s size=53 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-05-07T09:59:19.01+1200 lvl=info msg="Request Completed" method=GET path=/login/generic_oauth status=302 remote_addr=[::1] time_ms=0 duration=409.7µs size=263 referer=http://localhost:3000/login traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-05-07T09:59:28.04+1200 lvl=eror msg="Invalid username or password" error="invalid username or password" remote_addr=[::1] traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-05-07T09:59:28.04+1200 lvl=info msg="Request Completed" method=POST path=/login status=401 remote_addr=[::1] time_ms=13 duration=13.3093ms size=82 referer=http://localhost:3000/login traceID=00000000000000000000000000000000
+t=2026-05-07T10:11:06+1200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2026-05-07T10:11:06+1200 lvl=warn msg="SQLite database file has broader permissions than it should" logger=sqlstore path=C:\\Users\\bqc6802\\Documents\\dashboard-generator\\release\\data\\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+t=2026-05-07T10:11:06+1200 lvl=info msg="Starting DB migrations" logger=migrator
+logger=http.server t=2026-05-07T10:11:19.12+1200 lvl=info msg="Successful Login" User=admin@localhost
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:29.21+1200 lvl=info msg="Request Completed" method=POST path=/api/user/password/reset status=400 remote_addr=[::1] time_ms=7 duration=7.2908ms size=76 referer=http://localhost:3000/login traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:29.54+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=520.2µs size=0 referer= traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:11:32.03+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:11:32.03+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:11:32.03+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:32.03+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2333 duration=2.3331643s size=205 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:32.03+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2334 duration=2.3347113s size=213 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:32.03+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2335 duration=2.3358367s size=241 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:11:34.37+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:34.37+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2335 duration=2.3358871s size=303 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=live t=2026-05-07T10:11:34.38+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/X8ytzFFWk address=grafana/dashboard/uid/X8ytzFFWk
+logger=tsdb.postgres t=2026-05-07T10:11:36.74+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:11:36.74+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:11:36.74+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:11:36.74+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:36.74+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2324 duration=2.3240369s size=487 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:36.74+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2320 duration=2.3202495s size=530 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:36.74+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2324 duration=2.3249871s size=325 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:36.74+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2325 duration=2.3250703s size=484 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:11:36.75+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:36.75+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2328 duration=2.3280328s size=307 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:11:39.08+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:11:39.08+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:11:39.08+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:39.08+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2326 duration=2.3260053s size=224 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:39.08+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2339 duration=2.3393462s size=223 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:39.08+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2325 duration=2.3251721s size=425 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:11:53.16+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:11:53.16+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2334 duration=2.3347151s size=566 referer="http://localhost:3000/explore?orgId=1&left=%7B%22datasource%22:%22PostgreSQL%22,%22queries%22:%5B%7B%22refId%22:%22A%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:12:30.14+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:12:30.14+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:30.14+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2328 duration=2.328083s size=213 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:30.14+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2328 duration=2.328083s size=241 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:12:30.14+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:30.14+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2328 duration=2.328083s size=205 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:12:32.47+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:32.47+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2329 duration=2.3299923s size=303 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:12:34.83+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:12:34.83+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:12:34.83+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:12:34.83+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:12:34.83+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:34.83+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2330 duration=2.3307509s size=483 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:34.83+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2335 duration=2.3352498s size=325 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:34.83+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2329 duration=2.3298518s size=307 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:34.83+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2330 duration=2.3303553s size=530 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:34.83+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2334 duration=2.3344569s size=486 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:12:37.17+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:12:37.17+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:12:37.17+1200 lvl=eror msg="query error" err="dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:37.17+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2341 duration=2.3417616s size=223 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:37.17+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2335 duration=2.3358312s size=224 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:12:37.17+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2336 duration=2.3364111s size=426 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=server t=2026-05-07T10:12:57.23+1200 lvl=info msg="Shutdown started" reason="System signal: interrupt"
+logger=tracing t=2026-05-07T10:12:57.23+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-05-07T10:12:57.23+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="Config loaded from" file="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release/conf/defaults.ini"
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="Config loaded from" file="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\conf\\custom.ini"
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="Path Home" path="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release"
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="Path Data" path="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\data"
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="Path Logs" path="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\data\\log"
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="Path Plugins" path="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\data\\plugins"
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="Path Provisioning" path="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\conf\\provisioning"
+logger=settings t=2026-05-07T10:41:03.26+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-05-07T10:41:03.27+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-05-07T10:41:03.27+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\data\\grafana.db" mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-05-07T10:41:03.32+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-05-07T10:41:03.34+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=1.9993ms
+logger=grafanaStorageLogger t=2026-05-07T10:41:03.34+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\mahil\\\\OneDrive\\\\Desktop\\\\New folder (2)\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\mahil\\\\OneDrive\\\\Desktop\\\\New folder (2)\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.finder t=2026-05-07T10:41:04.76+1200 lvl=warn msg="Skipping finding plugins as directory does not exist" path="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\plugins-bundled"
+logger=plugin.loader t=2026-05-07T10:41:04.99+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T10:41:05.02+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T10:41:05.06+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T10:41:05.12+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T10:41:05.15+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-05-07T10:41:05.15+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-05-07T10:41:05.15+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-05-07T10:41:05.15+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-05-07T10:41:05.15+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-05-07T10:41:05.15+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=query_data t=2026-05-07T10:41:05.67+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-05-07T10:41:05.68+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-05-07T10:41:06.02+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\conf\\provisioning\\notifiers" error="open C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-05-07T10:41:06.02+1200 lvl=info msg="storage starting"
+logger=ngalert t=2026-05-07T10:41:06.02+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-05-07T10:41:06.02+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path="C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\conf\\provisioning\\dashboards" error="open C:\\Users\\mahil\\OneDrive\\Desktop\\New folder (2)\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-05-07T10:41:06.03+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-05-07T10:41:06.71+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-05-07T10:42:29.58+1200 lvl=info msg="Request Completed" method=GET path=/ status=302 remote_addr=[::1] time_ms=9 duration=9.5859ms size=53 referer= traceID=00000000000000000000000000000000
+logger=http.server t=2026-05-07T10:43:13.16+1200 lvl=info msg="Successful Login" User=admin@localhost
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:26.84+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=2 duration=2.3825ms size=0 referer= traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:43:29.93+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:43:29.93+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:29.93+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2369 duration=2.3694726s size=241 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:29.93+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2368 duration=2.3687701s size=213 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:43:29.94+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:29.94+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2380 duration=2.3805952s size=205 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:43:32.32+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:32.32+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2368 duration=2.3682226s size=303 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=live t=2026-05-07T10:43:32.33+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/X8ytzFFWk address=grafana/dashboard/uid/X8ytzFFWk
+logger=tsdb.postgres t=2026-05-07T10:43:34.92+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:43:34.92+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:43:34.92+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:34.92+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2351 duration=2.3517091s size=486 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:34.92+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2348 duration=2.3488277s size=483 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:34.92+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2355 duration=2.355215s size=325 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:43:35+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=tsdb.postgres t=2026-05-07T10:43:35+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:35+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2331 duration=2.3319014s size=307 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:35+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2349 duration=2.3491759s size=530 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:43:37.3+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:37.3+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2366 duration=2.3661539s size=223 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:43:37.36+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:37.36+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2362 duration=2.3627559s size=224 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=tsdb.postgres t=2026-05-07T10:43:37.41+1200 lvl=eror msg="query error" err="dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:43:37.41+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=2379 duration=2.3792155s size=427 referer="http://localhost:3000/d/X8ytzFFWk/overview?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:46:02.91+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=2 duration=2.9966ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:54:04.24+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=16 duration=16.6031ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T10:55:04.38+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=5 duration=5.0644ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T11:21:47.26+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=344 duration=344.4045ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T11:24:39.24+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=9 duration=9.2833ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T11:24:45.7+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=4 duration=4.5786ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T11:39:58.64+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=27 duration=27.4459ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T11:44:00.35+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=4 duration=4.125ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T11:55:01.63+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1399 duration=1.3997267s size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-05-07T12:08:27.38+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=21 duration=21.7526ms size=0 referer= traceID=00000000000000000000000000000000
