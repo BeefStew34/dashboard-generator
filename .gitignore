@@ -3,8 +3,5 @@ installer/.DS_Store
 release/data/*
 node_modules
 dist
-<<<<<<< HEAD
 pgsql
 release/plugins-bundled
-=======
->>>>>>> 5d794cfe4a805972016238b1c6d5dc8f9cb13499

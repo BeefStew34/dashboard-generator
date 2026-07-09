@@ -1370,3 +1370,5 @@ logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=a
 logger=server t=2026-06-16T23:01:52.6+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
 logger=ngalert t=2026-06-16T23:01:52.6+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
 logger=tracing t=2026-06-16T23:01:52.6+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-07-09T16:36:35.66+1200 lvl=eror msg="failed to parse \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\conf\\\\custom.ini\": key-value delimiter not found: <<<<<<< HEAD\n"
+logger=settings t=2026-07-09T16:37:22.64+1200 lvl=eror msg="failed to parse \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\conf\\\\custom.ini\": key-value delimiter not found: <<<<<<< HEAD\n"
