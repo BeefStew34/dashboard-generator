@@ -3,3 +3,5 @@ installer/.DS_Store
 release/data/*
 node_modules
 dist
+pgsql
+release/plugins-bundled
