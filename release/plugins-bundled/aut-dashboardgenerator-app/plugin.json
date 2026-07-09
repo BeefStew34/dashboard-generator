@@ -1,0 +1,65 @@
+{
+    "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+    "type": "app",
+    "name": "DashboardGenerator",
+    "id": "aut-dashboardgenerator-app",
+    "info": {
+        "keywords": [
+            "app"
+        ],
+        "description": "",
+        "author": {
+            "name": "Aut"
+        },
+        "logos": {
+            "small": "img/logo.svg",
+            "large": "img/logo.svg"
+        },
+        "screenshots": [],
+        "version": "1.0.0",
+        "updated": "2026-07-08"
+    },
+    "includes": [
+        {
+            "type": "page",
+            "name": "Page One",
+            "path": "/a/aut-dashboardgenerator-app/one",
+            "addToNav": true,
+            "defaultNav": true
+        },
+        {
+            "type": "page",
+            "name": "Page Two",
+            "path": "/a/aut-dashboardgenerator-app/two",
+            "addToNav": true,
+            "defaultNav": false
+        },
+        {
+            "type": "page",
+            "name": "Page Three",
+            "path": "/a/aut-dashboardgenerator-app/three",
+            "addToNav": true,
+            "defaultNav": false
+        },
+        {
+            "type": "page",
+            "name": "Page Four",
+            "path": "/a/aut-dashboardgenerator-app/four",
+            "addToNav": true,
+            "defaultNav": false
+        },
+        {
+            "type": "page",
+            "icon": "cog",
+            "name": "Configuration",
+            "path": "/plugins/aut-dashboardgenerator-app",
+            "role": "Admin",
+            "addToNav": true
+        }
+    ],
+    "dependencies": {
+        "grafanaDependency": ">=12.3.0",
+        "plugins": []
+    },
+    "buildMode": "development"
+}
