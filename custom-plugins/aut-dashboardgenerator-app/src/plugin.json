@@ -1,37 +1,24 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
-  "type": "panel",
-  "name": "aut-dashboardgenerator-app",
+  "type": "app",
   "id": "aut-dashboardgenerator-app",
+  "name": "AUT Dashboard Generator",
   "info": {
-    "description": "AUT",
+    "description": "AUT dashboard generator",
     "author": {
-      "name": "aut",
-      "url": ""
-    },
-    "keywords": [
-      "AUT"
-    ],
-    "logos": {
-      "small": "img/logo.svg",
-      "large": "img/logo.svg"
-    },
-    "links": [
-      {
-        "name": "Website",
-        "url": "https://github.com/grafana/grafana-starter-panel"
-      },
-      {
-        "name": "License",
-        "url": "https://github.com/grafana/grafana-starter-panel/blob/master/LICENSE"
-      }
-    ],
-    "screenshots": [],
-    "version": "%VERSION%",
-    "updated": "%TODAY%"
+      "name": "AUT"
+    }
   },
+  "includes": [
+    {
+      "type": "page",
+      "name": "Dashboard Generator",
+      "path": "/a/aut-dashboardgenerator-app",
+      "addToNav": true,
+      "defaultNav": true
+    }
+  ],
   "dependencies": {
-    "grafanaDependency": ">=7.0.0",
-    "plugins": []
+    "grafanaDependency": ">=8.5.0"
   }
 }
