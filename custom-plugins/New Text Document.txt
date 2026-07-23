@@ -1,2 +1,4 @@
 set NODE_OPTIONS=--openssl-legacy-provider
 https://developers.grafana.com/ui/latest/index.html?path=/docs/layout-box--docs
+https://developers.grafana.com/ui/v8.1.4/index.html?path=/story/docs-overview-intro--page&utm_source=chatgpt.com
+https://github.com/grafana/grafana/tree/v8.5.x/packages/grafana-ui/src/components?utm_source=chatgpt.com
