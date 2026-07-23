@@ -1,1 +1,2 @@
 set NODE_OPTIONS=--openssl-legacy-provider
+https://developers.grafana.com/ui/latest/index.html?path=/docs/layout-box--docs
