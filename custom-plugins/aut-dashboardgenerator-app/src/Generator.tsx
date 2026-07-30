@@ -46,7 +46,11 @@ export const BigTextBox = ({
 
 export const GeneratorPage = () => {
   return (
-    <div style={{ margin: '0px 0px 0.45em' }}>
+    <div style={
+      { marginLeft : 'auto', marginRight: 'auto',  
+        maxWidth: '1440px'
+      }
+      }>
       <div>
         <Icon name="check" />
         <h1>Create Dashboard</h1>
@@ -55,7 +59,6 @@ export const GeneratorPage = () => {
       <div
         style={{
           display: 'grid',
-          padding: '50px',
           gridTemplateColumns: '1fr 1fr',
           gap: '50px',
           alignItems: 'start',
