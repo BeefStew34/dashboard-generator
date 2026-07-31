@@ -13,11 +13,25 @@
   },
   "includes": [
     {
-      "type": "page",
-      "name": "Dashboard Generator",
-      "path": "/a/aut-dashboardgenerator-app",
-      "addToNav": true,
-      "defaultNav": true
+        "type": "page",
+        "name": "default",
+        "path": "/a/aut-dashboardgenerator-app/default",
+        "addToNav": false,
+        "defaultNav": true
+    },
+    {
+        "type": "page",
+        "name": "Create",
+        "path": "/a/aut-dashboardgenerator-app/creator",
+        "addToNav": true,
+        "defaultNav": false
+    },
+    {
+        "type": "page",
+        "name": "Sharing",
+        "path": "/a/aut-dashboardgenerator-app/sharing",
+        "addToNav": true,
+        "defaultNav": false
     }
   ],
   "dependencies": {
