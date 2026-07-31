@@ -58,7 +58,7 @@ export const BigTextBox = ({
   return (
     <TextAreaComponent
       value={value}
-      rows={rows}
+      rows={6}
       placeholder=""
       onChange={(e: any) => setValue(e.currentTarget.value)}
     />
