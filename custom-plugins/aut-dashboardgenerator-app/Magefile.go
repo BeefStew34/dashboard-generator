@@ -26,12 +26,19 @@ func Build() error {
 		return err
 	}
 
+	osName := goos()
+	arch := goarch()
+
 	binaryName := fmt.Sprintf(
 		"%s_%s_%s",
 		pluginID,
-		goos(),
-		goarch(),
+		osName,
+		arch,
 	)
+
+	if osName == "windows" {
+		binaryName += ".exe"
+	}
 
 	output := filepath.Join(outDir, binaryName)
 
@@ -55,7 +62,7 @@ func goos() string {
 	if v := os.Getenv("GOOS"); v != "" {
 		return v
 	}
-	return "linux"
+	return "windows"
 }
 
 func goarch() string {

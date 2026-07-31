@@ -1,5 +1,26 @@
 import React, { useState } from 'react';
 import { Icon, Field, TextArea, Button } from '@grafana/ui';
+import { getBackendSrv } from '@grafana/runtime';
+
+async function test_backend_api() {
+  const result = await getBackendSrv().fetch({
+    url: '/api/plugins/aut-dashboardgenerator-app/resources',
+    method: 'GET',
+  }).toPromise();
+
+  return result;
+}
+
+
+const onTestClick = async () => {
+  try {
+    const result = await test_backend_api();
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 
 export const Heading = (txt: string) => {
   return (
@@ -100,7 +121,7 @@ export const GeneratorPage = () => {
               <BigTextBox rows={6} />
             </Field>
 
-            <Button
+            <Button onClick={onTestClick}
               style={{
                 width: '100%',
                 justifyContent: 'center',

@@ -3947,3 +3947,701 @@ logger=server t=2026-07-30T13:00:59.54+1200 lvl=info msg="Shutdown started" reas
 logger=tracing t=2026-07-30T13:00:59.54+1200 lvl=info msg="Closing tracing"
 logger=ngalert t=2026-07-30T13:00:59.54+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
 >>>>>>> 6a8f46327620e9351e749d60528666620a4740d8
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T21:20:39.88+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T21:20:39.88+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T21:20:39.88+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T21:20:39.9+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T21:20:39.91+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=527µs
+logger=grafanaStorageLogger t=2026-07-31T21:20:39.91+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T21:20:40.41+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T21:20:40.41+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T21:20:40.48+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T21:20:40.5+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T21:20:40.53+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T21:20:40.55+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T21:20:40.56+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T21:20:40.57+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-07-31T21:20:40.57+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-07-31T21:20:40.57+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T21:20:40.57+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T21:20:40.57+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-07-31T21:20:40.73+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T21:20:40.74+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T21:20:40.92+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-07-31T21:20:40.93+1200 lvl=info msg="storage starting"
+logger=ngalert t=2026-07-31T21:20:40.92+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-07-31T21:20:40.93+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-07-31T21:20:40.93+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-07-31T21:20:41.15+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:42.51+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.572ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:42.69+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=50 duration=50.6441ms size=375 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:42.7+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=52 duration=52.5615ms size=262 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:42.78+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=48 duration=48.248ms size=324 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:42.82+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=36 duration=36.4476ms size=270 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T21:20:42.83+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:42.98+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=47 duration=47.3187ms size=349 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:43+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=55 duration=55.854ms size=427 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:43.03+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=75 duration=75.1488ms size=494 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:43.03+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=69 duration=69.2742ms size=770 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:51.59+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T21:20:51.59+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources/hello status=503 remote_addr=[::1] time_ms=2 duration=2.0364ms size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T22:02:07.5+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-07-31T22:02:07.5+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-07-31T22:02:07.5+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T22:08:49.34+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T22:08:49.34+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T22:08:49.34+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T22:08:49.35+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T22:08:49.36+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=625.4µs
+logger=grafanaStorageLogger t=2026-07-31T22:08:49.36+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T22:08:49.42+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T22:08:49.42+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T22:08:49.44+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:08:49.45+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:08:49.46+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:08:49.47+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:08:49.48+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:08:49.48+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T22:08:49.48+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T22:08:49.48+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-07-31T22:08:49.48+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-07-31T22:08:49.48+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=query_data t=2026-07-31T22:08:49.48+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T22:08:49.49+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T22:08:49.6+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-07-31T22:08:49.6+1200 lvl=info msg="storage starting"
+logger=ngalert t=2026-07-31T22:08:49.6+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-07-31T22:08:49.6+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-07-31T22:08:49.6+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-07-31T22:08:49.6+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:08:52.47+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0396ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T22:08:52.82+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:08:59.71+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:08:59.71+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources/hello status=503 remote_addr=[::1] time_ms=1 duration=1.5448ms size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T22:15:14.47+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=tracing t=2026-07-31T22:15:14.47+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-07-31T22:15:14.47+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T22:16:59.33+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T22:16:59.33+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T22:16:59.33+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T22:16:59.34+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T22:16:59.35+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=713.6µs
+logger=grafanaStorageLogger t=2026-07-31T22:16:59.35+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T22:16:59.42+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T22:16:59.43+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T22:16:59.44+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:16:59.45+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:16:59.46+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:16:59.48+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:16:59.49+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:16:59.49+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T22:16:59.49+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T22:16:59.49+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-07-31T22:16:59.49+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-07-31T22:16:59.49+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=query_data t=2026-07-31T22:16:59.49+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T22:16:59.5+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T22:16:59.61+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-07-31T22:16:59.61+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-07-31T22:16:59.61+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-07-31T22:16:59.61+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-07-31T22:16:59.61+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-07-31T22:16:59.61+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:17:02.52+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=2 duration=2.1943ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T22:17:02.75+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:17:07.95+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:17:07.95+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources/hello status=503 remote_addr=[::1] time_ms=0 duration=836.4µs size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:17:11.87+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=788.8µs size=0 referer= traceID=00000000000000000000000000000000
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T22:24:27.56+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T22:24:27.56+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T22:24:27.56+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T22:24:27.58+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T22:24:27.58+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=514.7µs
+logger=grafanaStorageLogger t=2026-07-31T22:24:27.58+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T22:24:27.65+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T22:24:27.65+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T22:24:27.66+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:24:27.67+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:24:27.68+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:24:27.69+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:24:27.7+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:24:27.7+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-07-31T22:24:27.7+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T22:24:27.7+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T22:24:27.7+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-07-31T22:24:27.7+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=query_data t=2026-07-31T22:24:27.71+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T22:24:27.71+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T22:24:27.82+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-07-31T22:24:27.82+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-07-31T22:24:27.82+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert t=2026-07-31T22:24:27.82+1200 lvl=info msg="warming cache for startup"
+logger=ngalert.multiorg.alertmanager t=2026-07-31T22:24:27.82+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=server t=2026-07-31T22:24:27.83+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="failed to open listener on address 0.0.0.0:3000: listen tcp 0.0.0.0:3000: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+logger=ngalert t=2026-07-31T22:24:27.83+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-07-31T22:24:27.83+1200 lvl=info msg="Closing tracing"
+logger=server t=2026-07-31T22:24:28.12+1200 lvl=eror msg="Server shutdown" error="*api.HTTPServer run error: failed to open listener on address 0.0.0.0:3000: listen tcp 0.0.0.0:3000: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:24:30.46+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0298ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:24:36.35+1200 lvl=info msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/hello status=404 remote_addr=[::1] time_ms=0 duration=0s size=24 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T22:24:58.39+1200 lvl=info msg="Shutdown started" reason="System signal: interrupt"
+logger=tracing t=2026-07-31T22:24:58.39+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-07-31T22:24:58.39+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-07-31T22:29:13.59+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T22:29:13.59+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T22:29:13.59+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T22:29:13.59+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T22:29:13.6+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T22:29:13.6+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T22:29:13.6+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T22:29:13.6+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T22:29:13.6+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T22:29:13.6+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T22:29:13.6+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T22:29:13.6+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T22:29:13.61+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T22:29:13.62+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=1.0065ms
+logger=grafanaStorageLogger t=2026-07-31T22:29:13.62+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T22:29:13.69+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T22:29:13.69+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T22:29:13.71+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:29:13.72+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:29:13.73+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:29:13.74+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:29:13.75+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:29:13.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-07-31T22:29:13.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T22:29:13.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T22:29:13.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-07-31T22:29:13.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=query_data t=2026-07-31T22:29:13.75+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T22:29:13.76+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T22:29:13.86+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-07-31T22:29:13.87+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-07-31T22:29:13.87+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-07-31T22:29:13.87+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-07-31T22:29:13.87+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-07-31T22:29:13.87+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:29:13.88+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0195ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T22:29:13.88+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:29:16.5+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.567ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:29:24.01+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:29:24.01+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=0 duration=998.6µs size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:38:49.96+1200 lvl=info msg="Request Completed" method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=9 duration=9.6724ms size=8865 referer= traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T22:40:10.1+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-07-31T22:40:10.1+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-07-31T22:40:10.1+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-07-31T22:40:51.09+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T22:40:51.09+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T22:40:51.1+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T22:40:51.1+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T22:40:51.1+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T22:40:51.1+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T22:40:51.1+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T22:40:51.1+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T22:40:51.1+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T22:40:51.1+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T22:40:51.1+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T22:40:51.1+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T22:40:51.11+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T22:40:51.12+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-07-31T22:40:51.12+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T22:40:51.19+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T22:40:51.19+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T22:40:51.21+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:40:51.22+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:40:51.23+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:40:51.24+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:40:51.24+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:40:51.24+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T22:40:51.25+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T22:40:51.25+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-07-31T22:40:51.25+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-07-31T22:40:51.25+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=query_data t=2026-07-31T22:40:51.25+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T22:40:51.25+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T22:40:51.36+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-07-31T22:40:51.36+1200 lvl=info msg="storage starting"
+logger=ngalert t=2026-07-31T22:40:51.36+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-07-31T22:40:51.36+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-07-31T22:40:51.36+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-07-31T22:40:51.37+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:40:53.46+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0412ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T22:40:53.8+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:40:57.27+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:40:57.27+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=1 duration=1.5074ms size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:41:01.85+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=613.2µs size=0 referer= traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T22:46:19.58+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-07-31T22:46:19.58+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-07-31T22:46:19.58+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T22:46:21.49+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T22:46:21.49+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T22:46:21.49+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T22:46:21.51+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T22:46:21.52+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=1.0078ms
+logger=grafanaStorageLogger t=2026-07-31T22:46:21.52+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T22:46:21.58+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T22:46:21.58+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T22:46:21.59+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:46:21.6+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:46:21.61+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:46:21.62+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:46:21.63+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:46:21.63+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-07-31T22:46:21.63+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T22:46:21.63+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T22:46:21.63+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-07-31T22:46:21.63+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=query_data t=2026-07-31T22:46:21.64+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T22:46:21.64+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T22:46:21.75+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-07-31T22:46:21.75+1200 lvl=info msg="warming cache for startup"
+logger=ngalert.multiorg.alertmanager t=2026-07-31T22:46:21.75+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=provisioning.dashboard t=2026-07-31T22:46:21.75+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-07-31T22:46:21.75+1200 lvl=info msg="storage starting"
+logger=http.server t=2026-07-31T22:46:21.75+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:46:21.87+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=6 duration=6.1969ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T22:46:21.87+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:46:21.89+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0359ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:46:24.5+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0452ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:46:35.04+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:46:35.04+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=0 duration=591.1µs size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T22:50:15.54+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=tracing t=2026-07-31T22:50:15.54+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-07-31T22:50:15.54+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T22:51:54.15+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T22:51:54.15+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T22:51:54.15+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T22:51:54.17+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T22:51:54.18+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-07-31T22:51:54.18+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T22:51:54.26+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T22:51:54.26+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T22:51:54.28+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:51:54.29+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:51:54.31+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:51:54.31+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:51:54.32+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:51:54.33+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-07-31T22:51:54.33+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-07-31T22:51:54.33+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T22:51:54.33+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T22:51:54.33+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-07-31T22:51:54.33+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T22:51:54.33+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T22:51:54.45+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-07-31T22:51:54.45+1200 lvl=info msg="storage starting"
+logger=ngalert t=2026-07-31T22:51:54.45+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-07-31T22:51:54.45+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-07-31T22:51:54.45+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-07-31T22:51:54.45+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:51:56.5+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0375ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T22:51:56.82+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:51:59.73+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:51:59.73+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=1 duration=1.0026ms size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T22:55:20.03+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=tracing t=2026-07-31T22:55:20.03+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-07-31T22:55:20.03+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T22:56:09.42+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T22:56:09.42+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T22:56:09.42+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T22:56:09.43+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T22:56:09.44+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-07-31T22:56:09.44+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T22:56:09.5+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T22:56:09.51+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T22:56:09.52+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:56:09.53+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:56:09.54+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:56:09.55+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:56:09.56+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:56:09.56+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T22:56:09.56+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T22:56:09.56+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-07-31T22:56:09.56+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-07-31T22:56:09.56+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=query_data t=2026-07-31T22:56:09.57+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T22:56:09.57+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T22:56:09.68+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-07-31T22:56:09.68+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-07-31T22:56:09.68+1200 lvl=info msg="storage starting"
+logger=ngalert.multiorg.alertmanager t=2026-07-31T22:56:09.68+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=provisioning.dashboard t=2026-07-31T22:56:09.68+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=http.server t=2026-07-31T22:56:09.69+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:56:12.52+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0377ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T22:56:12.78+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:56:22.86+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=503.7µs size=0 referer= traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T22:58:26.87+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-07-31T22:58:26.87+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-07-31T22:58:26.87+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-07-31T22:59:56.8+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T22:59:56.8+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T22:59:56.8+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T22:59:56.8+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T22:59:56.8+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T22:59:56.8+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T22:59:56.81+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T22:59:56.81+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T22:59:56.81+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T22:59:56.81+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T22:59:56.81+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T22:59:56.81+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T22:59:56.82+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T22:59:56.83+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=1.0643ms
+logger=grafanaStorageLogger t=2026-07-31T22:59:56.83+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T22:59:56.9+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T22:59:56.9+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T22:59:56.92+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:59:56.93+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:59:56.94+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:59:56.95+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:59:56.96+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T22:59:56.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-07-31T22:59:56.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-07-31T22:59:56.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T22:59:56.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T22:59:56.96+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-07-31T22:59:56.96+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T22:59:56.96+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T22:59:57.07+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-07-31T22:59:57.07+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-07-31T22:59:57.07+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-07-31T22:59:57.07+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-07-31T22:59:57.08+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-07-31T22:59:57.08+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T22:59:59.48+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.1134ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T22:59:59.83+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T23:00:19.98+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T23:00:19.98+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=10 duration=10.2509ms size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T23:02:20.05+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-07-31T23:02:20.05+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-07-31T23:02:20.05+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-07-31T23:03:19.28+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-07-31T23:03:19.28+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-07-31T23:03:19.28+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-07-31T23:03:19.29+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-07-31T23:03:19.3+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=505.9µs
+logger=grafanaStorageLogger t=2026-07-31T23:03:19.3+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-07-31T23:03:19.37+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-07-31T23:03:19.37+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-07-31T23:03:19.39+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T23:03:19.4+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T23:03:19.41+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T23:03:19.41+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T23:03:19.42+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-07-31T23:03:19.42+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-07-31T23:03:19.42+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-07-31T23:03:19.42+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-07-31T23:03:19.42+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-07-31T23:03:19.42+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-07-31T23:03:19.43+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-07-31T23:03:19.44+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-07-31T23:03:19.54+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-07-31T23:03:19.54+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-07-31T23:03:19.54+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-07-31T23:03:19.54+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-07-31T23:03:19.55+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-07-31T23:03:19.55+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T23:03:22.51+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.5114ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-07-31T23:03:22.79+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T23:03:37.55+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-07-31T23:03:37.55+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=1 duration=1.5047ms size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-07-31T23:04:57.06+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-07-31T23:04:57.06+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-07-31T23:04:57.06+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-08-01T10:59:56.27+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-08-01T10:59:56.27+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-08-01T10:59:56.27+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-08-01T10:59:56.29+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-08-01T10:59:56.29+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=1.005ms
+logger=grafanaStorageLogger t=2026-08-01T10:59:56.3+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-08-01T10:59:56.76+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-08-01T10:59:56.76+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-08-01T10:59:56.83+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T10:59:56.85+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T10:59:56.87+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T10:59:56.88+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T10:59:56.9+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T10:59:56.9+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-08-01T10:59:56.9+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-08-01T10:59:56.9+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-08-01T10:59:56.9+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-08-01T10:59:56.9+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=query_data t=2026-08-01T10:59:57.06+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-08-01T10:59:57.07+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-08-01T10:59:57.2+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-08-01T10:59:57.2+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-08-01T10:59:57.2+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-08-01T10:59:57.2+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-08-01T10:59:57.22+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-08-01T10:59:57.4+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:00:05.22+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=2 duration=2.092ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-08-01T11:00:05.72+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:00:18.5+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:00:18.5+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=2 duration=2.4975ms size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-08-01T11:05:16.7+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=tracing t=2026-08-01T11:05:16.7+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-08-01T11:05:16.7+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-08-01T11:10:03.43+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-08-01T11:10:03.43+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-08-01T11:10:03.43+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-08-01T11:10:03.45+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-08-01T11:10:03.46+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=527.5µs
+logger=grafanaStorageLogger t=2026-08-01T11:10:03.46+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-08-01T11:10:03.95+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-08-01T11:10:03.95+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64.exe_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-08-01T11:10:04.02+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:10:04.04+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:10:04.06+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:10:04.08+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:10:04.1+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:10:04.1+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-08-01T11:10:04.1+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-08-01T11:10:04.1+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-08-01T11:10:04.1+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-08-01T11:10:04.1+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-08-01T11:10:04.25+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-08-01T11:10:04.26+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-08-01T11:10:04.4+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=provisioning.dashboard t=2026-08-01T11:10:04.4+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert t=2026-08-01T11:10:04.4+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-08-01T11:10:04.4+1200 lvl=info msg="storage starting"
+logger=ngalert.multiorg.alertmanager t=2026-08-01T11:10:04.4+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-08-01T11:10:04.6+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:04.77+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=6 duration=6.8176ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-08-01T11:10:04.77+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:06.83+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0358ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:07.07+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=45 duration=45.5474ms size=375 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:07.08+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=49 duration=49.5091ms size=262 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:07.11+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=35 duration=35.6807ms size=324 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:07.15+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=35 duration=35.9845ms size=270 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:07.27+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=40 duration=40.5003ms size=349 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:07.31+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=51 duration=51.7155ms size=427 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:07.32+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=44 duration=44.8801ms size=494 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:07.33+1200 lvl=info msg="Request Completed" method=POST path=/api/ds/query status=400 remote_addr=[::1] time_ms=47 duration=47.0117ms size=770 referer="http://localhost:3000/d/EY127sip5/national-report-card?orgId=1" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:13.85+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=506.1µs size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:18.39+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:10:18.39+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=0 duration=0s size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-08-01T11:10:22.03+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-08-01T11:10:22.03+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-08-01T11:10:22.03+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-08-01T11:12:58.87+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-08-01T11:12:58.87+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-08-01T11:12:58.87+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-08-01T11:12:58.89+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-08-01T11:12:58.9+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=1.009ms
+logger=grafanaStorageLogger t=2026-08-01T11:12:58.9+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-08-01T11:12:58.97+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-08-01T11:12:58.97+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64.exe_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-08-01T11:12:58.98+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:12:58.99+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:12:59+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:12:59.01+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:12:59.02+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:12:59.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-08-01T11:12:59.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-08-01T11:12:59.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-08-01T11:12:59.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-08-01T11:12:59.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=query_data t=2026-08-01T11:12:59.03+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-08-01T11:12:59.03+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-08-01T11:12:59.14+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-08-01T11:12:59.14+1200 lvl=info msg="storage starting"
+logger=ngalert t=2026-08-01T11:12:59.14+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-08-01T11:12:59.14+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-08-01T11:12:59.14+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-08-01T11:12:59.14+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:13:01.48+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.5044ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-08-01T11:13:01.74+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:13:06.91+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:13:06.91+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=1 duration=1.5061ms size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:13:08.21+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=0 duration=506.3µs size=0 referer= traceID=00000000000000000000000000000000
+logger=server t=2026-08-01T11:13:09.7+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-08-01T11:13:09.7+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-08-01T11:13:09.7+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-08-01T11:16:32.75+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-08-01T11:16:32.75+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-08-01T11:16:32.75+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-08-01T11:16:32.77+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-08-01T11:16:32.78+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=1ms
+logger=grafanaStorageLogger t=2026-08-01T11:16:32.78+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-08-01T11:16:32.84+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.manager t=2026-08-01T11:16:32.84+1200 lvl=eror msg="Could not start plugin" pluginId=aut-dashboardgenerator-app err="exec: \"D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\plugins-bundled\\\\aut-dashboardgenerator-app\\\\aut-dashboardgenerator-app_windows_amd64.exe_windows_amd64.exe\": file does not exist"
+logger=plugin.loader t=2026-08-01T11:16:32.87+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:16:32.88+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:16:32.89+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:16:32.9+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:16:32.91+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:16:32.91+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-08-01T11:16:32.91+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-08-01T11:16:32.91+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-08-01T11:16:32.91+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-08-01T11:16:32.91+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-08-01T11:16:32.91+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-08-01T11:16:32.92+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-08-01T11:16:33.02+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-08-01T11:16:33.02+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-08-01T11:16:33.02+1200 lvl=info msg="storage starting"
+logger=ngalert.multiorg.alertmanager t=2026-08-01T11:16:33.02+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=provisioning.dashboard t=2026-08-01T11:16:33.02+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=http.server t=2026-08-01T11:16:33.03+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:16:35.58+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0485ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-08-01T11:16:35.82+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:16:51.6+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:16:51.6+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=0 duration=0s size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:17:12.62+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.1675ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:17:14.23+1200 lvl=eror msg="Plugin unavailable" error="plugin unavailable" traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:17:14.23+1200 lvl=eror msg="Request Completed" method=GET path=/api/plugins/aut-dashboardgenerator-app/resources status=503 remote_addr=[::1] time_ms=0 duration=0s size=78 referer=http://localhost:3000/a/aut-dashboardgenerator-app/creator traceID=00000000000000000000000000000000
+logger=server t=2026-08-01T11:18:35.88+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-08-01T11:18:35.88+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-08-01T11:18:35.88+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="Config loaded from" file=D:\CodeProjects\RandD\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="Path Home" path=D:\CodeProjects\RandD\dashboard-generator\release
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="Path Data" path=D:\CodeProjects\RandD\dashboard-generator\release\data
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="Path Logs" path=D:\CodeProjects\RandD\dashboard-generator\release\data\log
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="Path Plugins" path=D:\CodeProjects\RandD\dashboard-generator\release\data\plugins
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="Path Provisioning" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-08-01T11:19:20.63+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-08-01T11:19:20.63+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-08-01T11:19:20.63+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=D:\CodeProjects\RandD\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-08-01T11:19:20.65+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-08-01T11:19:20.65+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-08-01T11:19:20.66+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://D:\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\CodeProjects\\\\RandD\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-08-01T11:19:20.75+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.aut-dashboardgenerator-app t=2026-08-01T11:19:21.97+1200 lvl=info msg="Backend starting..."
+logger=plugin.loader t=2026-08-01T11:19:22+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:19:22.01+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:19:22.02+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:19:22.03+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:19:22.04+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-01T11:19:22.04+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-08-01T11:19:22.04+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-08-01T11:19:22.04+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-08-01T11:19:22.04+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-08-01T11:19:22.04+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=query_data t=2026-08-01T11:19:22.04+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-08-01T11:19:22.05+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-08-01T11:19:22.18+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\notifiers error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-08-01T11:19:22.18+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-08-01T11:19:22.18+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-08-01T11:19:22.18+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=D:\CodeProjects\RandD\dashboard-generator\release\conf\provisioning\dashboards error="open D:\\CodeProjects\\RandD\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=http.server t=2026-08-01T11:19:22.18+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=ngalert.multiorg.alertmanager t=2026-08-01T11:19:22.18+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:19:23.53+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.1161ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-08-01T11:19:23.8+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=plugin.aut-dashboardgenerator-app t=2026-08-01T11:19:50.76+1200 lvl=info msg="RESOURCE CALL: "
+logger=plugin.aut-dashboardgenerator-app t=2026-08-01T11:19:50.76+1200 lvl=info msg="Plugin Request Completed" pluginVersion= status=ok statusSource=plugin duration=0s endpoint=callResource pluginId=aut-dashboardgenerator-app
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-01T11:19:59.09+1200 lvl=info msg="Request Completed" method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=3 duration=3.7682ms size=8865 referer= traceID=00000000000000000000000000000000
+logger=server t=2026-08-01T11:20:18.09+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=tracing t=2026-08-01T11:20:18.09+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-08-01T11:20:18.09+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"

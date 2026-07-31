@@ -2,20 +2,22 @@ package main
 
 import (
 	"context"
-	"log"
 
 	"github.com/grafana/grafana-plugin-sdk-go/backend"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/app"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/instancemgmt"
+	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
 )
 
 func main() {
+	log.DefaultLogger.Info("Backend starting...")
+
 	if err := app.Manage(
 		"aut-dashboardgenerator-app",
 		NewApp,
 		app.ManageOpts{},
 	); err != nil {
-		log.Fatal(err)
+		log.DefaultLogger.Error("Failed to manage app", "error", err)
 	}
 }
 
