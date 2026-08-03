@@ -5,6 +5,7 @@ import (
 	"context"
 	"github.com/grafana/grafana-plugin-sdk-go/backend"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
+
 )
 
 type App struct{}
@@ -27,7 +28,7 @@ func (a *App) CheckHealth(
 }
 func (a *App) CallResource(ctx context.Context, req *backend.CallResourceRequest, sender backend.CallResourceResponseSender) error {
 
-	log.DefaultLogger.Info("RESOURCE CALL: " + req.Path)
+	log.DefaultLogger.Info("RESOURCE CALL: V999" + req.Path)
 
 	return sender.Send(&backend.CallResourceResponse{
 		Status: 200,
