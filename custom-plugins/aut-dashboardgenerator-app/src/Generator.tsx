@@ -1,21 +1,32 @@
 import React, { useState } from 'react';
 import { Icon, Field, TextArea, Button } from '@grafana/ui';
-import { getBackendSrv } from '@grafana/runtime';
+import { getBackendSrv, config  } from '@grafana/runtime';
 
-async function test_backend_api() {
+const user = config.bootData.user;
+
+async function SetKey(key: string, value: string) {
   const result = await getBackendSrv().fetch({
-    url: '/api/plugins/aut-dashboardgenerator-app/resources',
-    method: 'GET',
+    url: '/api/plugins/aut-dashboardgenerator-app/resources/set_key',
+    method: 'POST',
+    data: {'key': key, 'value': value, 'userid' : String(user.id)}
   }).toPromise();
-
+  return result;
+}
+async function GetKey(key : string) {
+  const result = await getBackendSrv().fetch({
+    url: '/api/plugins/aut-dashboardgenerator-app/resources/get_key',
+    method: 'POST',
+    data: {'key': key, 'userid' : String(user.id) }
+  }).toPromise();
   return result;
 }
 
-
 const onTestClick = async () => {
   try {
-    const result = await test_backend_api();
+    const result = await SetKey('openai_apikey', 'test_value');
+    const result2 = await GetKey('openai_apikey');
     console.log(result);
+    console.log(result2);
   } catch (err) {
     console.error(err);
   }
