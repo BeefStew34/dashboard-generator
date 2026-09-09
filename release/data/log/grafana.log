@@ -3899,3 +3899,290 @@ logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=a
 logger=server t=2026-07-30T13:00:59.54+1200 lvl=info msg="Shutdown started" reason="System signal: interrupt"
 logger=tracing t=2026-07-30T13:00:59.54+1200 lvl=info msg="Closing tracing"
 logger=ngalert t=2026-07-30T13:00:59.54+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="Path Home" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="Path Data" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="Path Logs" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\log
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="Path Plugins" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\plugins
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="Path Provisioning" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-08-04T09:53:41.87+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-08-04T09:53:41.87+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-08-04T09:53:41.87+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-08-04T09:53:41.9+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-08-04T09:53:41.91+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-08-04T09:53:41.91+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-08-04T09:53:42.05+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.loader t=2026-08-04T09:53:42.06+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-04T09:53:42.08+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-04T09:53:42.09+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-04T09:53:42.1+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-04T09:53:42.12+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-04T09:53:42.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-08-04T09:53:42.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-08-04T09:53:42.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-08-04T09:53:42.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-08-04T09:53:42.12+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-08-04T09:53:42.13+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-08-04T09:53:42.14+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-08-04T09:53:42.28+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-08-04T09:53:42.28+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-08-04T09:53:42.28+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-08-04T09:53:42.28+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\dashboards error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=http.server t=2026-08-04T09:53:42.3+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=ngalert.multiorg.alertmanager t=2026-08-04T09:53:42.32+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-08-04T09:53:44.36+1200 lvl=info msg="Request Completed" method=GET path=/ status=302 remote_addr=[::1] time_ms=0 duration=512.5µs size=53 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-08-04T09:54:06.49+1200 lvl=eror msg="Invalid username or password" error="invalid username or password" remote_addr=[::1] traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-08-04T09:54:06.49+1200 lvl=info msg="Request Completed" method=POST path=/login status=401 remote_addr=[::1] time_ms=33 duration=33.2851ms size=82 referer=http://localhost:3000/login traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-08-04T09:54:10.93+1200 lvl=eror msg="Invalid username or password" error="invalid username or password" remote_addr=[::1] traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-08-04T09:54:10.93+1200 lvl=info msg="Request Completed" method=POST path=/login status=401 remote_addr=[::1] time_ms=47 duration=47.2503ms size=82 referer=http://localhost:3000/login traceID=00000000000000000000000000000000
+logger=http.server t=2026-08-04T09:54:17.43+1200 lvl=info msg="Successful Login" User=admin@localhost
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-04T09:54:18.08+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=4 duration=4.405ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-08-04T09:54:19.04+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=server t=2026-08-04T10:00:15+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-08-04T10:00:15+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-08-04T10:00:15+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-08-20T11:00:59.5+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-08-20T11:00:59.51+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-08-20T11:00:59.51+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-08-20T11:00:59.51+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-08-20T11:00:59.51+1200 lvl=info msg="Path Home" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release
+logger=settings t=2026-08-20T11:00:59.51+1200 lvl=info msg="Path Data" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data
+logger=settings t=2026-08-20T11:00:59.51+1200 lvl=info msg="Path Logs" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\log
+logger=settings t=2026-08-20T11:00:59.51+1200 lvl=info msg="Path Plugins" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\plugins
+logger=settings t=2026-08-20T11:00:59.51+1200 lvl=info msg="Path Provisioning" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-08-20T11:00:59.51+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-08-20T11:00:59.51+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-08-20T11:00:59.51+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-08-20T11:00:59.54+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-08-20T11:00:59.55+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=2.7129ms
+logger=grafanaStorageLogger t=2026-08-20T11:00:59.55+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-08-20T11:00:59.69+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.loader t=2026-08-20T11:00:59.71+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-20T11:00:59.72+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-20T11:00:59.73+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-20T11:00:59.74+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-20T11:00:59.75+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-08-20T11:00:59.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-08-20T11:00:59.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-08-20T11:00:59.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-08-20T11:00:59.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-08-20T11:00:59.75+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=query_data t=2026-08-20T11:00:59.77+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-08-20T11:00:59.77+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-08-20T11:00:59.9+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-08-20T11:00:59.9+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-08-20T11:00:59.9+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\dashboards error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-08-20T11:00:59.9+1200 lvl=info msg="storage starting"
+logger=ngalert.multiorg.alertmanager t=2026-08-20T11:00:59.9+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-08-20T11:00:59.91+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 t=2026-08-20T11:01:02.35+1200 lvl=eror msg="Failed to look up user based on cookie" error="user token not found"
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-08-20T11:01:02.35+1200 lvl=info msg="Request Completed" method=GET path=/ status=302 remote_addr=[::1] time_ms=3 duration=3.6803ms size=53 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 t=2026-08-20T11:01:02.46+1200 lvl=eror msg="Failed to look up user based on cookie" error="user token not found"
+logger=context traceID=00000000000000000000000000000000 t=2026-08-20T11:01:05.78+1200 lvl=eror msg="Failed to look up user based on cookie" error="user token not found"
+logger=http.server t=2026-08-20T11:01:05.81+1200 lvl=info msg="Successful Login" User=admin@localhost
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-20T11:01:06.2+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=2 duration=2.2871ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-08-20T11:01:07.39+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-20T11:19:03.26+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=175 duration=175.4191ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-20T12:19:18.58+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=45 duration=45.6662ms size=0 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-08-20T12:31:32.26+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=30 duration=30.9895ms size=0 referer= traceID=00000000000000000000000000000000
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="Path Home" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="Path Data" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="Path Logs" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\log
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="Path Plugins" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\plugins
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="Path Provisioning" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-09-09T15:43:22.24+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-09-09T15:43:22.24+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-09-09T15:43:22.24+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-09-09T15:43:22.27+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-09-09T15:43:22.27+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-09-09T15:43:22.27+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-09-09T15:43:22.4+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.loader t=2026-09-09T15:43:22.41+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T15:43:22.42+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T15:43:22.42+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T15:43:22.43+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T15:43:22.43+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T15:43:22.43+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-09-09T15:43:22.43+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-09-09T15:43:22.43+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-09-09T15:43:22.43+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-09-09T15:43:22.43+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=query_data t=2026-09-09T15:43:22.45+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-09-09T15:43:22.45+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-09-09T15:43:22.52+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-09-09T15:43:22.52+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-09-09T15:43:22.52+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-09-09T15:43:22.52+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\dashboards error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=http.server t=2026-09-09T15:43:22.54+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=ngalert.multiorg.alertmanager t=2026-09-09T15:43:22.55+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=context traceID=00000000000000000000000000000000 t=2026-09-09T15:43:24.23+1200 lvl=eror msg="Failed to look up user based on cookie" error="user token not found"
+logger=context traceID=00000000000000000000000000000000 userId=0 orgId=0 uname= t=2026-09-09T15:43:24.23+1200 lvl=info msg="Request Completed" method=GET path=/ status=302 remote_addr=[::1] time_ms=1 duration=1.0756ms size=53 referer= traceID=00000000000000000000000000000000
+logger=context traceID=00000000000000000000000000000000 t=2026-09-09T15:43:24.33+1200 lvl=eror msg="Failed to look up user based on cookie" error="user token not found"
+logger=context traceID=00000000000000000000000000000000 t=2026-09-09T15:43:26.27+1200 lvl=eror msg="Failed to look up user based on cookie" error="user token not found"
+logger=http.server t=2026-09-09T15:43:26.29+1200 lvl=info msg="Successful Login" User=admin@localhost
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-09-09T15:43:26.49+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.567ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-09-09T15:43:27.26+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=server t=2026-09-09T15:44:47.94+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=tracing t=2026-09-09T15:44:47.94+1200 lvl=info msg="Closing tracing"
+logger=ngalert t=2026-09-09T15:44:47.94+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="Path Home" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="Path Data" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="Path Logs" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\log
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="Path Plugins" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\plugins
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="Path Provisioning" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-09-09T16:00:03.92+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-09-09T16:00:03.92+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-09-09T16:00:03.92+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-09-09T16:00:03.93+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-09-09T16:00:03.94+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-09-09T16:00:03.94+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-09-09T16:00:03.99+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.loader t=2026-09-09T16:00:04+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T16:00:04+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T16:00:04.01+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T16:00:04.02+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T16:00:04.02+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-09T16:00:04.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-09-09T16:00:04.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-09-09T16:00:04.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-09-09T16:00:04.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-09-09T16:00:04.02+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-09-09T16:00:04.03+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-09-09T16:00:04.04+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-09-09T16:00:04.11+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-09-09T16:00:04.11+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-09-09T16:00:04.11+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\dashboards error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-09-09T16:00:04.11+1200 lvl=info msg="storage starting"
+logger=http.server t=2026-09-09T16:00:04.12+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=ngalert.multiorg.alertmanager t=2026-09-09T16:00:04.12+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-09-09T16:00:06.46+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=1 duration=1.0731ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-09-09T16:00:07.12+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=server t=2026-09-09T16:01:26.13+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-09-09T16:01:26.13+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-09-09T16:01:26.13+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="Path Home" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="Path Data" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="Path Logs" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\log
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="Path Plugins" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\plugins
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="Path Provisioning" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-09-10T10:30:48.02+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-09-10T10:30:48.02+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-09-10T10:30:48.03+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-09-10T10:30:48.04+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-09-10T10:30:48.05+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=536.1µs
+logger=grafanaStorageLogger t=2026-09-10T10:30:48.05+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-09-10T10:30:48.11+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.loader t=2026-09-10T10:30:48.12+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:30:48.13+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:30:48.14+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:30:48.15+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:30:48.16+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:30:48.16+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-09-10T10:30:48.16+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-09-10T10:30:48.16+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-09-10T10:30:48.16+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-09-10T10:30:48.16+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=query_data t=2026-09-10T10:30:48.17+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-09-10T10:30:48.18+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-09-10T10:30:48.27+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-09-10T10:30:48.27+1200 lvl=info msg="warming cache for startup"
+logger=provisioning.dashboard t=2026-09-10T10:30:48.27+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\dashboards error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-09-10T10:30:48.27+1200 lvl=info msg="storage starting"
+logger=http.server t=2026-09-10T10:30:48.27+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=ngalert.multiorg.alertmanager t=2026-09-10T10:30:48.32+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-09-10T10:30:50.97+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=2 duration=2.1894ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-09-10T10:30:52.01+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="Path Home" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="Path Data" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="Path Logs" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\log
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="Path Plugins" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\plugins
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="Path Provisioning" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-09-10T10:40:08.96+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-09-10T10:40:08.96+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-09-10T10:40:08.96+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-09-10T10:40:08.98+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-09-10T10:40:08.98+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-09-10T10:40:08.98+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-09-10T10:40:09.02+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.loader t=2026-09-10T10:40:09.03+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:40:09.04+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:40:09.04+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:40:09.05+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:40:09.06+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:40:09.06+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-09-10T10:40:09.06+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-09-10T10:40:09.06+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=plugin.loader t=2026-09-10T10:40:09.06+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-09-10T10:40:09.06+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=query_data t=2026-09-10T10:40:09.07+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-09-10T10:40:09.07+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-09-10T10:40:09.15+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=grafanaStorageLogger t=2026-09-10T10:40:09.15+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-09-10T10:40:09.15+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\dashboards error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert t=2026-09-10T10:40:09.15+1200 lvl=info msg="warming cache for startup"
+logger=server t=2026-09-10T10:40:09.15+1200 lvl=eror msg="Stopped background service" service=*api.HTTPServer reason="failed to open listener on address 0.0.0.0:3000: listen tcp 0.0.0.0:3000: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+logger=tracing t=2026-09-10T10:40:09.15+1200 lvl=info msg="Closing tracing"
+logger=ngalert.multiorg.alertmanager t=2026-09-10T10:40:09.15+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=ngalert t=2026-09-10T10:40:09.15+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=infra.usagestats t=2026-09-10T10:40:09.15+1200 lvl=eror msg="Failed to get system stats" error="context canceled"
+logger=infra.usagestats t=2026-09-10T10:40:09.15+1200 lvl=eror msg="Failed to get last sent time" error="context canceled"
+logger=server t=2026-09-10T10:40:09.48+1200 lvl=eror msg="Server shutdown" error="*api.HTTPServer run error: failed to open listener on address 0.0.0.0:3000: listen tcp 0.0.0.0:3000: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-09-10T10:40:11.96+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=2 duration=2.6403ms size=0 referer= traceID=00000000000000000000000000000000
+logger=server t=2026-09-10T10:40:21.08+1200 lvl=info msg="Shutdown started" reason="System signal: terminated"
+logger=ngalert t=2026-09-10T10:40:21.08+1200 lvl=eror msg="unable to fetch orgIds" msg="context canceled"
+logger=tracing t=2026-09-10T10:40:21.08+1200 lvl=info msg="Closing tracing"
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="Starting Grafana" version=8.5.0 commit=6134e3cf35 branch=HEAD compiled=2022-04-21T22:36:58+12:00
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="The state of unified alerting is still not defined. The decision will be made during as we run the database migrations"
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release/conf/defaults.ini
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="Config loaded from" file=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\custom.ini
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="Path Home" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="Path Data" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="Path Logs" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\log
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="Path Plugins" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\plugins
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="Path Provisioning" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning
+logger=settings t=2026-09-10T10:44:18.55+1200 lvl=info msg="App mode production"
+logger=sqlstore t=2026-09-10T10:44:18.55+1200 lvl=info msg="Connecting to DB" dbtype=sqlite3
+logger=sqlstore t=2026-09-10T10:44:18.55+1200 lvl=warn msg="SQLite database file has broader permissions than it should" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\data\grafana.db mode=-rw-rw-rw- expected=-rw-r-----
+logger=migrator t=2026-09-10T10:44:18.56+1200 lvl=info msg="Starting DB migrations"
+logger=migrator t=2026-09-10T10:44:18.57+1200 lvl=info msg="migrations completed" performed=0 skipped=392 duration=0s
+logger=grafanaStorageLogger t=2026-09-10T10:44:18.57+1200 lvl=warn msg="error loading storage" prefix=public-static err="open blob.Bucket: parse \"file://C:\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\": invalid port \":\\\\Users\\\\Thi35\\\\OneDrive\\\\Desktop\\\\dashboard-generator\\\\release\\\\public\" after host"
+logger=plugin.manager t=2026-09-10T10:44:18.62+1200 lvl=info msg="Plugin registered" pluginId=aut-dashboardgenerator-app
+logger=plugin.loader t=2026-09-10T10:44:18.63+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-datasource appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:44:18.64+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupply-horizontal-bar appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:44:18.65+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-regionmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:44:18.65+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=msupplyfoundation-table appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:44:18.67+1200 lvl=warn msg="Could not find root URL that matches running application URL" plugin=m-supply-foundation-msupply-worldmap appUrl=http://demo-board.msupply.org:3000/ rootUrls="unsupported value type"
+logger=plugin.loader t=2026-09-10T10:44:18.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-table status=invalid
+logger=plugin.loader t=2026-09-10T10:44:18.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-worldmap status=invalid
+logger=plugin.loader t=2026-09-10T10:44:18.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupplyfoundation-datasource status=invalid
+logger=plugin.loader t=2026-09-10T10:44:18.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=msupply-horizontal-bar status=invalid
+logger=plugin.loader t=2026-09-10T10:44:18.67+1200 lvl=warn msg="Skipping loading plugin due to problem with signature" pluginID=m-supply-foundation-msupply-regionmap status=invalid
+logger=query_data t=2026-09-10T10:44:18.67+1200 lvl=info msg="Query Service initialization"
+logger=live.push_http t=2026-09-10T10:44:18.68+1200 lvl=info msg="Live Push Gateway initialization"
+logger=provisioning.notifiers t=2026-09-10T10:44:18.76+1200 lvl=eror msg="Can't read alert notification provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\notifiers error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\notifiers: The system cannot find the file specified."
+logger=ngalert t=2026-09-10T10:44:18.76+1200 lvl=info msg="warming cache for startup"
+logger=grafanaStorageLogger t=2026-09-10T10:44:18.76+1200 lvl=info msg="storage starting"
+logger=provisioning.dashboard t=2026-09-10T10:44:18.76+1200 lvl=eror msg="can't read dashboard provisioning files from directory" path=C:\Users\Thi35\OneDrive\Desktop\dashboard-generator\release\conf\provisioning\dashboards error="open C:\\Users\\Thi35\\OneDrive\\Desktop\\dashboard-generator\\release\\conf\\provisioning\\dashboards: The system cannot find the file specified."
+logger=ngalert.multiorg.alertmanager t=2026-09-10T10:44:18.76+1200 lvl=info msg="starting MultiOrg Alertmanager"
+logger=http.server t=2026-09-10T10:44:18.76+1200 lvl=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=context traceID=00000000000000000000000000000000 userId=1 orgId=1 uname=admin t=2026-09-10T10:44:21.87+1200 lvl=info msg="Request Completed" method=GET path=/api/live/ws status=0 remote_addr=[::1] time_ms=2 duration=2.06ms size=0 referer= traceID=00000000000000000000000000000000
+logger=live t=2026-09-10T10:44:22.72+1200 lvl=info msg="Initialized channel handler" channel=grafana/dashboard/uid/EY127sip5 address=grafana/dashboard/uid/EY127sip5
