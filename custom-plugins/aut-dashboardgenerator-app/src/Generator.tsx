@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Icon, Field, TextArea, Button } from '@grafana/ui';
 
 export const Heading = (txt: string) => {
@@ -23,55 +23,273 @@ export const Heading = (txt: string) => {
 
 type BigTextBoxProps = {
   rows?: number;
-  initialValue?: string;
+  value: string;
+  onChange: (value: string) => void;
 };
 
 export const BigTextBox = ({
   rows = 6,
-  initialValue = 'Test Test',
+  value,
+  onChange,
 }: BigTextBoxProps) => {
-  const [value, setValue] = useState<string>(initialValue);
+  const TextAreaComponent = TextArea as any;
 
   return (
-    <TextArea
+    <TextAreaComponent
       value={value}
       rows={rows}
       placeholder=""
-      onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => setValue(event.currentTarget.value)} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}      />
-    );
+      onChange={(e: any) => onChange(e.currentTarget.value)}
+    />
+  );
+};
 
+type DashboardPanel = {
+  id?: number;
+  title?: string;
+  type?: string;
+  gridPos?: {
+    h?: number;
+    w?: number;
+    x?: number;
+    y?: number;
+  };
+  options?: {
+    content?: string;
+  };
 };
 
 export const GeneratorPage = () => {
+  const [description, setDescription] = useState('Test Test');
 
-    //Dashboard Source view mode
-    const [sourceMode, setSourceMode] = useState<'code' | 'simple'>('code');
-    // Keep the JSON here so switching views does not erase edits.
-    const [sourceText, setSourceText] = useState<string>(`{
+  const [dashboardSource, setDashboardSource] = useState(`{
   "dashboard": {
-    "title": "Generated Dashboard",
-    "panels": []
+    "title": "Sales Dashboard",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Sales Over Time",
+        "type": "timeseries"
+      },
+      {
+        "id": 2,
+        "title": "Total Sales",
+        "type": "stat"
+      },
+      {
+        "id": 3,
+        "title": "Sales Information",
+        "type": "text",
+        "options": {
+          "content": "Dashboard preview is working"
+        }
+      }
+    ]
   }
 }`);
-    const changeToCodeVersion = () => {
-      setSourceMode('code');
-    };
-    const changeToSimpleVersion = () => {
-      setSourceMode('simple');
-    };
-    return (
-      <div
-        style={{ 
-          marginLeft : 'auto', 
-          marginRight: 'auto', 
-          maxWidth: '1440px'
+
+  const dashboardResult = useMemo(() => {
+    try {
+      const parsed = JSON.parse(dashboardSource);
+
+      const dashboard = parsed.dashboard || parsed;
+
+      if (!dashboard) {
+        return {
+          valid: false,
+          error: 'Dashboard is missing.',
+          dashboard: null,
+        };
+      }
+
+      if (!Array.isArray(dashboard.panels)) {
+        return {
+          valid: false,
+          error: 'Dashboard must contain a panels array.',
+          dashboard: null,
+        };
+      }
+
+      return {
+        valid: true,
+        error: '',
+        dashboard: dashboard,
+      };
+    } catch (error) {
+      return {
+        valid: false,
+        error: 'Invalid JSON',
+        dashboard: null,
+      };
+    }
+  }, [dashboardSource]);
+
+  const renderPanelContent = (panel: DashboardPanel) => {
+    switch (panel.type) {
+      case 'timeseries':
+        return (
+          <div
+            style={{
+              height: '100px',
+              display: 'flex',
+              alignItems: 'flex-end',
+              gap: '8px',
+              padding: '15px',
+            }}
+          >
+            <div
+              style={{
+                width: '20%',
+                height: '30%',
+                background: '#5794F2',
+              }}
+            />
+
+            <div
+              style={{
+                width: '20%',
+                height: '50%',
+                background: '#5794F2',
+              }}
+            />
+
+            <div
+              style={{
+                width: '20%',
+                height: '40%',
+                background: '#5794F2',
+              }}
+            />
+
+            <div
+              style={{
+                width: '20%',
+                height: '75%',
+                background: '#5794F2',
+              }}
+            />
+
+            <div
+              style={{
+                width: '20%',
+                height: '90%',
+                background: '#5794F2',
+              }}
+            />
+          </div>
+        );
+
+      case 'stat':
+        return (
+          <div
+            style={{
+              height: '100px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '30px',
+              fontWeight: 'bold',
+            }}
+          >
+            No data
+          </div>
+        );
+
+      case 'table':
+        return (
+          <div style={{ padding: '10px' }}>
+            <table
+              style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+              }}
+            >
+              <thead>
+                <tr>
+                  <th
+                    style={{
+                      border: '1px solid #CCCCCC',
+                      padding: '5px',
+                    }}
+                  >
+                    Column 1
+                  </th>
+
+                  <th
+                    style={{
+                      border: '1px solid #CCCCCC',
+                      padding: '5px',
+                    }}
+                  >
+                    Column 2
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td
+                    style={{
+                      border: '1px solid #CCCCCC',
+                      padding: '5px',
+                    }}
+                  >
+                    No data
+                  </td>
+
+                  <td
+                    style={{
+                      border: '1px solid #CCCCCC',
+                      padding: '5px',
+                    }}
+                  >
+                    No data
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        );
+
+      case 'text':
+        return (
+          <div
+            style={{
+              padding: '20px',
+              textAlign: 'center',
+            }}
+          >
+            {panel.options?.content || 'Text panel'}
+          </div>
+        );
+
+      default:
+        return (
+          <div
+            style={{
+              padding: '20px',
+              textAlign: 'center',
+            }}
+          >
+            Unsupported panel type: {panel.type || 'unknown'}
+          </div>
+        );
+    }
+  };
+
+  return (
+    <div
+      style={{
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        maxWidth: '1440px',
       }}
-      >
+    >
       <div>
         <Icon name="check" />
         <h1>Create Dashboard</h1>
       </div>
-      
+
       <div
         style={{
           display: 'grid',
@@ -80,17 +298,16 @@ export const GeneratorPage = () => {
           alignItems: 'start',
         }}
       >
-        
-        {/* Dashboard Preview side */}
+        {/* Dashboard Preview */}
         <div
           style={{
             gridColumn: '1',
             padding: '25px',
-            background: 'rgb(255, 255, 255)',
+            background: '#FFFFFF',
             borderRadius: '5px',
             minWidth: 0,
           }}
->
+        >
           {Heading('Dashboard Preview')}
 
           <div
@@ -102,158 +319,167 @@ export const GeneratorPage = () => {
               minWidth: '300px',
               borderRadius: '5px',
             }}
-          />
-          {/* Dashboard Description side */}
+          >
+            {!dashboardResult.valid && (
+              <div
+                style={{
+                  textAlign: 'center',
+                  padding: '30px',
+                }}
+              >
+                <h3>Cannot display dashboard</h3>
+                <p>{dashboardResult.error}</p>
+              </div>
+            )}
+
+            {dashboardResult.valid && dashboardResult.dashboard && (
+              <>
+                <h2 style={{ paddingLeft: '10px' }}>
+                  {dashboardResult.dashboard.title || 'Dashboard'}
+                </h2>
+
+                {dashboardResult.dashboard.panels.length === 0 && (
+                  <p
+                    style={{
+                      textAlign: 'center',
+                      padding: '30px',
+                    }}
+                  >
+                    No panels to display
+                  </p>
+                )}
+
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '10px',
+                  }}
+                >
+                  {dashboardResult.dashboard.panels.map(
+                    (panel: DashboardPanel, index: number) => (
+                      <div
+                        key={panel.id || index}
+                        style={{
+                          background: '#FFFFFF',
+                          border: '1px solid #CCCCCC',
+                          borderRadius: '3px',
+                          minHeight: '150px',
+                          overflow: 'hidden',
+                        }}
+                      >
+                        <div
+                          style={{
+                            padding: '8px 10px',
+                            borderBottom: '1px solid #DDDDDD',
+                            fontWeight: 'bold',
+                          }}
+                        >
+                          {panel.title || 'Untitled Panel'}
+                        </div>
+
+                        {renderPanelContent(panel)}
+                      </div>
+                    )
+                  )}
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Description */}
           <div
-          style ={{
-            background: '#F4F6F5',
-            margin: '20px',
-            padding: '10px',
-          }}
->
-
-<h3>Describe your new dashboard!</h3>
-
-<Field>
-  <BigTextBox rows={6} />
-</Field>
-
-<Button
-type="button"
-style={{
-  width: '100%',
-  justifyContent: 'center',
-
-}}
->
-Generate
-</Button>
-</div>
-        </div>
-      {/*Dashboard Source side */}
-      <div
-        style={{
-          gridColumn: '2',
-          padding: '25px',
-          background: 'rgb(255, 255, 255)',
-          borderRadius: '5px',
-          minWidth: 0,
-        }}
-      >
-        {Heading('Dashboard Source')}   
-
-        <div 
-        style = {{
-          background: '#F4F6F5',
-          margin: '20px',
-          padding: '10px',
-        }}
-        >
-          {/* Dashboard Source view mode buttons */}
-        
-        <div
-        style = {{
-          display: 'flex',
-          gap: '10px',
-           marginBottom: '15px',
-        }}
-        >
-          <Button
-          type = "button"
-            variant={sourceMode === 'code' ? 'primary' : 'secondary'}
-            onClick={changeToCodeVersion}
             style={{
-              flex: 1,
-              justifyContent: 'center',
+              background: '#F4F6F5',
+              margin: '20px',
+              padding: '10px',
             }}
           >
-            Code Version
-          </Button>
-          <Button
-          type = "button"
-             variant= {sourceMode === 'simple' 
-              ? 'primary' 
-              : 'secondary'
-            }
-            onClick={changeToSimpleVersion}
-            style={{
-              flex: 1,
-              justifyContent: 'center',
-            }}
-          >
-            Simple Version
-          </Button>
-        </div>
-        {/*Change field depending on mode */}
-        <Field>
-          {sourceMode === 'code' ? (
-            /*Code Version */
-            <TextArea
-                    rows={24}
-                    value={sourceText}
-                    aria-label="Dashboard Source"
-                    spellCheck={false}
-                    onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => setSourceText(event.currentTarget.value)} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}             />
-          ) : (
-            <div
-            style = {{
-              background: '#FFFFFF',
-              padding: '20px',
-              minHeight: '400px',
-              border: '1px solid #CCCCCC',
-              borderRadius: '3px',
-            }}
+            <h3>Describe your new dashboard!</h3>
+
+            <Field>
+              <BigTextBox
+                rows={6}
+                value={description}
+                onChange={setDescription}
+              />
+            </Field>
+
+            <Button
+              style={{
+                width: '100%',
+                justifyContent: 'center',
+              }}
             >
-              <h3> Generated Dashboard </h3>
-              <p>
-                <strong>Dashboard Title:</strong> Generated Dashboard
-              </p>
-              <p>
-                <strong>Panels:</strong> No panels added
-              </p>
-            </div>
-          )}
-        </Field>
-        {/* Action buttons: connect their handlers separately. */}
+              Generate
+            </Button>
+          </div>
+        </div>
 
+        {/* Dashboard Source */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr 1fr',
-            gap: '10px',
+            gridColumn: '2',
+            padding: '25px',
+            background: '#FFFFFF',
+            borderRadius: '5px',
+            minWidth: 0,
           }}
         >
-          <Button
-          type = "button"
-            variant="secondary"
+          {Heading('Dashboard Source')}
+
+          <div
             style={{
-              width: '100%',
-              justifyContent: 'center',
+              background: '#F4F6F5',
+              margin: '20px',
+              padding: '10px',
             }}
           >
-            Save
-          </Button>
-          <Button
-          type = "button"
-            variant="secondary"
-            style={{
-              width: '100%',
-              justifyContent: 'center',
-            }}
-          >
-            Share
-          </Button>
-          <Button
-          type = "button"
-            variant="secondary"
-            style={{
-              width: '100%',
-              justifyContent: 'center',
-            }}
-          >
-            Export
-          </Button>
-          </div>
+            <Field>
+              <BigTextBox
+                rows={24}
+                value={dashboardSource}
+                onChange={setDashboardSource}
+              />
+            </Field>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr 1fr',
+                gap: '10px',
+              }}
+            >
+              <Button
+                variant="secondary"
+                style={{
+                  width: '100%',
+                  justifyContent: 'center',
+                }}
+              >
+                Save
+              </Button>
+
+              <Button
+                variant="secondary"
+                style={{
+                  width: '100%',
+                  justifyContent: 'center',
+                }}
+              >
+                Share
+              </Button>
+
+              <Button
+                variant="secondary"
+                style={{
+                  width: '100%',
+                  justifyContent: 'center',
+                }}
+              >
+                Export
+              </Button>
+            </div>
           </div>
         </div>
       </div>
