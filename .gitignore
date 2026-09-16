@@ -5,3 +5,4 @@ node_modules
 dist
 pgsql
 release/plugins-bundled
+setup/go/
