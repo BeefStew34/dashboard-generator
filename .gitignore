@@ -6,3 +6,5 @@ dist
 pgsql
 release/plugins-bundled
 setup/go/
+release/data/grafana.db
+release/data/log/grafana.log
