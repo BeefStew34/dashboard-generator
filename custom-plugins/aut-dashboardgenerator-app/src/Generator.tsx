@@ -1,5 +1,37 @@
 import React, { useMemo, useState } from 'react';
 import { Icon, Field, TextArea, Button } from '@grafana/ui';
+import { getBackendSrv, config  } from '@grafana/runtime';
+
+const user = config.bootData.user;
+
+async function SetKey(key: string, value: string) {
+  const result = await getBackendSrv().fetch({
+    url: '/api/plugins/aut-dashboardgenerator-app/resources/set_key',
+    method: 'POST',
+    data: {'key': key, 'value': value, 'userid' : String(user.id)}
+  }).toPromise();
+  return result;
+}
+async function GetKey(key : string) {
+  const result = await getBackendSrv().fetch({
+    url: '/api/plugins/aut-dashboardgenerator-app/resources/get_key',
+    method: 'POST',
+    data: {'key': key, 'userid' : String(user.id) }
+  }).toPromise();
+  return result;
+}
+
+const onTestClick = async () => {
+  try {
+    const result = await SetKey('openai_apikey', 'test_value');
+    const result2 = await GetKey('openai_apikey');
+    console.log(result);
+    console.log(result2);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 
 export const Heading = (txt: string) => {
   return (
@@ -37,7 +69,7 @@ export const BigTextBox = ({
   return (
     <TextAreaComponent
       value={value}
-      rows={rows}
+      rows={6}
       placeholder=""
       onChange={(e: any) => onChange(e.currentTarget.value)}
     />
@@ -405,7 +437,7 @@ export const GeneratorPage = () => {
               />
             </Field>
 
-            <Button
+            <Button onClick={onTestClick}
               style={{
                 width: '100%',
                 justifyContent: 'center',
