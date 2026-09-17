@@ -5,5 +5,6 @@ node_modules
 dist
 pgsql
 release/plugins-bundled
-release/data/log/grafana.log
+setup/go/
 release/data/grafana.db
+release/data/log/grafana.log
