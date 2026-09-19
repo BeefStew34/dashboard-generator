@@ -1,37 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Icon, Field, TextArea, Button } from '@grafana/ui';
-import { getBackendSrv, config  } from '@grafana/runtime';
-
-const user = config.bootData.user;
-
-async function SetKey(key: string, value: string) {
-  const result = await getBackendSrv().fetch({
-    url: '/api/plugins/aut-dashboardgenerator-app/resources/set_key',
-    method: 'POST',
-    data: {'key': key, 'value': value, 'userid' : String(user.id)}
-  }).toPromise();
-  return result;
-}
-async function GetKey(key : string) {
-  const result = await getBackendSrv().fetch({
-    url: '/api/plugins/aut-dashboardgenerator-app/resources/get_key',
-    method: 'POST',
-    data: {'key': key, 'userid' : String(user.id) }
-  }).toPromise();
-  return result;
-}
-
-const onTestClick = async () => {
-  try {
-    const result = await SetKey('openai_apikey', 'test_value');
-    const result2 = await GetKey('openai_apikey');
-    console.log(result);
-    console.log(result2);
-  } catch (err) {
-    console.error(err);
-  }
-};
-
+import { Field, TextArea, Button } from '@grafana/ui';
 
 export const Heading = (txt: string) => {
   return (
@@ -318,7 +286,6 @@ export const GeneratorPage = () => {
       }}
     >
       <div>
-        <Icon name="check" />
         <h1>Create Dashboard</h1>
       </div>
 
@@ -437,7 +404,7 @@ export const GeneratorPage = () => {
               />
             </Field>
 
-            <Button onClick={onTestClick}
+            <Button 
               style={{
                 width: '100%',
                 justifyContent: 'center',
