@@ -1,5 +1,6 @@
 
 import React, { useMemo, useState } from 'react';
+import { GenerateDashboard } from 'LLMInterface';
 import { Button, Field, TextArea } from '@grafana/ui';
 import { getBackendSrv, getDataSourceSrv } from '@grafana/runtime';
 
@@ -26,7 +27,7 @@ type Dashboard = {
   panels: DashboardPanel[];
 };
 
-type QueryResult = {
+export type QueryResult = {
   fields: Array<{
     name: string;
     type: string;
@@ -825,7 +826,7 @@ function RenderGraph({
 
 export const GeneratorPage = () => {
   const [description, setDescription] = useState('Test Test');
-  const [generateMessage, setGenerateMessage] = useState('');
+  const [generateMessage, _] = useState('');
 
   // Existing Grafana PostgreSQL data source (no UID input needed).
   const dataSourceUid = '4a5KoB1Gk';
@@ -1182,9 +1183,7 @@ export const GeneratorPage = () => {
 
             <Button
               onClick={() => {
-                setGenerateMessage(
-                  'The Generate button is ready for LLM integration. It does not generate Dashboard Source yet.'
-                );
+                GenerateDashboard();
               }}
               style={{
                 width: '100%',
