@@ -11,6 +11,7 @@ import (
 	"github.com/grafana/grafana-plugin-sdk-go/backend/instancemgmt"
 	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
 	"github.com/hashicorp/go-set/v3"
+
 	_ "modernc.org/sqlite"
 )
 
@@ -20,10 +21,12 @@ var usercache = set.New[string](0)
 func main() {
 	dbPath := "./user_data.db"
 	var err error
-	user_keys := [4]struct {
+	user_keys := [5]struct {
 		key   string
 		value string
-	}{{key: "OpenAIKey", value: ""}, {key: "ClaudeAIKey", value: ""}, {key: "SelectedAI", value: ""}, {key: "ViewMode", value: "Simple"}}
+	}{{key: "OpenAIKey", value: ""}, {key: "ClaudeAIKey", value: ""}, {key: "SelectedAI", value: ""}, {key: "ViewMode", value: "Simple"}, {key: "Model", value: "none"}}
+
+	log.DefaultLogger.Debug("Starting application")
 
 	db, err = sql.Open("sqlite", "file:"+dbPath+"?mode=rwc")
 	if err != nil {
@@ -72,21 +75,21 @@ func ValidateUser(userid string) {
 
 func SetUserData(userid string, values string) error {
 	ValidateUser(userid)
-	query := "BEGIN TRANSACTION; UPDATE userdata SET OpenAIKey = ?, ClaudeAIKey = ?, SelectedAI = ?, ViewMode = ? WHERE id = ?; COMMIT;"
+	query := "BEGIN TRANSACTION; UPDATE userdata SET OpenAIKey = ?, ClaudeAIKey = ?, SelectedAI = ?, ViewMode = ?, Model = ? WHERE id = ?; COMMIT;"
 	var split_values = strings.Split(values, ",")
-	_, err := db.Exec(query, split_values[0], split_values[1], split_values[2], split_values[3], userid)
+	_, err := db.Exec(query, split_values[0], split_values[1], split_values[2], split_values[3], split_values[4], userid)
 	return err
 }
 
 func GetKeys(userid string) (string, error) {
 	ValidateUser(userid)
 	query := "SELECT * FROM userdata WHERE id = ?"
-	var values [5]string
-	err := db.QueryRow(query, userid).Scan(&values[0], &values[1], &values[2], &values[3], &values[4])
+	var values [6]string
+	err := db.QueryRow(query, userid).Scan(&values[0], &values[1], &values[2], &values[3], &values[4], &values[5])
 	if err != nil {
 		return "", err
 	}
-	return strings.Join(values[1:5], ","), nil
+	return strings.Join(values[1:6], ","), nil
 }
 
 func NewApp(ctx context.Context, settings backend.AppInstanceSettings) (instancemgmt.Instance, error) {

@@ -27,14 +27,17 @@ interface Settings {
     'ClaudeAIKey': string;
     'SelectedAI': string;
     'ViewMode': string;
+    'Model': string;
 }
 
 const defaultSettings: Settings = {
   'OpenAIKey': '',
   'ClaudeAIKey': '',
   'SelectedAI': 'OpenAI',
-  'ViewMode': 'simple'
+  'ViewMode': 'simple',
+  'Model': 'none'
 }
+export const currentSettings: Settings = { ...defaultSettings };
 
 export const UpdateTextSetting = (e: React.FormEvent<HTMLInputElement>, name: keyof Settings, setSettings: React.Dispatch<React.SetStateAction<Settings>>) => {
     setSettings(prev => ({ ...prev, [name]: e.currentTarget.value }));
@@ -47,6 +50,9 @@ interface NetMessage {
 export const GetSettingsForm = () => {
     const [settings, setSettings] = React.useState<Settings>(defaultSettings);
     React.useEffect(() => {
+        Object.assign(currentSettings, settings);
+    }, [settings]);
+    React.useEffect(() => {
         GetUserSettings().then((result) => {
             if (result == null) return;
             let values = (result.data as NetMessage).values.split(',');
@@ -55,10 +61,12 @@ export const GetSettingsForm = () => {
                 'OpenAIKey': values[0],
                 'ClaudeAIKey': values[1],
                 'SelectedAI': values[2],
-                'ViewMode': values[3]
+                'ViewMode': values[3],
+                'Model': values[4]
             }));
         });
     }, []);
+
     return (
         <Form 
             defaultValues={defaultSettings}
@@ -92,6 +100,22 @@ export const GetSettingsForm = () => {
                                 }}
                             />
                         </Field>
+                        <Label>Model</Label> 
+                        <Field>
+                            <Select
+                                options={[
+                                    { label: 'GPT-5 Mini', value: 'gpt-5-mini' },
+                                    { label: 'GPT-4', value: 'gpt-4' }
+                                ]}
+                                value={settings.Model}  
+                                 onChange={(e) => {
+                                    setSettings(prev => ({
+                                        ...prev,
+                                        Model: e.value ?? 'none'
+                                    }));
+                                }}
+                            />
+                        </Field>
                         
                         <h3>Application</h3>
                         <Label>View Mode</Label>
@@ -111,7 +135,7 @@ export const GetSettingsForm = () => {
                             />
                         </Field>
                         <Button onClick={() => {
-                            let values = `${settings.OpenAIKey},${settings.ClaudeAIKey},${settings.SelectedAI},${settings.ViewMode}`;
+                            let values = `${settings.OpenAIKey},${settings.ClaudeAIKey},${settings.SelectedAI},${settings.ViewMode},${settings.Model}`;
                             SetKeys(values);
                         }}>Save Settings</Button>
                     </div>

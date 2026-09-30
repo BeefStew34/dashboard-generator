@@ -26,9 +26,10 @@ func (a *App) CheckHealth(
 		Message: "AUT Dashboard Generator backend is running",
 	}, nil
 }
+
 func (a *App) CallResource(ctx context.Context, req *backend.CallResourceRequest, sender backend.CallResourceResponseSender) error {
 	//log.DefaultLogger.Info("RESOURCE BODY: " + string(req.Body[:]))
-	//log.DefaultLogger.Info("RESOURCE PATH: " + req.Path)
+	log.DefaultLogger.Info("RESOURCE PATH: " + req.Path)
 
 	switch req.Path {
 	case "set_key":
@@ -50,7 +51,6 @@ func (a *App) CallResource(ctx context.Context, req *backend.CallResourceRequest
 			Status: 200,
 			Body:   []byte(`{}`),
 		})
-
 	case "get_key":
 		var dat map[string]any
 		json.Unmarshal(req.Body, &dat)
@@ -70,6 +70,7 @@ func (a *App) CallResource(ctx context.Context, req *backend.CallResourceRequest
 			Body:   []byte(`{"values":"` + values + `"}`),
 		})
 	default:
+		log.DefaultLogger.Error("Invalid resource path")
 		return sender.Send(&backend.CallResourceResponse{
 			Status: 200,
 			Body:   []byte(`{}`),
