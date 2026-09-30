@@ -11,7 +11,7 @@ export const App = (props: AppRootProps) => {
 
   return (
     <div>
-      <h1>404</h1>
+      <h1>How to Use Instructions/Plugin Infomation/Plugin Configs</h1>
     </div>
   );
 };
