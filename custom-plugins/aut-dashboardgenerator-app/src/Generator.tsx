@@ -213,9 +213,7 @@ const initialDashboard: Dashboard = {
   ],
 };
 
-
 // 5. CONVERT GRAFANA DATAFRAMES TO ROWS
-
 
 function convertFramesToRows(frames: any[]): QueryResult {
   const allRows: Record<string, any>[] = [];
@@ -254,9 +252,7 @@ function convertFramesToRows(frames: any[]): QueryResult {
   };
 }
 
-
 // 6. DISPLAY QUERY RESULTS AS A TABLE
-
 
 function DataTable({ data }: { data: QueryResult }) {
   if (data.rows.length === 0) {
@@ -312,9 +308,7 @@ function DataTable({ data }: { data: QueryResult }) {
   );
 }
 
-
 // 7. TIME SERIES GRAPH
-
 
 function TimeSeriesGraph({ data }: { data: QueryResult }) {
   const timeField = data.fields.find(
@@ -486,9 +480,7 @@ function TimeSeriesGraph({ data }: { data: QueryResult }) {
   );
 }
 
-
 // 8. BAR CHART
-
 
 function BarChart({
   labels,
@@ -547,9 +539,7 @@ function BarChart({
   );
 }
 
-
 // 9. PIE CHART
-
 
 function PieChart({ data }: { data: QueryResult }) {
   const numericField = data.fields.find(
@@ -658,9 +648,7 @@ function PieChart({ data }: { data: QueryResult }) {
   );
 }
 
-
 // 10. HISTOGRAM
-
 
 function Histogram({ data }: { data: QueryResult }) {
   const numericField = data.fields.find(
@@ -705,10 +693,7 @@ function Histogram({ data }: { data: QueryResult }) {
 
   return <BarChart labels={labels} values={bins} />;
 }
-
-
 // 11. DISPLAY THE CORRECT GRAPH
-
 
 function RenderGraph({
   panel,
@@ -819,13 +804,11 @@ function RenderGraph({
       );
   }
 }
-
-
 // 12. MAIN DASHBOARD GENERATOR
 
-
 export const GeneratorPage = () => {
-  const [description, setDescription] = useState('Test Test');
+  const [description, setDescription] = useState<string>('Describe your new dashboard!');
+  
   const [generateMessage, _] = useState('');
 
   // Existing Grafana PostgreSQL data source (no UID input needed).
@@ -880,10 +863,9 @@ export const GeneratorPage = () => {
     }
   }, [dashboardSource]);
 
-  
+
   // 14. EXECUTE SQL FOR ALL PANELS
   
-
   const runSqlQueries = async () => {
     if (!dashboardResult.valid || !dashboardResult.dashboard) {
       setQueryError('Please provide valid dashboard JSON.');
@@ -1182,9 +1164,7 @@ export const GeneratorPage = () => {
             </Field>
 
             <Button
-              onClick={() => {
-                GenerateDashboard();
-              }}
+              onClick={() => GenerateDashboard(updateDashboardSource, description)}
               style={{
                 width: '100%',
                 justifyContent: 'center',
