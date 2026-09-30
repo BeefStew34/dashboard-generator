@@ -104,8 +104,10 @@ export const GetSettingsForm = () => {
                         <Field>
                             <Select
                                 options={[
-                                    { label: 'GPT-5 Mini', value: 'gpt-5-mini' },
-                                    { label: 'GPT-4', value: 'gpt-4' }
+                                    { label: 'GPT-3.5 Turbo(Recommended)', value: 'gpt-3.5-turbo' },
+                                    { label: 'GPT-5.5 Mini', value: 'gpt-5-mini' },
+                                    { label: 'GPT-5.5', value: 'gpt-5.5' },
+                                    { label: 'GPT-4.1 Nano', value: 'gpt-4.1-nano' }
                                 ]}
                                 value={settings.Model}  
                                  onChange={(e) => {
