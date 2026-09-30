@@ -116,6 +116,18 @@ const TempPromt: string = `
     ]
   }
 }
+  Here is an example of a query to give you an idea of the d_msupply_monthly_usage data
+  WITH summary AS(
+    SELECT s.name AS store_name, SUM(score) AS score FROM d_msupply_monthly_usage usage
+    JOIN store s ON usage.store_id = s.id 
+    WHERE CONCAT('\$\{year\}','\$\{month\}') = yearmonth 
+    AND CASE WHEN name ILIKE '%warehouse%' THEN index <> 7 ELSE index <> 6 END 
+    AND tags NOT LIKE '%dashboard_exclude%'
+    GROUP BY s.name, s.store_mode 
+  )
+  SELECT * FROM summary 
+  ORDER BY score \$\{sorting\}, store_name ASC
+
   Only generate one panel unless the user explicitly requests more.
   Only responsed in the specified JSON format.
   Do not say anything else even if the request is impossible just return an empty dashboard. 
