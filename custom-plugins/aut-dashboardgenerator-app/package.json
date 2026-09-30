@@ -1,35 +1,40 @@
 {
-  "name": "aut-aut-dashboardgenerator-app",
-  "version": "1.0.0",
-  "description": "AUT",
-  "scripts": {
-    "build": "grafana-toolkit plugin:build",
-    "test": "grafana-toolkit plugin:test",
-    "dev": "grafana-toolkit plugin:dev",
-    "watch": "grafana-toolkit plugin:dev --watch",
-    "sign": "grafana-toolkit plugin:sign",
-    "start": "yarn watch"
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "app",
+  "id": "aut-dashboardgenerator-app",
+  "name": "AUT Dashboard Generator",
+  "backend": true,
+  "executable": "aut-dashboardgenerator-app",
+  "info": {
+    "description": "AUT dashboard generator",
+    "author": {
+      "name": "AUT"
+    }
   },
-  "author": false,
-  "license": "Apache-2.0",
-  "devDependencies": {
-    "@grafana/toolkit": "8.5.0",
-    "@types/react": "^17.0.80",
-    "@types/react-dom": "^17.0.25"
-  },
+  "includes": [
+    {
+        "type": "page",
+        "name": "default",
+        "path": "/a/aut-dashboardgenerator-app/default",
+        "addToNav": false,
+        "defaultNav": true
+    },
+    {
+        "type": "page",
+        "name": "Create",
+        "path": "/a/aut-dashboardgenerator-app/creator",
+        "addToNav": true,
+        "defaultNav": false
+    },
+    {
+        "type": "page",
+        "name": "Settings",
+        "path": "/a/aut-dashboardgenerator-app/settings",
+        "addToNav": true,
+        "defaultNav": false
+    }
+  ],
   "dependencies": {
-    "@grafana/data": "8.5.0",
-    "@grafana/runtime": "8.5.0",
-    "@grafana/ui": "8.5.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "engines": {
-    "node": ">=14"
-  },
-  "overrides": {
-    "@types/react": "$@types/react",
-    "@types/react-dom": "$@types/react-dom"
+    "grafanaDependency": ">=8.5.0"
   }
 }
-
