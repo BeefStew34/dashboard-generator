@@ -26,8 +26,8 @@
     },
     {
         "type": "page",
-        "name": "Sharing",
-        "path": "/a/aut-dashboardgenerator-app/sharing",
+        "name": "settings",
+        "path": "/a/aut-dashboardgenerator-app/settings",
         "addToNav": true,
         "defaultNav": false
     }
