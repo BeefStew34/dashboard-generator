@@ -3,6 +3,7 @@
   "type": "app",
   "id": "aut-dashboardgenerator-app",
   "name": "AUT Dashboard Generator",
+  "backend": true,
   "info": {
     "description": "AUT dashboard generator",
     "author": {
