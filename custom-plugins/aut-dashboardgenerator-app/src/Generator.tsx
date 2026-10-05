@@ -1021,6 +1021,17 @@ export const GeneratorPage = () => {
   };
 
   // 16. PAGE INTERFACE
+  const [isGenerating, setIsGenerating] = useState(false);
+  const handleGenerate = async () => {
+    setIsGenerating(true);
+    try {
+      await GenerateDashboard(updateDashboardSource, description);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
 
   return (
     <div
@@ -1164,7 +1175,9 @@ export const GeneratorPage = () => {
             </Field>
 
             <Button
-              onClick={() => GenerateDashboard(updateDashboardSource, description)}
+              onClick={handleGenerate}
+              disabled={isGenerating}
+              icon={isGenerating ? 'fa fa-spinner' : undefined}
               style={{
                 width: '100%',
                 justifyContent: 'center',
@@ -1172,7 +1185,7 @@ export const GeneratorPage = () => {
                 color: '#FFFFFF',
               }}
             >
-              Generate
+              {isGenerating ? 'Generating...' : 'Generate'}
             </Button>
 
             {generateMessage && (
