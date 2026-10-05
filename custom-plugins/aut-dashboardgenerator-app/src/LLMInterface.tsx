@@ -1,5 +1,55 @@
 import { currentSettings as settings } from 'Settings';  
 import axios from 'axios';
+import { getDataSourceSrv } from '@grafana/runtime';
+import { dateTime } from '@grafana/data';
+
+const SQL = `
+  SELECT n.nspname AS table_schema,
+         c.relname AS table_name,
+         a.attname AS column_name,
+         format_type(a.atttypid, a.atttypmod) AS data_type,
+         CASE WHEN a.attnotnull THEN 'NO' ELSE 'YES' END AS is_nullable
+  FROM pg_attribute a
+  JOIN pg_class c ON c.oid = a.attrelid
+  JOIN pg_namespace n ON n.oid = c.relnamespace
+  WHERE a.attnum > 0
+    AND NOT a.attisdropped
+    AND c.relkind IN ('r', 'v', 'm', 'p')
+    AND n.nspname NOT IN ('pg_catalog', 'information_schema')
+    AND n.nspname NOT LIKE 'pg_toast%'
+  ORDER BY n.nspname, c.relname, a.attnum`;
+export async function getSchemaText(): Promise<string> {
+  const ds: any = await getDataSourceSrv().get();
+
+  const res = await ds
+    .query({
+      requestId: `schema-${Date.now()}`,
+      interval: '1s',
+      intervalMs: 1000,
+      maxDataPoints: 500,
+      scopedVars: {},
+      range: { from: dateTime().subtract(1, 'h'), to: dateTime(), raw: { from: 'now-1h', to: 'now' } },
+      targets: [{ refId: 'A', rawSql: SQL, format: 'table', rawQuery: true }],
+    })
+    .toPromise();
+
+  const frame = res.data[0];
+  const col = (name: string): any[] => frame.fields.find((f: any) => f.name === name).values.toArray();
+
+  const [schemas, tables, columns, types, nullable] = ['table_schema', 'table_name', 'column_name', 'data_type', 'is_nullable'].map(col);
+
+  const lines: string[] = [];
+  let current = '';
+  tables.forEach((t, i) => {
+    const full = `${schemas[i]}.${t}`;
+    if (full !== current) {
+      lines.push(`${current ? '\n' : ''}Table: ${full}`);
+      current = full;
+    }
+    lines.push(`  - ${columns[i]}: ${types[i]}${nullable[i] === 'NO' ? ' NOT NULL' : ''}`);
+  });
+  return lines.join('\n');
+}
 
 type OpenAIResponse = {
   output_text?: string; 
@@ -48,6 +98,8 @@ const AskOpenAI = async (prompt: string) => {
 const TempPromt: string = `
   You are a grafana dashboard generator.
   You will be given a user prompt and you will generate a corresponding Grafana dashboard.
+  Here is the data source information:
+  {datasource_info}
   Here is an example of the format:
   {
   "dashboard": {
@@ -116,18 +168,6 @@ const TempPromt: string = `
     ]
   }
 }
-  Here is an example of a query to give you an idea of the d_msupply_monthly_usage data
-  WITH summary AS(
-    SELECT s.name AS store_name, SUM(score) AS score FROM d_msupply_monthly_usage usage
-    JOIN store s ON usage.store_id = s.id 
-    WHERE CONCAT('\$\{year\}','\$\{month\}') = yearmonth 
-    AND CASE WHEN name ILIKE '%warehouse%' THEN index <> 7 ELSE index <> 6 END 
-    AND tags NOT LIKE '%dashboard_exclude%'
-    GROUP BY s.name, s.store_mode 
-  )
-  SELECT * FROM summary 
-  ORDER BY score \$\{sorting\}, store_name ASC
-
   Only generate one panel unless the user explicitly requests more.
   Only responsed in the specified JSON format.
   Do not say anything else even if the request is impossible just return an empty dashboard. 
@@ -137,7 +177,11 @@ const TempPromt: string = `
 
 export const GenerateDashboard = async (setSource: (s: string) => void, userPrompt: string) => {
   let output: string = "Failed to connect to LLM";
-  let LLM_Input = TempPromt.replace("{user_promt_here}", userPrompt);
+  const schema = await getSchemaText();
+  console.log('SCHEMA LENGTH:', schema.length); 
+  let LLM_Input = TempPromt.replace("{user_promt_here}", userPrompt).replace("{datasource_info}", schema);
+  console.log(LLM_Input);
+  
   switch(settings["SelectedAI"]){
     case "openai":
       output = await AskOpenAI(LLM_Input) ?? "Failed to get response from OpenAI";
