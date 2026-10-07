@@ -804,50 +804,82 @@ function RenderGraph({
       );
   }
 }
+// Keep the draft when navigating between Create and Settings.
+// A full browser reload resets this draft.
+let dashboardDraft = JSON.stringify(
+  { dashboard: initialDashboard },
+  null,
+  2
+);
+
 // 12. MAIN DASHBOARD GENERATOR
 
 export const GeneratorPage = () => {
-  const [description, setDescription] = useState<string>('Describe your new dashboard!');
-  
-  const [generateMessage, _] = useState('');
+  const [description, setDescription] = useState(
+    'Describe your new dashboard!'
+  );
 
-  // Existing Grafana PostgreSQL data source (no UID input needed).
+  const [generateMessage, setGenerateMessage] = useState('');
+  const [generating, setGenerating] = useState(false);
+
+  const {
+    settings,
+    loading: settingsLoading,
+    error: settingsError,
+  } = useSettings();
+
+  const [editorMode, setEditorMode] = useState<
+    'simple' | 'complex'
+  >(
+    settings.ViewMode === 'complex'
+      ? 'complex'
+      : 'simple'
+  );
+
+  const [viewOnly, setViewOnly] = useState(false);
+
+  // Keep your original data source.
   const dataSourceUid = '4a5KoB1Gk';
 
   const [dashboardSource, setDashboardSource] = useState(
-    JSON.stringify(
-      { dashboard: initialDashboard },
-      null,
-      2
-    )
+    dashboardDraft
   );
 
   const [queryLoading, setQueryLoading] = useState(false);
-
   const [queryError, setQueryError] = useState('');
 
   const [panelResults, setPanelResults] = useState<
     Record<number, QueryResult>
   >({});
 
-  
+  const requestVersion = useRef(0);
+
+  // Connect the existing Settings View Mode to this editor.
+  useEffect(() => {
+    setEditorMode(
+      settings.ViewMode === 'complex'
+        ? 'complex'
+        : 'simple'
+    );
+  }, [settings.ViewMode]);
+
+  // Ignore responses belonging to an unmounted page.
+  useEffect(() => {
+    requestVersion.current++;
+
+    setPanelResults({});
+    setQueryLoading(false);
+
+    return () => {
+      requestVersion.current++;
+    };
+  }, []);
+
   // 13. CHECK THE DASHBOARD JSON
-  
 
   const dashboardResult = useMemo(() => {
     try {
-      const parsed = JSON.parse(dashboardSource);
-
-      const dashboard: Dashboard =
-        parsed.dashboard || parsed;
-
-      if (!dashboard || !Array.isArray(dashboard.panels)) {
-        return {
-          valid: false,
-          error: 'Dashboard must contain a panels array.',
-          dashboard: null as Dashboard | null,
-        };
-      }
+      const dashboard = parseDashboard(dashboardSource);
 
       return {
         valid: true,
@@ -857,35 +889,54 @@ export const GeneratorPage = () => {
     } catch (error) {
       return {
         valid: false,
-        error: 'Invalid dashboard JSON.',
+
+        error:
+          error instanceof Error
+            ? error.message
+            : 'Invalid dashboard JSON.',
+
         dashboard: null as Dashboard | null,
       };
     }
   }, [dashboardSource]);
 
-
   // 14. EXECUTE SQL FOR ALL PANELS
-  
+
   const runSqlQueries = async () => {
-    if (!dashboardResult.valid || !dashboardResult.dashboard) {
+    if (
+      !dashboardResult.valid ||
+      !dashboardResult.dashboard
+    ) {
       setQueryError('Please provide valid dashboard JSON.');
       return;
     }
 
     if (!dataSourceUid.trim()) {
-      setQueryError('Please enter your PostgreSQL data source UID.');
+      setQueryError(
+        'Please enter your PostgreSQL data source UID.'
+      );
       return;
     }
+
+    const version = ++requestVersion.current;
 
     setQueryLoading(true);
     setQueryError('');
     setPanelResults({});
 
     try {
-      // Retrieve the stored Grafana data source.
       const ds = await getDataSourceSrv().get(
         dataSourceUid.trim()
       );
+
+      if (
+        ds.type !== 'postgres' &&
+        ds.type !== 'grafana-postgresql-datasource'
+      ) {
+        throw new Error(
+          'This preview supports PostgreSQL data sources only.'
+        );
+      }
 
       const panels = dashboardResult.dashboard.panels;
 
@@ -893,6 +944,18 @@ export const GeneratorPage = () => {
         panels.map(async panel => {
           if (panel.type === 'text') {
             return [panel.id, null] as const;
+          }
+
+          if ((panel.targets?.length || 0) > 1) {
+            return [
+              panel.id,
+              {
+                fields: [],
+                rows: [],
+                error:
+                  'This preview supports one query per panel. Open the dashboard in Grafana for multiple queries.',
+              },
+            ] as const;
           }
 
           const target = panel.targets?.[0];
@@ -909,8 +972,6 @@ export const GeneratorPage = () => {
           }
 
           try {
-            
-
             const format =
               panel.type === 'timeseries'
                 ? 'time_series'
@@ -929,8 +990,8 @@ export const GeneratorPage = () => {
                     },
 
                     rawSql: target.rawSql,
+                    rawQuery: true,
                     format,
-
                     maxDataPoints: 1000,
                     intervalMs: 60000,
                   },
@@ -962,11 +1023,6 @@ export const GeneratorPage = () => {
               result.frames
             );
 
-            console.log(
-              `SQL results for panel ${panel.id}:`,
-              data
-            );
-
             return [panel.id, data] as const;
           } catch (error: any) {
             return [
@@ -983,7 +1039,6 @@ export const GeneratorPage = () => {
         })
       );
 
-     
       const newResults: Record<number, QueryResult> = {};
 
       results.forEach(([panelId, data]) => {
@@ -991,32 +1046,45 @@ export const GeneratorPage = () => {
           newResults[panelId] = {
             fields: [...data.fields],
             rows: [...data.rows],
-            ...(data.error ? { error: data.error } : {}),
+
+            ...(data.error
+              ? { error: data.error }
+              : {}),
           };
         }
       });
 
-      setPanelResults(newResults);
-
-
-
+      // Do not show results from before the latest edit.
+      if (version === requestVersion.current) {
+        setPanelResults(newResults);
+      }
     } catch (error: any) {
-      console.error('Data source error:', error);
+      if (version !== requestVersion.current) {
+        return;
+      }
 
       setQueryError(
         error?.message ||
-        'Unable to connect to the data source.'
+          'Unable to connect to the data source.'
       );
     } finally {
-      setQueryLoading(false);
+      if (version === requestVersion.current) {
+        setQueryLoading(false);
+      }
     }
   };
 
   // 15. UPDATE DASHBOARD SOURCE
 
   const updateDashboardSource = (value: string) => {
-    setDashboardSource(value);
+    requestVersion.current++;
 
+    setQueryLoading(false);
+    setQueryError('');
+
+    dashboardDraft = value;
+
+    setDashboardSource(value);
     setPanelResults({});
   };
 
@@ -1030,19 +1098,49 @@ export const GeneratorPage = () => {
         maxWidth: '1440px',
       }}
     >
-      <h1>Create Dashboard</h1>
+      <h1>
+        {viewOnly ? 'View Dashboard' : 'Create Dashboard'}
+      </h1>
+
+      {settingsLoading && (
+        <p>Loading settings…</p>
+      )}
+
+      {settingsError && (
+        <p role="alert">{settingsError}</p>
+      )}
+
+      <Button
+        variant="secondary"
+        onClick={() => setViewOnly(!viewOnly)}
+      >
+        {viewOnly ? 'Edit dashboard' : 'View dashboard'}
+      </Button>
+
+      {viewOnly && (
+        <Button
+          disabled={
+            queryLoading ||
+            settingsLoading ||
+            !!settingsError
+          }
+          onClick={runSqlQueries}
+        >
+          Refresh preview
+        </Button>
+      )}
 
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+          gridTemplateColumns: viewOnly
+            ? '1fr'
+            : 'repeat(auto-fit, minmax(360px, 1fr))',
           gap: '30px',
           alignItems: 'start',
         }}
       >
-        {/* ------------------------------------ */}
-        {/* DASHBOARD PREVIEW                    */}
-        {/* ------------------------------------ */}
+        {/* DASHBOARD PREVIEW */}
 
         <div
           style={{
@@ -1054,19 +1152,27 @@ export const GeneratorPage = () => {
         >
           {Heading('Dashboard Preview')}
 
-          {/* SQL queries run when the Save button is pressed below. */}
           {queryLoading && (
-            <p style={{ margin: '20px', color: '#445c94' }}>
+            <p
+              style={{
+                margin: '20px',
+                color: '#445c94',
+              }}
+            >
               Running SQL queries and updating preview...
             </p>
           )}
+
           {queryError && (
-            <p style={{ margin: '20px', color: '#C0392B' }}>
+            <p
+              style={{
+                margin: '20px',
+                color: '#C0392B',
+              }}
+            >
               {queryError}
             </p>
           )}
-
-          {/* ACTUAL DASHBOARD PREVIEW */}
 
           <div
             style={{
@@ -1117,8 +1223,6 @@ export const GeneratorPage = () => {
                             overflow: 'hidden',
                           }}
                         >
-                          {/* PANEL TITLE */}
-
                           <div
                             style={{
                               padding: '10px',
@@ -1129,8 +1233,6 @@ export const GeneratorPage = () => {
                           >
                             {panel.title || 'Untitled Panel'}
                           </div>
-
-                          {/* REAL SQL DATA GRAPH */}
 
                           <RenderGraph
                             panel={panel}
@@ -1146,116 +1248,229 @@ export const GeneratorPage = () => {
 
           {/* DASHBOARD DESCRIPTION */}
 
-          <div
-            style={{
-              background: '#F4F6F5',
-              margin: '20px',
-              padding: '15px',
-            }}
-          >
-            <h3>Describe your new dashboard!</h3>
-
-            <Field>
-              <BigTextBox
-                rows={6}
-                value={description}
-                onChange={setDescription}
-              />
-            </Field>
-
-            <Button
-              onClick={() => GenerateDashboard(updateDashboardSource, description)}
+          {!viewOnly && (
+            <div
               style={{
-                width: '100%',
-                justifyContent: 'center',
-                background: '#3267D5',
-                color: '#FFFFFF',
+                background: '#F4F6F5',
+                margin: '20px',
+                padding: '15px',
               }}
             >
-              Generate
-            </Button>
+              <h3>Describe your new dashboard!</h3>
 
-            {generateMessage && (
-              <p style={{ color: '#445c94', fontSize: '12px', marginTop: '8px' }}>
-                {generateMessage}
-              </p>
-            )}
-          </div>
+              <Field>
+                <BigTextBox
+                  rows={6}
+                  value={description}
+                  onChange={setDescription}
+                />
+              </Field>
+
+              <Button
+                disabled={
+                  generating ||
+                  settingsLoading ||
+                  !!settingsError ||
+                  !description.trim()
+                }
+                onClick={async () => {
+                  if (
+                    !window.confirm(
+                      'Replace the current dashboard with a newly generated dashboard?'
+                    )
+                  ) {
+                    return;
+                  }
+
+                  setGenerating(true);
+                  setGenerateMessage('Generating…');
+
+                  try {
+                    await GenerateDashboard(value => {
+                      parseDashboard(value);
+                      updateDashboardSource(value);
+                    }, description);
+
+                    setGenerateMessage(
+                      'Dashboard generated. Click Update preview to load its data.'
+                    );
+                  } catch (error) {
+                    setGenerateMessage(
+                      error instanceof Error
+                        ? error.message
+                        : 'Generation failed.'
+                    );
+                  } finally {
+                    setGenerating(false);
+                  }
+                }}
+                style={{
+                  width: '100%',
+                  justifyContent: 'center',
+                  background: '#3267D5',
+                  color: '#FFFFFF',
+                }}
+              >
+                Generate
+              </Button>
+
+              {generateMessage && (
+                <p
+                  style={{
+                    color: '#445c94',
+                    fontSize: '12px',
+                    marginTop: '8px',
+                  }}
+                >
+                  {generateMessage}
+                </p>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* ------------------------------------ */}
-        {/* DASHBOARD SOURCE                     */}
-        {/* ------------------------------------ */}
+        {/* DASHBOARD SOURCE */}
 
-        <div
-          style={{
-            padding: '25px',
-            background: '#FFFFFF',
-            borderRadius: '5px',
-            minWidth: 0,
-          }}
-        >
-          {Heading('Dashboard Source')}
-
+        {!viewOnly && (
           <div
             style={{
-              background: '#F4F6F5',
-              margin: '20px',
-              padding: '10px',
+              padding: '25px',
+              background: '#FFFFFF',
+              borderRadius: '5px',
+              minWidth: 0,
             }}
           >
-            <Field>
-              <BigTextBox
-                rows={28}
-                value={dashboardSource}
-                onChange={updateDashboardSource}
-              />
-            </Field>
+            {Heading('Dashboard Source')}
 
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr 1fr',
-                gap: '10px',
+                background: '#F4F6F5',
+                margin: '20px',
+                padding: '10px',
               }}
             >
-              <Button
-                variant="secondary"
-                onClick={runSqlQueries}
-                disabled={queryLoading || !dashboardResult.valid}
-              >
-                {queryLoading ? 'Updating Preview...' : 'Save'}
-              </Button>
-
-              <Button variant="secondary" disabled>
-                Share
-              </Button>
-
-              <Button
-                variant="secondary"
-                onClick={() => {
-                  const blob = new Blob(
-                    [dashboardSource],
-                    { type: 'application/json' }
-                  );
-
-                  const url = URL.createObjectURL(blob);
-
-                  const link =
-                    document.createElement('a');
-
-                  link.href = url;
-                  link.download = 'dashboard.json';
-                  link.click();
-
-                  URL.revokeObjectURL(url);
+              <div
+                style={{
+                  display: 'flex',
+                  gap: 8,
+                  marginBottom: 16,
                 }}
               >
-                Export
-              </Button>
+                <Button
+                  variant="secondary"
+                  disabled={
+                    !dashboardResult.valid ||
+                    generating
+                  }
+                  onClick={() => setEditorMode('simple')}
+                >
+                  Simple
+                </Button>
+
+                <Button
+                  variant="secondary"
+                  disabled={generating}
+                  onClick={() => setEditorMode('complex')}
+                >
+                  Code (JSON)
+                </Button>
+              </div>
+
+              <fieldset
+                disabled={generating || settingsLoading}
+                style={{
+                  border: 0,
+                  padding: 0,
+                  minWidth: 0,
+                }}
+              >
+                {editorMode === 'simple' &&
+                dashboardResult.dashboard ? (
+                  <SimpleDashboardEditor
+                    dashboard={dashboardResult.dashboard}
+                    onChange={dashboard =>
+                      updateDashboardSource(
+                        replaceDashboard(
+                          dashboardSource,
+                          dashboard
+                        )
+                      )
+                    }
+                  />
+                ) : (
+                  <Field label="Dashboard JSON">
+                    <BigTextBox
+                      rows={28}
+                      value={dashboardSource}
+                      onChange={updateDashboardSource}
+                    />
+                  </Field>
+                )}
+              </fieldset>
+
+              {!dashboardResult.valid && (
+                <p role="alert">
+                  {dashboardResult.error}
+                  {' '}
+                  Fix the JSON before using Simple mode.
+                </p>
+              )}
+
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr 1fr',
+                  gap: '10px',
+                }}
+              >
+                <Button
+                  variant="secondary"
+                  onClick={runSqlQueries}
+                  disabled={
+                    queryLoading ||
+                    generating ||
+                    settingsLoading ||
+                    !!settingsError ||
+                    !dashboardResult.valid
+                  }
+                >
+                  {queryLoading
+                    ? 'Updating Preview...'
+                    : 'Update preview'}
+                </Button>
+
+                <Button variant="secondary" disabled>
+                  Share
+                </Button>
+
+                <Button
+                  variant="secondary"
+                  disabled={
+                    !dashboardResult.valid ||
+                    generating
+                  }
+                  onClick={() => {
+                    const blob = new Blob(
+                      [dashboardSource],
+                      { type: 'application/json' }
+                    );
+
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+
+                    link.href = url;
+                    link.download = 'dashboard.json';
+                    link.click();
+
+                    URL.revokeObjectURL(url);
+                  }}
+                >
+                  Export
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
