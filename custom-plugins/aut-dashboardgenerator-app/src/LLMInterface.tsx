@@ -1,4 +1,5 @@
-import { currentSettings as settings } from 'Settings';  
+import { currentSettings as settings } from './Settings';
+import { loadSettings } from './usersetting';
 import axios from 'axios';
 import { getDataSourceSrv } from '@grafana/runtime';
 import { dateTime } from '@grafana/data';
@@ -59,12 +60,21 @@ type OpenAIResponse = {
   }>;
 };
 
-const extractResponse = (data: OpenAIResponse): string => {
-  const message = data.output.find(item => item.type === 'message');
+const extractResponse = (
+  data: OpenAIResponse
+): string => {
+  if (data.output_text) {
+    return data.output_text;
+  }
+
+  const message = (data.output || []).find(
+    item => item.type === 'message'
+  );
+
   return (
     message?.content
-      ?.filter(c => c.type === 'output_text')
-      .map(c => c.text ?? '')
+      ?.filter(content => content.type === 'output_text')
+      .map(content => content.text ?? '')
       .join('') ?? ''
   );
 };
@@ -72,7 +82,12 @@ const extractResponse = (data: OpenAIResponse): string => {
 const AskOpenAI = async (prompt: string) => {
     const key : string = settings["OpenAIKey"];
     const model : string = settings["Model"];
-    console.log("Ask Open AI Called");
+    if (!key || !model) {
+  throw new Error(
+    'Save an OpenAI key and model ID in Settings first.'
+  );
+}
+    
     const post_data = {
         "input": prompt,
         "model": model
@@ -88,7 +103,7 @@ const AskOpenAI = async (prompt: string) => {
       { headers }
     );
 
-    console.log(data);  
+
 
     if (status !== 200) return null;
 
@@ -175,18 +190,33 @@ const TempPromt: string = `
   {user_promt_here}
 `;
 
-export const GenerateDashboard = async (setSource: (s: string) => void, userPrompt: string) => {
-  let output: string = "Failed to connect to LLM";
+export const GenerateDashboard = async (
+  setSource: (source: string) => void,
+  userPrompt: string
+) => {
+  await loadSettings();
+
+  let output = '';
+
   const schema = await getSchemaText();
-  console.log('SCHEMA LENGTH:', schema.length); 
-  let LLM_Input = TempPromt.replace("{user_promt_here}", userPrompt).replace("{datasource_info}", schema);
-  console.log(LLM_Input);
-  
-  switch(settings["SelectedAI"]){
-    case "openai":
-      output = await AskOpenAI(LLM_Input) ?? "Failed to get response from OpenAI";
+
+  // Function replacers so "$" sequences in the schema or prompt are inserted literally.
+  const LLM_Input = TempPromt
+    .replace('{datasource_info}', () => schema)
+    .replace('{user_promt_here}', () => userPrompt);
+
+  switch (settings['SelectedAI']) {
+    case 'openai':
+      output =
+        (await AskOpenAI(LLM_Input)) ??
+        'Failed to get response from OpenAI';
       break;
-    // Add cases for other AI providers
+
+    default:
+      throw new Error(
+        'Only OpenAI generation is currently implemented. Select OpenAI in Settings.'
+      );
   }
+
   setSource(output);
 };
