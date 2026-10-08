@@ -1,6 +1,6 @@
-import { currentSettings as settings } from 'Settings';  
+import { currentSettings as settings } from './Settings';
+import { loadSettings } from './usersetting';
 import axios from 'axios';
-
 type OpenAIResponse = {
   output_text?: string; 
   output: Array<{
