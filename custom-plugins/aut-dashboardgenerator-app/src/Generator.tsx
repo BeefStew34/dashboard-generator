@@ -1381,24 +1381,6 @@ export const GeneratorPage = () => {
                   marginBottom: 16,
                 }}
               >
-                <Button
-                  variant="secondary"
-                  disabled={
-                    !dashboardResult.valid ||
-                    generating
-                  }
-                  onClick={() => setEditorMode('simple')}
-                >
-                  Simple
-                </Button>
-
-                <Button
-                  variant="secondary"
-                  disabled={generating}
-                  onClick={() => setEditorMode('complex')}
-                >
-                  Code (JSON)
-                </Button>
               </div>
 
               <fieldset
