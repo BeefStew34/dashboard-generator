@@ -10,8 +10,7 @@ import {
 import {
   Dashboard,
   DashboardPanel,
-} from './dashboardModel';
-
+} from './DashboardModel';
 const types = [
   ['timeseries', 'Line chart'],
   ['barchart', 'Bar chart'],
