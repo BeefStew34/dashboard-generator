@@ -1,4 +1,3 @@
-
 import React, {
   useEffect,
   useMemo,
@@ -15,14 +14,13 @@ import {
 } from '@grafana/ui';
 
 import {
-  config,
   getBackendSrv,
   getDataSourceSrv,
 } from '@grafana/runtime';
 
+import { useSettings } from './usersetting';
+
 import {
-  Dashboard,
-  DashboardPanel,
   parseDashboard,
   replaceDashboard,
 } from './DashboardModel';
@@ -30,10 +28,6 @@ import {
 import {
   SimpleDashboardEditor,
 } from './SimpleDashboard';
-
-import {
-  useSettings,
-} from './usersetting';
 
 
 // 1. TYPES
