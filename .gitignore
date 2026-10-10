@@ -7,3 +7,4 @@ pgsql
 release/plugins-bundled
 release/data/log/grafana.log
 release/data/grafana.db
+release/bin/user_data.db

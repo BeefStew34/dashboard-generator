@@ -3,7 +3,7 @@ import React, { useMemo, useState } from 'react';
 import { Button, Field, TextArea } from '@grafana/ui';
 
 import { useSettings } from './usersetting';
-import { parseDashboard, replaceDashboard } from './DashboardModel';
+import { parseDashboard, replaceDashboard, saveDashboardFromJson } from './DashboardModel';
 import { SimpleDashboardEditor } from './SimpleDashboard';
 
 import {
@@ -113,6 +113,27 @@ export const GeneratorPage = () => {
 
     setDashboardSource(value);
     resetPreview();
+  };
+
+  // Run queries and apply any user-visible instructions found in text panels.
+  const updatePreview = async () => {
+    if (!dashboardResult.dashboard) {
+      return;
+    }
+
+    // If any text panel contains an absolute URL, open it in the preview iframe.
+    for (const panel of dashboardResult.dashboard.panels) {
+      if (panel.type === 'text' && panel.options?.content) {
+        const m = String(panel.options.content).match(/https?:\/\/\S+/);
+        if (m) {
+          lastGeneratedDashboardUrl = m[0];
+          setDashboardUrl(m[0]);
+          break;
+        }
+      }
+    }
+
+    await runQueries(dashboardResult.dashboard);
   };
 
   // 13. PAGE INTERFACE
@@ -342,7 +363,7 @@ export const GeneratorPage = () => {
               >
                 <Button
                   variant="secondary"
-                  onClick={() => runQueries(dashboardResult.dashboard)}
+                  onClick={() => updatePreview()}
                   disabled={
                     queryLoading ||
                     generating ||
@@ -353,16 +374,66 @@ export const GeneratorPage = () => {
                   {queryLoading ? 'Updating Preview...' : 'Update preview'}
                 </Button>
 
-                <Button variant="secondary" disabled>
-                  Share
+                <Button
+                  variant="secondary"
+                  disabled={!dashboardResult.valid || generating}
+                  onClick={() => {
+                    let filename = 'dashboard.json';
+
+                    try {
+                      const parsed = parseDashboard(dashboardSource);
+                      const safe = parsed.title.replace(/[^a-z0-9\-_\.]/gi, '_');
+                      filename = `${safe}.json`;
+                    } catch (e) {
+                      // fall back to default
+                    }
+
+                    downloadDashboardJson(dashboardSource, filename);
+                  }}
+                >
+                  Export
                 </Button>
 
                 <Button
                   variant="secondary"
                   disabled={!dashboardResult.valid || generating}
-                  onClick={() => downloadDashboardJson(dashboardSource)}
+                  onClick={async () => {
+                    try {
+                      const parsed = parseDashboard(dashboardSource);
+                      const name = window.prompt('Save dashboard as:', parsed.title || 'My Dashboard');
+
+                      if (name === null) return; // user cancelled
+
+                      const trimmed = String(name).trim();
+                      if (!trimmed) {
+                        window.alert('Dashboard name cannot be empty.');
+                        return;
+                      }
+
+                      const newDashboard = { ...parsed, title: trimmed };
+                      const newSource = replaceDashboard(dashboardSource, newDashboard);
+
+                      setDashboardSource(newSource);
+
+                      const res = await saveDashboardFromJson(newSource, {
+                        overwrite: true,
+                        openAfterSave: true,
+                        message: 'Saved from dashboard generator',
+                      });
+
+                      if (res?.url) {
+                        lastGeneratedDashboardUrl = res.url;
+                        setDashboardUrl(res.url);
+                        window.alert(`Saved dashboard "${trimmed}".`);
+                      } else {
+                        window.alert('Dashboard saved.');
+                      }
+                    } catch (err: any) {
+                      window.alert(err?.message ?? 'Failed to save dashboard.');
+                    }
+                  }}
                 >
-                  Export
+                  Save
                 </Button>
               </div>
             </div>

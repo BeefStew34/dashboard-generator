@@ -591,7 +591,7 @@ const TempPromt: string = `
   Only responsed in the specified JSON format.
   Do not say anything else even if the request is impossible just return an empty dashboard. 
   The strings in your json response must not be multi-line.
-  {user_promt_here}
+  {user_prompt_here}
 `;
 
 export const GenerateDashboard = async (
@@ -609,7 +609,7 @@ export const GenerateDashboard = async (
   // Function replacers so "$" sequences in the schema or prompt are inserted literally.
   const LLM_Input = TempPromt
     .replace('{datasource_info}', () => schema)
-    .replace('{user_promt_here}', () => userPrompt)
+    .replace('{user_prompt_here}', userPrompt)
     .replace('{ds_type}', await getDataSourceType())
     .replace('{ds_uid}',"\$\{DS_POSTGRESQL\}");
   console.log(LLM_Input);
