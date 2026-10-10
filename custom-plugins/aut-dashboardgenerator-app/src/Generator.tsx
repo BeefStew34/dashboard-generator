@@ -151,7 +151,11 @@ export const GeneratorPage = () => {
             ? '1fr'
             : 'repeat(auto-fit, minmax(360px, 1fr))',
           gap: '30px',
-          alignItems: 'start',
+          alignItems: 'stretch',
+          gridAutoRows: '1fr',
+          height: 'calc(100vh - 120px)',
+          minHeight: '480px',
+          overflow: 'hidden',
         }}
       >
         {/* DASHBOARD PREVIEW */}
@@ -162,6 +166,10 @@ export const GeneratorPage = () => {
             background: '#FFFFFF',
             borderRadius: '5px',
             minWidth: 0,
+            // Make this column stretch to match the other column's height
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
           {Heading('Dashboard Preview')}
@@ -181,15 +189,18 @@ export const GeneratorPage = () => {
               background: '#F4F6F5',
               margin: '20px',
               padding: '10px',
-              minHeight: '300px',
               borderRadius: '5px',
+              // Allow this area to grow/shrink and clip its contents with scrolling
+              flex: 1,
+              minHeight: 0,
+              overflow: 'auto',
             }}
           >
             {dashboardUrl && (
               <iframe
                 title="Generated dashboard preview"
                 src={`${dashboardUrl}${dashboardUrl.includes('?') ? '&' : '?'}kiosk`}
-                style={{ width: '100%', height: '600px', border: 0 }}
+                style={{ width: '100%', height: '100%', border: 0 }}
               />
             )}
           </div>
@@ -273,6 +284,10 @@ export const GeneratorPage = () => {
               background: '#FFFFFF',
               borderRadius: '5px',
               minWidth: 0,
+              // Match height of the preview column
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
             {Heading('Dashboard Source')}
@@ -282,6 +297,10 @@ export const GeneratorPage = () => {
                 background: '#F4F6F5',
                 margin: '20px',
                 padding: '10px',
+                // Make the editor area scrollable so the column height remains stable
+                flex: 1,
+                minHeight: 0,
+                overflow: 'auto',
               }}
             >
               <fieldset
