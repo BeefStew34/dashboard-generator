@@ -1,69 +1,28 @@
-import React, {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useMemo, useState } from 'react';
 
-import { GenerateDashboard } from './LLMInterface';
-
-import {
-  Button,
-  Field,
-  TextArea,
-} from '@grafana/ui';
-
-import {
-  getBackendSrv,
-  getDataSourceSrv,
-} from '@grafana/runtime';
+import { Button, Field, TextArea } from '@grafana/ui';
 
 import { useSettings } from './usersetting';
+import { parseDashboard, replaceDashboard } from './DashboardModel';
+import { SimpleDashboardEditor } from './SimpleDashboard';
 
 import {
-  parseDashboard,
-  replaceDashboard,
-} from './DashboardModel';
+  Dashboard,
+  DashboardPanel,
+  QueryResult,
+  downloadDashboardJson,
+  useDashboardInteractions,
+} from './Interactions';
 
-import {
-  SimpleDashboardEditor,
-} from './SimpleDashboard';
+// Other files may import QueryResult from here, so keep exporting it.
+export type { QueryResult };
 
+// 1. CONSTANTS
 
-// 1. TYPES
-
-
-type DashboardPanel = {
-  id: number;
-  title: string;
-  type: string;
-  targets?: Array<{
-    refId?: string;
-    rawSql?: string;
-    format?: string;
-  }>;
-  options?: {
-    content?: string;
-  };
-};
-
-type Dashboard = {
-  title: string;
-  panels: DashboardPanel[];
-};
-
-export type QueryResult = {
-  fields: Array<{
-    name: string;
-    type: string;
-  }>;
-  rows: Record<string, any>[];
-  error?: string;
-};
-
+// PostgreSQL data source used for the preview.
+const DATA_SOURCE_UID = '4a5KoB1Gk';
 
 // 2. HEADING
-
 
 export const Heading = (txt: string) => {
   return (
@@ -85,9 +44,7 @@ export const Heading = (txt: string) => {
   );
 };
 
-
 // 3. TEXT BOX
-
 
 type BigTextBoxProps = {
   rows?: number;
@@ -95,11 +52,7 @@ type BigTextBoxProps = {
   onChange: (value: string) => void;
 };
 
-export const BigTextBox = ({
-  rows = 6,
-  value,
-  onChange,
-}: BigTextBoxProps) => {
+export const BigTextBox = ({ rows = 6, value, onChange }: BigTextBoxProps) => {
   const TextAreaComponent = TextArea as any;
 
   return (
@@ -111,9 +64,7 @@ export const BigTextBox = ({
   );
 };
 
-
 // 4. SAMPLE DASHBOARD
-
 
 const initialDashboard: Dashboard = {
   title: 'Visitor Dashboard',
@@ -238,46 +189,7 @@ const initialDashboard: Dashboard = {
   ],
 };
 
-// 5. CONVERT GRAFANA DATAFRAMES TO ROWS
-
-function convertFramesToRows(frames: any[]): QueryResult {
-  const allRows: Record<string, any>[] = [];
-
-  let fields: QueryResult['fields'] = [];
-
-  for (const frame of frames) {
-    const frameFields = frame.schema?.fields ?? [];
-    const values = frame.data?.values ?? [];
-
-    if (fields.length === 0) {
-      fields = frameFields.map((field: any) => ({
-        name: field.name,
-        type: field.type,
-      }));
-    }
-
-
-
-    const rowCount = values[0]?.length ?? 0;
-
-    for (let i = 0; i < rowCount; i++) {
-      const row: Record<string, any> = {};
-
-      frameFields.forEach((field: any, index: number) => {
-        row[field.name] = values[index]?.[i];
-      });
-
-      allRows.push(row);
-    }
-  }
-
-  return {
-    fields,
-    rows: allRows,
-  };
-}
-
-// 6. DISPLAY QUERY RESULTS AS A TABLE
+// 5. DISPLAY QUERY RESULTS AS A TABLE
 
 function DataTable({ data }: { data: QueryResult }) {
   if (data.rows.length === 0) {
@@ -333,28 +245,19 @@ function DataTable({ data }: { data: QueryResult }) {
   );
 }
 
-// 7. TIME SERIES GRAPH
+// 6. TIME SERIES GRAPH
 
 function TimeSeriesGraph({ data }: { data: QueryResult }) {
   const timeField = data.fields.find(
-    field =>
-      field.type === 'time' ||
-      field.name.toLowerCase() === 'time'
+    field => field.type === 'time' || field.name.toLowerCase() === 'time'
   );
 
   const numericField = data.fields.find(
-    field =>
-      field.type === 'number' &&
-      field.name !== timeField?.name
+    field => field.type === 'number' && field.name !== timeField?.name
   );
 
   if (!timeField || !numericField) {
-    return (
-      <p>
-        A time series requires a time column and a
-        numeric column.
-      </p>
-    );
+    return <p>A time series requires a time column and a numeric column.</p>;
   }
 
   const points = data.rows
@@ -383,30 +286,20 @@ function TimeSeriesGraph({ data }: { data: QueryResult }) {
   const plotHeight = height - padding * 2;
 
   const coordinates = points.map((point, index) => {
-    const x =
-      padding +
-      (index / Math.max(points.length - 1, 1)) *
-        plotWidth;
+    const x = padding + (index / Math.max(points.length - 1, 1)) * plotWidth;
 
     const y =
-      height -
-      padding -
-      ((point.value - minValue) / valueRange) *
-        plotHeight;
+      height - padding - ((point.value - minValue) / valueRange) * plotHeight;
 
     return { x, y };
   });
 
-  const linePoints = coordinates
-    .map(point => `${point.x},${point.y}`)
-    .join(' ');
+  const linePoints = coordinates.map(point => `${point.x},${point.y}`).join(' ');
 
   const formatTime = (value: any) => {
     const date = new Date(value);
 
-    return Number.isNaN(date.getTime())
-      ? String(value)
-      : date.toLocaleTimeString();
+    return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleTimeString();
   };
 
   return (
@@ -419,7 +312,6 @@ function TimeSeriesGraph({ data }: { data: QueryResult }) {
         }}
       >
         {/* X and Y axes */}
-
         <line
           x1={padding}
           y1={height - padding}
@@ -437,22 +329,15 @@ function TimeSeriesGraph({ data }: { data: QueryResult }) {
         />
 
         {/* Y-axis labels */}
-
         <text x="2" y={padding} fontSize="11" fill="#444">
           {maxValue.toFixed(0)}
         </text>
 
-        <text
-          x="2"
-          y={height - padding}
-          fontSize="11"
-          fill="#444"
-        >
+        <text x="2" y={height - padding} fontSize="11" fill="#444">
           {minValue.toFixed(0)}
         </text>
 
         {/* Graph line */}
-
         <polyline
           points={linePoints}
           fill="none"
@@ -461,15 +346,8 @@ function TimeSeriesGraph({ data }: { data: QueryResult }) {
         />
 
         {/* Data points */}
-
         {coordinates.map((point, index) => (
-          <circle
-            key={index}
-            cx={point.x}
-            cy={point.y}
-            r="4"
-            fill="#5794F2"
-          >
+          <circle key={index} cx={point.x} cy={point.y} r="4" fill="#5794F2">
             <title>
               {`${formatTime(points[index].time)}: ${points[index].value}`}
             </title>
@@ -477,13 +355,7 @@ function TimeSeriesGraph({ data }: { data: QueryResult }) {
         ))}
 
         {/* X-axis labels */}
-
-        <text
-          x={padding}
-          y={height - 5}
-          fontSize="11"
-          fill="#444"
-        >
+        <text x={padding} y={height - 5} fontSize="11" fill="#444">
           {formatTime(points[0].time)}
         </text>
 
@@ -505,7 +377,7 @@ function TimeSeriesGraph({ data }: { data: QueryResult }) {
   );
 }
 
-// 8. BAR CHART
+// 7. BAR CHART
 
 function BarChart({
   labels,
@@ -518,10 +390,7 @@ function BarChart({
     return <p>No numeric data available.</p>;
   }
 
-  const maxValue = Math.max(
-    ...values.map(value => Math.abs(value)),
-    1
-  );
+  const maxValue = Math.max(...values.map(value => Math.abs(value)), 1);
 
   return (
     <div style={{ padding: '15px' }}>
@@ -549,9 +418,7 @@ function BarChart({
           >
             <div
               style={{
-                width: `${
-                  (Math.abs(value) / maxValue) * 100
-                }%`,
+                width: `${(Math.abs(value) / maxValue) * 100}%`,
                 height: '100%',
                 background: '#5794F2',
                 borderRadius: '3px',
@@ -564,12 +431,10 @@ function BarChart({
   );
 }
 
-// 9. PIE CHART
+// 8. PIE CHART
 
 function PieChart({ data }: { data: QueryResult }) {
-  const numericField = data.fields.find(
-    field => field.type === 'number'
-  );
+  const numericField = data.fields.find(field => field.type === 'number');
 
   const categoryField = data.fields.find(
     field => field.name !== numericField?.name
@@ -579,30 +444,16 @@ function PieChart({ data }: { data: QueryResult }) {
     return <p>Pie chart requires categories and values.</p>;
   }
 
-  const colors = [
-    '#5794F2',
-    '#73BF69',
-    '#FF9830',
-    '#B877D9',
-    '#F2495C',
-    '#8AB8FF',
-  ];
+  const colors = ['#5794F2', '#73BF69', '#FF9830', '#B877D9', '#F2495C', '#8AB8FF'];
 
   const items = data.rows
     .map(row => ({
       label: String(row[categoryField.name]),
       value: Number(row[numericField.name]),
     }))
-    .filter(
-      item =>
-        Number.isFinite(item.value) &&
-        item.value > 0
-    );
+    .filter(item => Number.isFinite(item.value) && item.value > 0);
 
-  const total = items.reduce(
-    (sum, item) => sum + item.value,
-    0
-  );
+  const total = items.reduce((sum, item) => sum + item.value, 0);
 
   if (total <= 0) {
     return <p>No positive values available.</p>;
@@ -615,9 +466,7 @@ function PieChart({ data }: { data: QueryResult }) {
 
     currentPercentage += (item.value / total) * 100;
 
-    return `${
-      colors[index % colors.length]
-    } ${start}% ${currentPercentage}%`;
+    return `${colors[index % colors.length]} ${start}% ${currentPercentage}%`;
   });
 
   return (
@@ -657,14 +506,12 @@ function PieChart({ data }: { data: QueryResult }) {
               style={{
                 width: '12px',
                 height: '12px',
-                background:
-                  colors[index % colors.length],
+                background: colors[index % colors.length],
               }}
             />
 
             <span>
-              {item.label}:{' '}
-              {((item.value / total) * 100).toFixed(1)}%
+              {item.label}: {((item.value / total) * 100).toFixed(1)}%
             </span>
           </div>
         ))}
@@ -673,12 +520,10 @@ function PieChart({ data }: { data: QueryResult }) {
   );
 }
 
-// 10. HISTOGRAM
+// 9. HISTOGRAM
 
 function Histogram({ data }: { data: QueryResult }) {
-  const numericField = data.fields.find(
-    field => field.type === 'number'
-  );
+  const numericField = data.fields.find(field => field.type === 'number');
 
   if (!numericField) {
     return <p>Histogram requires numeric data.</p>;
@@ -698,13 +543,10 @@ function Histogram({ data }: { data: QueryResult }) {
   const binCount = 8;
   const binWidth = (max - min || 1) / binCount;
 
-  const bins = Array(binCount).fill(0);
+  const bins: number[] = Array(binCount).fill(0);
 
   values.forEach(value => {
-    const index = Math.min(
-      Math.floor((value - min) / binWidth),
-      binCount - 1
-    );
+    const index = Math.min(Math.floor((value - min) / binWidth), binCount - 1);
 
     bins[index]++;
   });
@@ -718,7 +560,8 @@ function Histogram({ data }: { data: QueryResult }) {
 
   return <BarChart labels={labels} values={bins} />;
 }
-// 11. DISPLAY THE CORRECT GRAPH
+
+// 10. PICK THE RIGHT GRAPH FOR A PANEL
 
 function RenderGraph({
   panel,
@@ -738,25 +581,17 @@ function RenderGraph({
   if (!data) {
     return (
       <p style={{ padding: '20px', color: '#666666' }}>
-        Click Save to load the graph.
+        Click Update preview to load the graph.
       </p>
     );
   }
 
   if (data.error) {
-    return (
-      <p style={{ padding: '20px', color: '#C0392B' }}>
-        {data.error}
-      </p>
-    );
+    return <p style={{ padding: '20px', color: '#C0392B' }}>{data.error}</p>;
   }
 
   if (data.rows.length === 0) {
-    return (
-      <p style={{ padding: '20px' }}>
-        SQL query returned no data.
-      </p>
-    );
+    return <p style={{ padding: '20px' }}>SQL query returned no data.</p>;
   }
 
   switch (panel.type) {
@@ -764,9 +599,7 @@ function RenderGraph({
       return <TimeSeriesGraph data={data} />;
 
     case 'barchart': {
-      const numericField = data.fields.find(
-        field => field.type === 'number'
-      );
+      const numericField = data.fields.find(field => field.type === 'number');
 
       const categoryField = data.fields.find(
         field => field.name !== numericField?.name
@@ -776,13 +609,8 @@ function RenderGraph({
         return <p>Bar chart requires categories and values.</p>;
       }
 
-      const labels = data.rows.map(
-        row => String(row[categoryField.name])
-      );
-
-      const values = data.rows.map(
-        row => Number(row[numericField.name])
-      );
+      const labels = data.rows.map(row => String(row[categoryField.name]));
+      const values = data.rows.map(row => Number(row[numericField.name]));
 
       return <BarChart labels={labels} values={values} />;
     }
@@ -794,13 +622,9 @@ function RenderGraph({
       return <Histogram data={data} />;
 
     case 'stat': {
-      const numericField = data.fields.find(
-        field => field.type === 'number'
-      );
+      const numericField = data.fields.find(field => field.type === 'number');
 
-      const value = numericField
-        ? data.rows[0]?.[numericField.name]
-        : null;
+      const value = numericField ? data.rows[0]?.[numericField.name] : null;
 
       return (
         <div
@@ -823,297 +647,68 @@ function RenderGraph({
 
     default:
       return (
-        <p style={{ padding: '20px' }}>
-          Unsupported panel type: {panel.type}
-        </p>
+        <p style={{ padding: '20px' }}>Unsupported panel type: {panel.type}</p>
       );
   }
 }
+
+// 11. DRAFT
+
 // Keep the draft when navigating between Create and Settings.
 // A full browser reload resets this draft.
-let dashboardDraft = JSON.stringify(
-  { dashboard: initialDashboard },
-  null,
-  2
-);
+let dashboardDraft = JSON.stringify({ dashboard: initialDashboard }, null, 2);
 
 // 12. MAIN DASHBOARD GENERATOR
 
 export const GeneratorPage = () => {
-  const [description, setDescription] = useState(
-    'Describe your new dashboard!'
-  );
-
-  const [generateMessage, setGenerateMessage] = useState('');
-  const [generating, setGenerating] = useState(false);
-
-  const {
-    settings,
-    loading: settingsLoading,
-    error: settingsError,
-  } = useSettings();
-
-  const [editorMode, setEditorMode] = useState<
-    'simple' | 'complex'
-  >(
-    settings.ViewMode === 'complex'
-      ? 'complex'
-      : 'simple'
-  );
-
+  const [description, setDescription] = useState('Describe your new dashboard!');
+  const [dashboardSource, setDashboardSource] = useState(dashboardDraft);
   const [viewOnly, setViewOnly] = useState(false);
 
-  // Keep your original data source.
-  const dataSourceUid = '4a5KoB1Gk';
+  const { settings, loading: settingsLoading, error: settingsError } = useSettings();
 
-  const [dashboardSource, setDashboardSource] = useState(
-    dashboardDraft
-  );
+  const {
+    panelResults,
+    queryLoading,
+    queryError,
+    generating,
+    generateMessage,
+    runQueries,
+    generate,
+    resetPreview,
+  } = useDashboardInteractions(DATA_SOURCE_UID);
 
-  const [queryLoading, setQueryLoading] = useState(false);
-  const [queryError, setQueryError] = useState('');
+  // The Settings "View Mode" decides which editor is shown.
+  const useSimpleEditor = settings.ViewMode !== 'complex';
+  const settingsBlocked = settingsLoading || !!settingsError;
 
-  const [panelResults, setPanelResults] = useState<
-    Record<number, QueryResult>
-  >({});
-
-  const requestVersion = useRef(0);
-
-  // Connect the existing Settings View Mode to this editor.
-  useEffect(() => {
-    setEditorMode(
-      settings.ViewMode === 'complex'
-        ? 'complex'
-        : 'simple'
-    );
-  }, [settings.ViewMode]);
-
-  // Ignore responses belonging to an unmounted page.
-  useEffect(() => {
-    requestVersion.current++;
-
-    setPanelResults({});
-    setQueryLoading(false);
-
-    return () => {
-      requestVersion.current++;
-    };
-  }, []);
-
-  // 13. CHECK THE DASHBOARD JSON
-
+  // Check the dashboard JSON whenever it changes.
   const dashboardResult = useMemo(() => {
     try {
-      const dashboard = parseDashboard(dashboardSource);
-
       return {
         valid: true,
         error: '',
-        dashboard,
+        dashboard: parseDashboard(dashboardSource) as Dashboard | null,
       };
     } catch (error) {
       return {
         valid: false,
-
         error:
-          error instanceof Error
-            ? error.message
-            : 'Invalid dashboard JSON.',
-
+          error instanceof Error ? error.message : 'Invalid dashboard JSON.',
         dashboard: null as Dashboard | null,
       };
     }
   }, [dashboardSource]);
 
-  // 14. EXECUTE SQL FOR ALL PANELS
-
-  const runSqlQueries = async () => {
-    if (
-      !dashboardResult.valid ||
-      !dashboardResult.dashboard
-    ) {
-      setQueryError('Please provide valid dashboard JSON.');
-      return;
-    }
-
-    if (!dataSourceUid.trim()) {
-      setQueryError(
-        'Please enter your PostgreSQL data source UID.'
-      );
-      return;
-    }
-
-    const version = ++requestVersion.current;
-
-    setQueryLoading(true);
-    setQueryError('');
-    setPanelResults({});
-
-    try {
-      const ds = await getDataSourceSrv().get(
-        dataSourceUid.trim()
-      );
-
-      if (
-        ds.type !== 'postgres' &&
-        ds.type !== 'grafana-postgresql-datasource'
-      ) {
-        throw new Error(
-          'This preview supports PostgreSQL data sources only.'
-        );
-      }
-
-      const panels = dashboardResult.dashboard.panels;
-
-      const results = await Promise.all(
-        panels.map(async panel => {
-          if (panel.type === 'text') {
-            return [panel.id, null] as const;
-          }
-
-          if ((panel.targets?.length || 0) > 1) {
-            return [
-              panel.id,
-              {
-                fields: [],
-                rows: [],
-                error:
-                  'This preview supports one query per panel. Open the dashboard in Grafana for multiple queries.',
-              },
-            ] as const;
-          }
-
-          const target = panel.targets?.[0];
-
-          if (!target?.rawSql?.trim()) {
-            return [
-              panel.id,
-              {
-                fields: [],
-                rows: [],
-                error: 'No SQL query found in this panel.',
-              },
-            ] as const;
-          }
-
-          try {
-            const format =
-              panel.type === 'timeseries'
-                ? 'time_series'
-                : 'table';
-
-            const response = await getBackendSrv().post(
-              '/api/ds/query',
-              {
-                queries: [
-                  {
-                    refId: 'A',
-
-                    datasource: {
-                      uid: ds.uid,
-                      type: ds.type,
-                    },
-
-                    rawSql: target.rawSql,
-                    rawQuery: true,
-                    format,
-                    maxDataPoints: 1000,
-                    intervalMs: 60000,
-                  },
-                ],
-
-                from: 'now-24h',
-                to: 'now',
-              }
-            );
-
-            const result = response.results?.A;
-
-            if (result?.error) {
-              throw new Error(result.error);
-            }
-
-            if (!result?.frames?.length) {
-              return [
-                panel.id,
-                {
-                  fields: [],
-                  rows: [],
-                  error: 'No DataFrame returned.',
-                },
-              ] as const;
-            }
-
-            const data = convertFramesToRows(
-              result.frames
-            );
-
-            return [panel.id, data] as const;
-          } catch (error: any) {
-            return [
-              panel.id,
-              {
-                fields: [],
-                rows: [],
-                error:
-                  error?.message ||
-                  'SQL query failed.',
-              },
-            ] as const;
-          }
-        })
-      );
-
-      const newResults: Record<number, QueryResult> = {};
-
-      results.forEach(([panelId, data]) => {
-        if (data) {
-          newResults[panelId] = {
-            fields: [...data.fields],
-            rows: [...data.rows],
-
-            ...(data.error
-              ? { error: data.error }
-              : {}),
-          };
-        }
-      });
-
-      // Do not show results from before the latest edit.
-      if (version === requestVersion.current) {
-        setPanelResults(newResults);
-      }
-    } catch (error: any) {
-      if (version !== requestVersion.current) {
-        return;
-      }
-
-      setQueryError(
-        error?.message ||
-          'Unable to connect to the data source.'
-      );
-    } finally {
-      if (version === requestVersion.current) {
-        setQueryLoading(false);
-      }
-    }
-  };
-
-  // 15. UPDATE DASHBOARD SOURCE
-
+  // Any edit makes the previewed data stale, so clear it.
   const updateDashboardSource = (value: string) => {
-    requestVersion.current++;
-
-    setQueryLoading(false);
-    setQueryError('');
-
     dashboardDraft = value;
 
     setDashboardSource(value);
-    setPanelResults({});
+    resetPreview();
   };
 
-  // 16. PAGE INTERFACE
+  // 13. PAGE INTERFACE
 
   return (
     <div
@@ -1123,33 +718,20 @@ export const GeneratorPage = () => {
         maxWidth: '1440px',
       }}
     >
-      <h1>
-        {viewOnly ? 'View Dashboard' : 'Create Dashboard'}
-      </h1>
+      <h1>{viewOnly ? 'View Dashboard' : 'Create Dashboard'}</h1>
 
-      {settingsLoading && (
-        <p>Loading settings…</p>
-      )}
+      {settingsLoading && <p>Loading settings…</p>}
 
-      {settingsError && (
-        <p role="alert">{settingsError}</p>
-      )}
+      {settingsError && <p role="alert">{settingsError}</p>}
 
-      <Button
-        variant="secondary"
-        onClick={() => setViewOnly(!viewOnly)}
-      >
+      <Button variant="secondary" onClick={() => setViewOnly(current => !current)}>
         {viewOnly ? 'Edit dashboard' : 'View dashboard'}
       </Button>
 
       {viewOnly && (
         <Button
-          disabled={
-            queryLoading ||
-            settingsLoading ||
-            !!settingsError
-          }
-          onClick={runSqlQueries}
+          disabled={queryLoading || settingsBlocked}
+          onClick={() => runQueries(dashboardResult.dashboard)}
         >
           Refresh preview
         </Button>
@@ -1178,25 +760,13 @@ export const GeneratorPage = () => {
           {Heading('Dashboard Preview')}
 
           {queryLoading && (
-            <p
-              style={{
-                margin: '20px',
-                color: '#445c94',
-              }}
-            >
+            <p style={{ margin: '20px', color: '#445c94' }}>
               Running SQL queries and updating preview...
             </p>
           )}
 
           {queryError && (
-            <p
-              style={{
-                margin: '20px',
-                color: '#C0392B',
-              }}
-            >
-              {queryError}
-            </p>
+            <p style={{ margin: '20px', color: '#C0392B' }}>{queryError}</p>
           )}
 
           <div
@@ -1209,66 +779,52 @@ export const GeneratorPage = () => {
             }}
           >
             {!dashboardResult.valid && (
-              <div
-                style={{
-                  textAlign: 'center',
-                  padding: '30px',
-                }}
-              >
+              <div style={{ textAlign: 'center', padding: '30px' }}>
                 <h3>Cannot display dashboard</h3>
                 <p>{dashboardResult.error}</p>
               </div>
             )}
 
-            {dashboardResult.valid &&
-              dashboardResult.dashboard && (
-                <>
-                  <h2 style={{ paddingLeft: '10px' }}>
-                    {dashboardResult.dashboard.title ||
-                      'Dashboard'}
-                  </h2>
+            {dashboardResult.valid && dashboardResult.dashboard && (
+              <>
+                <h2 style={{ paddingLeft: '10px' }}>
+                  {dashboardResult.dashboard.title || 'Dashboard'}
+                </h2>
 
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns:
-                        'repeat(auto-fit, minmax(220px, 1fr))',
-                      gap: '10px',
-                    }}
-                  >
-                    {dashboardResult.dashboard.panels.map(
-                      (panel, index) => (
-                        <div
-                          key={panel.id ?? index}
-                          style={{
-                            background: '#FFFFFF',
-                            border: '1px solid #CCCCCC',
-                            borderRadius: '3px',
-                            minHeight: '150px',
-                            overflow: 'hidden',
-                          }}
-                        >
-                          <div
-                            style={{
-                              padding: '10px',
-                              borderBottom:
-                                '1px solid #DDDDDD',
-                              fontWeight: 'bold',
-                            }}
-                          >
-                            {panel.title || 'Untitled Panel'}
-                          </div>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                    gap: '10px',
+                  }}
+                >
+                  {dashboardResult.dashboard.panels.map((panel, index) => (
+                    <div
+                      key={panel.id ?? index}
+                      style={{
+                        background: '#FFFFFF',
+                        border: '1px solid #CCCCCC',
+                        borderRadius: '3px',
+                        minHeight: '150px',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <div
+                        style={{
+                          padding: '10px',
+                          borderBottom: '1px solid #DDDDDD',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        {panel.title || 'Untitled Panel'}
+                      </div>
 
-                          <RenderGraph
-                            panel={panel}
-                            data={panelResults[panel.id]}
-                          />
-                        </div>
-                      )
-                    )}
-                  </div>
-                </>
-              )}
+                      <RenderGraph panel={panel} data={panelResults[panel.id]} />
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
           {/* DASHBOARD DESCRIPTION */}
@@ -1284,51 +840,12 @@ export const GeneratorPage = () => {
               <h3>Describe your new dashboard!</h3>
 
               <Field>
-                <BigTextBox
-                  rows={6}
-                  value={description}
-                  onChange={setDescription}
-                />
+                <BigTextBox rows={6} value={description} onChange={setDescription} />
               </Field>
 
               <Button
-                disabled={
-                  generating ||
-                  settingsLoading ||
-                  !!settingsError ||
-                  !description.trim()
-                }
-                onClick={async () => {
-                  if (
-                    !window.confirm(
-                      'Replace the current dashboard with a newly generated dashboard?'
-                    )
-                  ) {
-                    return;
-                  }
-
-                  setGenerating(true);
-                  setGenerateMessage('Generating…');
-
-                  try {
-                    await GenerateDashboard(value => {
-                      parseDashboard(value);
-                      updateDashboardSource(value);
-                    }, description);
-
-                    setGenerateMessage(
-                      'Dashboard generated. Click Update preview to load its data.'
-                    );
-                  } catch (error) {
-                    setGenerateMessage(
-                      error instanceof Error
-                        ? error.message
-                        : 'Generation failed.'
-                    );
-                  } finally {
-                    setGenerating(false);
-                  }
-                }}
+                disabled={generating || settingsBlocked || !description.trim()}
+                onClick={() => generate(description, updateDashboardSource)}
                 style={{
                   width: '100%',
                   justifyContent: 'center',
@@ -1374,33 +891,16 @@ export const GeneratorPage = () => {
                 padding: '10px',
               }}
             >
-              <div
-                style={{
-                  display: 'flex',
-                  gap: 8,
-                  marginBottom: 16,
-                }}
-              >
-              </div>
-
               <fieldset
                 disabled={generating || settingsLoading}
-                style={{
-                  border: 0,
-                  padding: 0,
-                  minWidth: 0,
-                }}
+                style={{ border: 0, padding: 0, minWidth: 0 }}
               >
-                {editorMode === 'simple' &&
-                dashboardResult.dashboard ? (
+                {useSimpleEditor && dashboardResult.dashboard ? (
                   <SimpleDashboardEditor
                     dashboard={dashboardResult.dashboard}
                     onChange={dashboard =>
                       updateDashboardSource(
-                        replaceDashboard(
-                          dashboardSource,
-                          dashboard
-                        )
+                        replaceDashboard(dashboardSource, dashboard)
                       )
                     }
                   />
@@ -1417,9 +917,7 @@ export const GeneratorPage = () => {
 
               {!dashboardResult.valid && (
                 <p role="alert">
-                  {dashboardResult.error}
-                  {' '}
-                  Fix the JSON before using Simple mode.
+                  {dashboardResult.error} Fix the JSON before using Simple mode.
                 </p>
               )}
 
@@ -1432,18 +930,15 @@ export const GeneratorPage = () => {
               >
                 <Button
                   variant="secondary"
-                  onClick={runSqlQueries}
+                  onClick={() => runQueries(dashboardResult.dashboard)}
                   disabled={
                     queryLoading ||
                     generating ||
-                    settingsLoading ||
-                    !!settingsError ||
+                    settingsBlocked ||
                     !dashboardResult.valid
                   }
                 >
-                  {queryLoading
-                    ? 'Updating Preview...'
-                    : 'Update preview'}
+                  {queryLoading ? 'Updating Preview...' : 'Update preview'}
                 </Button>
 
                 <Button variant="secondary" disabled>
@@ -1452,25 +947,8 @@ export const GeneratorPage = () => {
 
                 <Button
                   variant="secondary"
-                  disabled={
-                    !dashboardResult.valid ||
-                    generating
-                  }
-                  onClick={() => {
-                    const blob = new Blob(
-                      [dashboardSource],
-                      { type: 'application/json' }
-                    );
-
-                    const url = URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-
-                    link.href = url;
-                    link.download = 'dashboard.json';
-                    link.click();
-
-                    URL.revokeObjectURL(url);
-                  }}
+                  disabled={!dashboardResult.valid || generating}
+                  onClick={() => downloadDashboardJson(dashboardSource)}
                 >
                   Export
                 </Button>
