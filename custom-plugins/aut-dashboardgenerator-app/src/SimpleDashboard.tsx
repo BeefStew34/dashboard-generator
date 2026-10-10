@@ -1,29 +1,7 @@
 import React from 'react';
-import {
-  Button,
-  Field,
-  Input,
-  Select,
-  TextArea,
-} from '@grafana/ui';
+import { Button, Field, Input, TextArea } from '@grafana/ui';
 
-import {
-  Dashboard,
-  DashboardPanel,
-} from './DashboardModel';
-const types = [
-  ['timeseries', 'Line chart'],
-  ['barchart', 'Bar chart'],
-  ['piechart', 'Pie chart'],
-  ['histogram', 'Histogram'],
-  ['stat', 'Single value'],
-  ['table', 'Table'],
-  ['text', 'Text'],
-].map(([value, label]) => ({
-  value,
-  label,
-}));
-
+import { Dashboard, DashboardPanel } from './DashboardModel';
 export function SimpleDashboardEditor({
   dashboard,
   onChange,
@@ -31,34 +9,20 @@ export function SimpleDashboardEditor({
   dashboard: Dashboard;
   onChange: (value: Dashboard) => void;
 }) {
-  const patchPanel = (
-    index: number,
-    patch: Partial<DashboardPanel>
-  ) => {
+  const patchPanel = (index: number, patch: Partial<DashboardPanel>) => {
     onChange({
       ...dashboard,
 
-      panels: dashboard.panels.map((panel, i) =>
-        i === index
-          ? { ...panel, ...patch }
-          : panel
-      ),
+      panels: dashboard.panels.map((panel, i) => (i === index ? { ...panel, ...patch } : panel)),
     });
   };
 
-  const nextId = () =>
-    Math.max(
-      0,
-      ...dashboard.panels.map(panel => panel.id)
-    ) + 1;
+  const nextId = () => Math.max(0, ...dashboard.panels.map((panel) => panel.id)) + 1;
 
   const move = (index: number, offset: number) => {
     const panels = [...dashboard.panels];
 
-    [panels[index], panels[index + offset]] = [
-      panels[index + offset],
-      panels[index],
-    ];
+    [panels[index], panels[index + offset]] = [panels[index + offset], panels[index]];
 
     onChange({
       ...dashboard,
@@ -71,7 +35,7 @@ export function SimpleDashboardEditor({
       <Field label="Dashboard title">
         <Input
           value={dashboard.title}
-          onChange={event =>
+          onChange={(event) =>
             onChange({
               ...dashboard,
               title: event.currentTarget.value,
@@ -81,9 +45,8 @@ export function SimpleDashboardEditor({
       </Field>
 
       <p>
-        Edit the fields below without writing code.
-        Existing data queries are preserved.
-        Use the description and Generate button to create new data panels.
+        Edit the fields below without writing code. Existing data queries are preserved. Use Generate to create data
+        panels. Query and visualization configuration stays in Complex mode.
       </p>
 
       {dashboard.panels.map((panel, index) => (
@@ -100,7 +63,7 @@ export function SimpleDashboardEditor({
           <Field label="Panel title">
             <Input
               value={panel.title}
-              onChange={event =>
+              onChange={(event) =>
                 patchPanel(index, {
                   title: event.currentTarget.value,
                 })
@@ -108,25 +71,11 @@ export function SimpleDashboardEditor({
             />
           </Field>
 
-          <Field label="Display as">
-            <Select
-              value={panel.type}
-              options={
-                types.some(type => type.value === panel.type)
-                  ? types
-                  : [
-                      ...types,
-                      {
-                        value: panel.type,
-                        label: panel.type,
-                      },
-                    ]
-              }
-              onChange={option =>
-                patchPanel(index, {
-                  type: option.value || 'table',
-                })
-              }
+          <Field label="Panel description">
+            <TextArea
+              rows={3}
+              value={panel.description || ''}
+              onChange={(event) => patchPanel(index, { description: event.currentTarget.value })}
             />
           </Field>
 
@@ -135,7 +84,7 @@ export function SimpleDashboardEditor({
               <TextArea
                 rows={4}
                 value={panel.options?.content || ''}
-                onChange={event =>
+                onChange={(event) =>
                   patchPanel(index, {
                     options: {
                       ...panel.options,
@@ -147,30 +96,10 @@ export function SimpleDashboardEditor({
             </Field>
           )}
 
-          {panel.type !== 'text' && !panel.targets?.length && (
-            <p>
-              This panel needs a data query.
-              Generate a data panel from a description,
-              or configure it in Code mode.
-            </p>
-          )}
-
-          <div
-            style={{
-              display: 'flex',
-              gap: 8,
-              flexWrap: 'wrap',
-            }}
-          >
-            <Button
-              type="button"
-              variant="secondary"
-              disabled={index === 0}
-              onClick={() => move(index, -1)}
-            >
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <Button type="button" variant="secondary" disabled={index === 0} onClick={() => move(index, -1)}>
               Move up
             </Button>
-
             <Button
               type="button"
               variant="secondary"
@@ -179,14 +108,12 @@ export function SimpleDashboardEditor({
             >
               Move down
             </Button>
-
             <Button
               type="button"
               variant="secondary"
               onClick={() =>
                 onChange({
                   ...dashboard,
-
                   panels: [
                     ...dashboard.panels,
                     {
@@ -200,19 +127,10 @@ export function SimpleDashboardEditor({
             >
               Duplicate
             </Button>
-
             <Button
               type="button"
               variant="secondary"
-              onClick={() =>
-                onChange({
-                  ...dashboard,
-
-                  panels: dashboard.panels.filter(
-                    (_, i) => i !== index
-                  ),
-                })
-              }
+              onClick={() => onChange({ ...dashboard, panels: dashboard.panels.filter((_, i) => i !== index) })}
             >
               Remove
             </Button>
@@ -225,16 +143,19 @@ export function SimpleDashboardEditor({
         onClick={() =>
           onChange({
             ...dashboard,
-
             panels: [
               ...dashboard.panels,
               {
                 id: nextId(),
                 title: 'New text panel',
                 type: 'text',
-                options: {
-                  content: '',
+                gridPos: {
+                  x: 0,
+                  y: Math.max(0, ...dashboard.panels.map((p) => (p.gridPos?.y || 0) + (p.gridPos?.h || 8))),
+                  w: 24,
+                  h: 4,
                 },
+                options: { mode: 'markdown', content: '' },
               },
             ],
           })

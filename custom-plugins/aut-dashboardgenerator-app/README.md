@@ -48,6 +48,14 @@ For more information about panels, refer to the documentation on [Panels](https:
    yarn build
    ```
 
+## Dashboard generator editing
+
+Simple mode edits dashboard/panel titles, panel descriptions, and text content, and supports adding text panels, duplicating, reordering, and removing panels. It preserves existing queries and visualization settings. Use Complex mode for SQL, result formats, and visualization configuration; generation no longer creates query variants.
+
+**Update preview** saves the current editor JSON to Grafana and reloads the embedded dashboard so edits are visible. Generation and preview updates validate JSON/panel structure locally; they do not run trial SQL, EXPLAIN, or diagnostic queries. SQL syntax, permissions, and data availability are not validated locally. Grafana still executes queries to render the actual dashboard, so database permission errors must be resolved in the data source/database rather than through regeneration.
+
+The editor scrolls independently with its action buttons outside the scroll area. On small screens the columns stack and the page can scroll; the embedded Grafana dashboard has its own scroll area.
+
 ## Learn more
 
 - [Build a panel plugin tutorial](https://grafana.com/tutorials/build-a-panel-plugin)

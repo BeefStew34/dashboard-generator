@@ -101,11 +101,14 @@ export type DashboardPanel = {
   id: number;
   title: string;
   type: string;
+  // Optional index of the active target to use in previews
+  activeTarget?: number;
 
   targets?: Array<{
     refId?: string;
     rawSql?: string;
     format?: string;
+    name?: string;
     [key: string]: any;
   }>;
 

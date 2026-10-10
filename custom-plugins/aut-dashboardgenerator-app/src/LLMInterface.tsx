@@ -1,4 +1,4 @@
-import { saveDashboardFromJson } from 'DashboardModel';
+import { parseDashboard, saveDashboardFromJson } from 'DashboardModel';
 import { currentSettings as settings } from './Settings';
 import { loadSettings } from './usersetting';
 import axios from 'axios';
@@ -70,6 +70,8 @@ const TempPromt: string = `
   Always set the dashboards name to "dashboard-generator-last-dashboard"
   Here is the data source information:
   {datasource_info}
+  Here is the current dashboard JSON (if any):
+  {current_dashboard}
   Here is an the JSON spec
   Grafana 8.5 Dashboard JSON Specification
   Reference for LLM-generated dashboards. Target: Grafana 8.5.x, schemaVersion 36.
@@ -587,16 +589,21 @@ const TempPromt: string = `
   • No invented tables, columns, panel types or option names.
   END OF SPEC
 
-  Only generate one panel unless the user explicitly requests more.
-  Only responsed in the specified JSON format.
-  Do not say anything else even if the request is impossible just return an empty dashboard. 
-  The strings in your json response must not be multi-line.
+  Generate one SQL target per data panel, shaped for that panel's visualization. Do not generate alternative query variants or activeTarget metadata.
+  Use format: "time_series" for timeseries panels with a real time column; use format: "table" for other SQL panels.
+  Preserve existing panels, queries, and configuration unless the user requests changes. Return the complete updated dashboard.
+  For a new dashboard, generate one panel unless the user explicitly requests more.
+  Only respond in the specified JSON format.
+  Do not say anything else — if the request is impossible, return an empty dashboard object.
+  The strings in your JSON response must not be multi-line.
   {user_prompt_here}
 `;
 
+
 export const GenerateDashboard = async (
   setSource: (source: string) => void,
-  userPrompt: string
+  userPrompt: string,
+  currentDashboard?: string
 ) => {
   await loadSettings();
 
@@ -609,6 +616,7 @@ export const GenerateDashboard = async (
   // Function replacers so "$" sequences in the schema or prompt are inserted literally.
   const LLM_Input = TempPromt
     .replace('{datasource_info}', () => schema)
+    .replace('{current_dashboard}', () => currentDashboard ?? '')
     .replace('{user_prompt_here}', userPrompt)
     .replace('{ds_type}', await getDataSourceType())
     .replace('{ds_uid}',"\$\{DS_POSTGRESQL\}");
@@ -625,6 +633,8 @@ export const GenerateDashboard = async (
         'Only OpenAI generation is currently implemented. Select OpenAI in Settings.'
       );
   }
+  // Check JSON and panel structure locally before saving; do not execute SQL to validate it.
+  parseDashboard(output);
   const savedDashboard = await saveDashboardFromJson(output);
   setSource(output);
   return savedDashboard.url as string;
