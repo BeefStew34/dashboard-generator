@@ -3,11 +3,10 @@ import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Button, Field, TextArea } from '@grafana/ui';
 
 import { useSettings } from './usersetting';
-import { parseDashboard, replaceDashboard, saveDashboardFromJson } from './DashboardModel';
+import { Dashboard, parseDashboard, replaceDashboard, saveDashboardFromJson } from './DashboardModel';
 import { SimpleDashboardEditor } from './SimpleDashboard';
 
 import { QueryResult, downloadDashboardJson, useDashboardInteractions } from './Interactions';
-import { Dashboard } from './DashboardModel';
 
 // Other files may import QueryResult from here, so keep exporting it.
 export type { QueryResult };
@@ -39,13 +38,23 @@ type BigTextBoxProps = {
   rows?: number;
   value: string;
   onChange: (value: string) => void;
+  onBlur?: () => void;
   style?: React.CSSProperties;
 };
 
-export const BigTextBox = ({ id, rows = 6, value, onChange, style }: BigTextBoxProps) => {
+export const BigTextBox = ({ id, rows = 6, value, onChange, onBlur, style }: BigTextBoxProps) => {
   const TextAreaComponent = TextArea as any;
 
-  return <TextAreaComponent id={id} value={value} rows={rows} style={{ resize: 'none', maxHeight: '40vh', overflow: 'auto', ...style }} onChange={(e: any) => onChange(e.currentTarget.value)} />;
+  return (
+    <TextAreaComponent
+      id={id}
+      value={value}
+      rows={rows}
+      style={{ resize: 'none', maxHeight: '40vh', overflow: 'auto', ...style }}
+      onChange={(e: any) => onChange(e.currentTarget.value)}
+      onBlur={onBlur}
+    />
+  );
 };
 
 const initialDashboard = {
@@ -56,13 +65,23 @@ const initialDashboard = {
 let dashboardDraft = JSON.stringify({ dashboard: initialDashboard }, null, 2);
 let lastGeneratedDashboardUrl = '';
 
+const prettyPrintJson = (source: string) => {
+  try {
+    return JSON.stringify(JSON.parse(source), null, 2);
+  } catch {
+    return source;
+  }
+};
+
 export const GeneratorPage = () => {
   const pageRef = useRef<HTMLDivElement>(null);
   const [pageHeight, setPageHeight] = useState<number>();
 
   useLayoutEffect(() => {
     const page = pageRef.current;
-    if (!page) return;
+    if (!page) {
+      return;
+    }
 
     // Use the actual page offset, including Grafana's navigation and header.
     const updateHeight = () => setPageHeight(Math.max(0, window.innerHeight - page.getBoundingClientRect().top - 16));
@@ -108,11 +127,16 @@ export const GeneratorPage = () => {
     }
   }, [dashboardSource]);
 
-  const updateDashboardSource = (value: string) => {
-    dashboardDraft = value;
+  const updateDashboardSource = (value: string, pretty = true) => {
+    const next = pretty ? prettyPrintJson(value) : value;
+    dashboardDraft = next;
 
-    setDashboardSource(value);
+    setDashboardSource(next);
     setPreviewError('');
+  };
+
+  const prettyPrintDashboardSource = () => {
+    updateDashboardSource(dashboardSource, true);
   };
 
   const updateDashboardFromObject = (dashboard: Dashboard) => {
@@ -142,7 +166,19 @@ export const GeneratorPage = () => {
   // 13. PAGE INTERFACE
 
   return (
-    <div ref={pageRef} style={{ marginLeft: 'auto', marginRight: 'auto', maxWidth: '1440px', height: pageHeight ?? 'calc(100dvh - 120px)', display: 'flex', flexDirection: 'column', minHeight: 0, overflow: 'hidden' }}>
+    <div
+      ref={pageRef}
+      style={{
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        maxWidth: '1440px',
+        height: pageHeight ?? 'calc(100dvh - 120px)',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: 0,
+        overflow: 'hidden',
+      }}
+    >
       <h1 style={{ flexShrink: 0 }}>{viewOnly ? 'View Dashboard' : 'Create Dashboard'}</h1>
 
       {settingsLoading && <p>Loading settings…</p>}
@@ -154,7 +190,10 @@ export const GeneratorPage = () => {
         </Button>
 
         {viewOnly && (
-          <Button disabled={previewUpdating || generating || settingsBlocked || !dashboardResult.valid} onClick={updatePreview}>
+          <Button
+            disabled={previewUpdating || generating || settingsBlocked || !dashboardResult.valid}
+            onClick={updatePreview}
+          >
             Refresh preview
           </Button>
         )}
@@ -173,24 +212,85 @@ export const GeneratorPage = () => {
         }}
       >
         {/* Preview column */}
-        <div style={{ display: 'flex', flexDirection: 'column', padding: '25px', background: '#FFFFFF', borderRadius: '5px', minWidth: 0, minHeight: 0, overflow: 'hidden', height: '100%', boxSizing: 'border-box' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            padding: '25px',
+            background: '#FFFFFF',
+            borderRadius: '5px',
+            minWidth: 0,
+            minHeight: 0,
+            overflow: 'hidden',
+            height: '100%',
+            boxSizing: 'border-box',
+          }}
+        >
           {Heading('Dashboard Preview')}
 
-          {previewUpdating && <p style={{ margin: '20px', color: '#445c94' }}>Saving dashboard and updating preview...</p>}
-          {previewError && <p role="alert" style={{ margin: '20px', color: '#C0392B', maxHeight: '60px', overflow: 'auto', overflowWrap: 'anywhere' }}>{previewError}</p>}
+          {previewUpdating && (
+            <p style={{ margin: '20px', color: '#445c94' }}>Saving dashboard and updating preview...</p>
+          )}
+          {previewError && (
+            <p
+              role="alert"
+              style={{
+                margin: '20px',
+                color: '#C0392B',
+                maxHeight: '60px',
+                overflow: 'auto',
+                overflowWrap: 'anywhere',
+              }}
+            >
+              {previewError}
+            </p>
+          )}
 
-          <div style={{ flex: '1 1 0', minHeight: 0, overflow: 'hidden', background: '#F4F6F5', margin: '0 20px', padding: '10px', borderRadius: '5px' }}>
+          <div
+            style={{
+              flex: '1 1 0',
+              minHeight: 0,
+              overflow: 'hidden',
+              background: '#F4F6F5',
+              margin: '0 20px',
+              padding: '10px',
+              borderRadius: '5px',
+            }}
+          >
             {dashboardUrl && (
-              <iframe key={previewRevision} title="Generated dashboard preview" src={`${dashboardUrl}${dashboardUrl.includes('?') ? '&' : '?'}kiosk`} style={{ display: 'block', width: '100%', height: '100%', minHeight: 0, maxHeight: '100%', border: 0 }} />
+              <iframe
+                key={previewRevision}
+                title="Generated dashboard preview"
+                src={`${dashboardUrl}${dashboardUrl.includes('?') ? '&' : '?'}kiosk`}
+                style={{ display: 'block', width: '100%', height: '100%', minHeight: 0, maxHeight: '100%', border: 0 }}
+              />
             )}
           </div>
 
           {!viewOnly && (
-            <div style={{ background: '#F4F6F5', margin: '20px 20px 0', padding: '15px', flexShrink: 0, maxHeight: '50%', minHeight: 0, boxSizing: 'border-box', overflow: 'auto', display: 'flex', flexDirection: 'column' }}>
+            <div
+              style={{
+                background: '#F4F6F5',
+                margin: '20px 20px 0',
+                padding: '15px',
+                flexShrink: 0,
+                maxHeight: '50%',
+                minHeight: 0,
+                boxSizing: 'border-box',
+                overflow: 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
               <h3 style={{ flexShrink: 0 }}>Describe your new dashboard!</h3>
               <div style={{ minHeight: 0, overflow: 'auto' }}>
                 <Field>
-                  <BigTextBox rows={6} value={description} onChange={setDescription} style={{ height: 'min(120px, 18vh)', minHeight: 0 }} />
+                  <BigTextBox
+                    rows={6}
+                    value={description}
+                    onChange={setDescription}
+                    style={{ height: 'min(120px, 18vh)', minHeight: 0 }}
+                  />
                 </Field>
               </div>
 
@@ -207,14 +307,36 @@ export const GeneratorPage = () => {
                     dashboardSource
                   )
                 }
-                style={{ width: '100%', flexShrink: 0, justifyContent: 'center', background: '#3267D5', color: '#FFFFFF', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                style={{
+                  width: '100%',
+                  flexShrink: 0,
+                  justifyContent: 'center',
+                  background: '#3267D5',
+                  color: '#FFFFFF',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                }}
               >
                 {generating ? (
                   <>
-                    <svg width="16" height="16" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 50 50"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
                       <circle cx="25" cy="25" r="18" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="6" />
                       <path fill="#FFFFFF" d="M43 25a18 18 0 0 1-18 18V7a18 18 0 0 1 18 18z">
-                        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite" />
+                        <animateTransform
+                          attributeName="transform"
+                          type="rotate"
+                          from="0 25 25"
+                          to="360 25 25"
+                          dur="1s"
+                          repeatCount="indefinite"
+                        />
                       </path>
                     </svg>
                     Generating...
@@ -224,33 +346,103 @@ export const GeneratorPage = () => {
                 )}
               </Button>
 
-              {generateMessage && <p style={{ color: '#445c94', fontSize: '12px', marginTop: '8px', maxHeight: '48px', overflow: 'auto', overflowWrap: 'anywhere' }}>{generateMessage}</p>}
+              {generateMessage && (
+                <p
+                  style={{
+                    color: '#445c94',
+                    fontSize: '12px',
+                    marginTop: '8px',
+                    maxHeight: '48px',
+                    overflow: 'auto',
+                    overflowWrap: 'anywhere',
+                  }}
+                >
+                  {generateMessage}
+                </p>
+              )}
             </div>
           )}
         </div>
 
         {/* Source column */}
         {!viewOnly && (
-          <div style={{ display: 'flex', flexDirection: 'column', padding: '25px', background: '#FFFFFF', borderRadius: '5px', minWidth: 0, minHeight: 0, overflow: 'hidden', height: '100%', boxSizing: 'border-box' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              padding: '25px',
+              background: '#FFFFFF',
+              borderRadius: '5px',
+              minWidth: 0,
+              minHeight: 0,
+              overflow: 'hidden',
+              height: '100%',
+              boxSizing: 'border-box',
+            }}
+          >
             {Heading('Dashboard Source')}
 
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: 0, overflow: 'hidden', background: '#F4F6F5', margin: '20px', padding: '10px', borderRadius: '5px' }}>
-              <fieldset disabled={generating || previewUpdating || settingsLoading} style={{ flex: 1, display: 'flex', flexDirection: 'column', border: 0, padding: 0, margin: 0, minWidth: 0, minHeight: 0, overflow: 'auto' }}>
+            <div
+              style={{
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: 0,
+                overflow: 'hidden',
+                background: '#F4F6F5',
+                margin: '20px',
+                padding: '10px',
+                borderRadius: '5px',
+              }}
+            >
+              <fieldset
+                disabled={generating || previewUpdating || settingsLoading}
+                style={{
+                  flex: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  border: 0,
+                  padding: 0,
+                  margin: 0,
+                  minWidth: 0,
+                  minHeight: 0,
+                  overflow: 'auto',
+                }}
+              >
                 {useSimpleEditor && dashboardResult.dashboard ? (
-                  <SimpleDashboardEditor dashboard={dashboardResult.dashboard} onChange={(dashboard) => updateDashboardFromObject(dashboard)} />
+                  <SimpleDashboardEditor
+                    dashboard={dashboardResult.dashboard}
+                    onChange={(dashboard) => updateDashboardFromObject(dashboard)}
+                  />
                 ) : (
                   <>
-                    <label htmlFor="dashboard-json" style={{ flexShrink: 0, marginBottom: '8px' }}>Dashboard JSON</label>
-                    <BigTextBox id="dashboard-json" value={dashboardSource} onChange={updateDashboardSource} style={{ flex: '1 1 0', width: '100%', minHeight: 0, maxHeight: 'none' }} />
+                    <label htmlFor="dashboard-json" style={{ flexShrink: 0, marginBottom: '8px' }}>
+                      Dashboard JSON
+                    </label>
+                    <BigTextBox
+                      id="dashboard-json"
+                      value={dashboardSource}
+                      onChange={(value) => updateDashboardSource(value, false)}
+                      onBlur={prettyPrintDashboardSource}
+                      style={{ flex: '1 1 0', width: '100%', minHeight: 0, maxHeight: 'none' }}
+                    />
                   </>
                 )}
               </fieldset>
 
-              {!dashboardResult.valid && <p role="alert" style={{ flexShrink: 0, maxHeight: '60px', overflow: 'auto' }}>{dashboardResult.error} Fix the JSON before using Simple mode.</p>}
+              {!dashboardResult.valid && (
+                <p role="alert" style={{ flexShrink: 0, maxHeight: '60px', overflow: 'auto' }}>
+                  {dashboardResult.error} Fix the JSON before using Simple mode.
+                </p>
+              )}
             </div>
 
             <div style={{ margin: '0 20px 20px 20px', display: 'flex', flexWrap: 'wrap', flexShrink: 0, gap: '10px' }}>
-              <Button variant="secondary" onClick={() => updatePreview()} disabled={previewUpdating || generating || settingsBlocked || !dashboardResult.valid}>
+              <Button
+                variant="secondary"
+                onClick={() => updatePreview()}
+                disabled={previewUpdating || generating || settingsBlocked || !dashboardResult.valid}
+              >
                 {previewUpdating ? 'Updating Preview...' : 'Update preview'}
               </Button>
 
@@ -282,7 +474,9 @@ export const GeneratorPage = () => {
                     const parsed = parseDashboard(dashboardSource);
                     const name = window.prompt('Save dashboard as:', parsed.title || 'My Dashboard');
 
-                    if (name === null) return; // user cancelled
+                    if (name === null) {
+                      return;
+                    } // user cancelled
 
                     const trimmed = String(name).trim();
                     if (!trimmed) {
@@ -293,9 +487,9 @@ export const GeneratorPage = () => {
                     const newDashboard = { ...parsed, title: trimmed };
                     const newSource = replaceDashboard(dashboardSource, newDashboard);
 
-                    setDashboardSource(newSource);
+                    updateDashboardSource(newSource);
 
-                    const res = await saveDashboardFromJson(newSource, {
+                    const res = await saveDashboardFromJson(prettyPrintJson(newSource), {
                       overwrite: true,
                       openAfterSave: true,
                       message: 'Saved from dashboard generator',

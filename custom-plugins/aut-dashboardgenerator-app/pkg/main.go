@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"strings"
 
 	"database/sql"
@@ -21,10 +22,6 @@ var usercache = set.New[string](0)
 func main() {
 	dbPath := "./user_data.db"
 	var err error
-	user_keys := [5]struct {
-		key   string
-		value string
-	}{{key: "OpenAIKey", value: ""}, {key: "ClaudeAIKey", value: ""}, {key: "SelectedAI", value: ""}, {key: "ViewMode", value: "Simple"}, {key: "Model", value: "none"}}
 
 	log.DefaultLogger.Debug("Starting application")
 
@@ -39,12 +36,10 @@ func main() {
 		return
 	}
 
-	table_constructor := "CREATE TABLE IF NOT EXISTS userdata (id INTEGER PRIMARY KEY,"
-	for _, key := range user_keys {
-		table_constructor += key.key + " TEXT DEFAULT '" + key.value + "', "
+	if err := ensureUserDataSchema(db); err != nil {
+		log.DefaultLogger.Error("Failed to initialize user settings", "error", err)
+		return
 	}
-	table_constructor = table_constructor[:len(table_constructor)-2] + ")"
-	db.Exec(table_constructor)
 
 	if err := app.Manage(
 		"aut-dashboardgenerator-app",
@@ -74,22 +69,28 @@ func ValidateUser(userid string) {
 }
 
 func SetUserData(userid string, values string) error {
+	parts := strings.Split(values, ",")
+	if len(parts) != 5 && len(parts) != 6 {
+		return fmt.Errorf("expected five legacy settings or six settings including datasource UID")
+	}
 	ValidateUser(userid)
-	query := "BEGIN TRANSACTION; UPDATE userdata SET OpenAIKey = ?, ClaudeAIKey = ?, SelectedAI = ?, ViewMode = ?, Model = ? WHERE id = ?; COMMIT;"
-	var split_values = strings.Split(values, ",")
-	_, err := db.Exec(query, split_values[0], split_values[1], split_values[2], split_values[3], split_values[4], userid)
+	if len(parts) == 5 {
+		_, err := db.Exec("UPDATE userdata SET OpenAIKey = ?, ClaudeAIKey = ?, SelectedAI = ?, ViewMode = ?, Model = ? WHERE id = ?", parts[0], parts[1], parts[2], parts[3], parts[4], userid)
+		return err
+	}
+	_, err := db.Exec("UPDATE userdata SET OpenAIKey = ?, ClaudeAIKey = ?, SelectedAI = ?, ViewMode = ?, Model = ?, DataSourceUID = ? WHERE id = ?", parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], userid)
 	return err
 }
 
 func GetKeys(userid string) (string, error) {
 	ValidateUser(userid)
-	query := "SELECT * FROM userdata WHERE id = ?"
+	query := "SELECT OpenAIKey, ClaudeAIKey, SelectedAI, ViewMode, Model, COALESCE(DataSourceUID, '') FROM userdata WHERE id = ?"
 	var values [6]string
 	err := db.QueryRow(query, userid).Scan(&values[0], &values[1], &values[2], &values[3], &values[4], &values[5])
 	if err != nil {
 		return "", err
 	}
-	return strings.Join(values[1:6], ","), nil
+	return strings.Join(values[:], ","), nil
 }
 
 func NewApp(ctx context.Context, settings backend.AppInstanceSettings) (instancemgmt.Instance, error) {

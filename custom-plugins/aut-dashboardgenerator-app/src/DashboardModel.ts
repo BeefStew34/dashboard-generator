@@ -54,7 +54,7 @@ export async function saveDashboardFromJson(json: string, options: SaveDashboard
       ...parsed.templating,
       list: [
         ...(parsed.templating?.list ?? []),
-        {
+        ...(JSON.stringify(parsed).includes('${DS_POSTGRESQL}') && !(parsed.templating?.list ?? []).some((variable: any) => variable.name === 'DS_POSTGRESQL') ? [{
           name: "DS_POSTGRESQL",
           label: "Data source",
           type: "datasource",
@@ -70,7 +70,7 @@ export async function saveDashboardFromJson(json: string, options: SaveDashboard
           multi: false,
           includeAll: false,
           hide: 0,
-        },
+        }] : []),
       ],
     },
 
@@ -180,6 +180,28 @@ export function parseDashboard(source: string): Dashboard {
   });
 
   return dashboard;
+}
+
+export function bindDashboardDataSource(source: string, datasource: { uid: string; type: string }): string {
+  const parsed = JSON.parse(source);
+  const dashboard = parsed.dashboard ?? parsed;
+  const bindPanels = (panels: DashboardPanel[]) => panels.forEach(panel => {
+    if (panel.targets?.some(target => typeof target.rawSql === 'string')) {
+      panel.datasource = { ...datasource };
+      panel.targets.forEach(target => {
+        if (typeof target.rawSql === 'string') target.datasource = { ...datasource };
+      });
+    }
+    if (Array.isArray(panel.panels)) bindPanels(panel.panels);
+  });
+  bindPanels(dashboard.panels);
+  for (const variable of dashboard.templating?.list ?? []) {
+    if (variable.type === 'query') variable.datasource = { ...datasource };
+  }
+  for (const annotation of dashboard.annotations?.list ?? []) {
+    if (typeof annotation.rawSql === 'string') annotation.datasource = { ...datasource };
+  }
+  return JSON.stringify(parsed);
 }
 
 // Preserve wrapper fields and properties not exposed by the form.

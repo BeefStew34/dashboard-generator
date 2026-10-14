@@ -11,13 +11,8 @@ export type QueryResult = {
   error?: string;
 };
 
-export function downloadDashboardJson(
-  source: string,
-  filename = 'dashboard.json'
-) {
-  const url = URL.createObjectURL(
-    new Blob([source], { type: 'application/json' })
-  );
+export function downloadDashboardJson(source: string, filename = 'dashboard.json') {
+  const url = URL.createObjectURL(new Blob([source], { type: 'application/json' }));
 
   const link = document.createElement('a');
   link.href = url;
@@ -42,24 +37,23 @@ export function useDashboardInteractions() {
         return;
       }
 
-      const maxAttempts = 3;
       setGenerating(true);
-      setGenerateMessage('');
+      setGenerateMessage('Discovering schema and planning bounded lookups...');
 
       try {
-        for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-          setGenerateMessage(`Generating dashboard (attempt ${attempt} of ${maxAttempts})...`);
-          try {
-            const url = await GenerateDashboard(onGenerated, description, currentDashboard);
-            onSaved?.(url);
-            setGenerateMessage('Dashboard generated. JSON structure checked locally; SQL was not executed for validation.');
-            break;
-          } catch (error) {
-            if (attempt >= maxAttempts) {
-              throw error;
-            }
-          }
-        }
+        const warnings: string[] = [];
+        const url = await GenerateDashboard(onGenerated, description, currentDashboard, (warning) => {
+          warnings.push(warning);
+          setGenerateMessage(`Continuing generation with a discovery warning: ${warning}`);
+        });
+        onSaved?.(url);
+        setGenerateMessage(
+          `Dashboard generated using Grafana's default datasource. Generated SQL was checked locally.${
+            warnings.length
+              ? ` Discovery warnings: ${warnings.join('\n')}`
+              : ' Bounded discovery lookups completed automatically.'
+          }`
+        );
       } catch (error) {
         setGenerateMessage(error instanceof Error ? error.message : 'Generation failed.');
       } finally {
